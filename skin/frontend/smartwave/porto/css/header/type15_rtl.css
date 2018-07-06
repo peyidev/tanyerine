@@ -1,0 +1,54 @@
+.header-container.type15{border:0;background-color:#fff}
+.header-container.type15 .top-links-area{float:none;display:inline-block;color:#000}
+.header-container.type15 .links{float:none;display:inline-block;color:#000;vertical-align:middle}
+.header-container.type15 .links li{padding:0 14px;border:0;font-size:11px;font-weight:700}
+.header-container.type15 .links li.last{padding-left:10px}
+.header-container.type15 .links li.first{padding-right:0}
+.header-container.type15 .top-links-icon a{color:#000}
+.header-container.type15 .links a{color:#000}
+.header-container.type15 .selectbox .select{color:#000}
+.header-container.type15 .header{display:block;vertical-align:middle;padding:25px 0}
+.header-container.type15 .header > .logo{display:block;padding:0 15px;margin:0 0 0 10px;float:right}
+.header-container.type15 .header > .logo img{height:50px}
+.header-container.type15 .header .search-area{position:relative;margin:0;display:inline-block;top:0;right:0;height:40px;z-index:5;margin-right:30px}
+.header-container.type15 .header .search-area a.search-icon{display:none;line-height:40px;margin:0 10px;color:#000}
+.header-container.type15 .header .form-search #search,.header-container.type15 .header .form-search{font-size:12px;font-weight:700;min-width:200px}
+.header-container.type15 .form-language,.header-container.type15 .form-currency{display:inline-block;vertical-align:middle;float:none;background-color:#e2e2dc;border-radius:3px;margin-left:5px}
+.header-container.type15 .header .custom-block{display:inline-block;text-align:center;margin-right:20px}
+.header-container.type15 .header .custom-block span.split{height:14px;width:1px;border-left:1px solid #ccc;margin:0 13px}
+.header-container.type15 .header .custom-block a{font-size:17px;padding:0;margin:0 3px}
+.header-container.type15 .switcher-area{display:inline-block;vertical-align:middle;font-weight:700}
+.header-container.type15 .header .mini-cart{display:inline-block;position:relative;top:0;right:0;left:auto;padding:0;margin:0;vertical-align:middle;background-color:#e2e2dc;border-radius:3px}
+.header-container.type15 .mybag-link{height:auto;padding:3px 7px}
+.header-container.type15 .mybag-link i{color:#777;font-size:16px}
+.header-container.type15 .mybag-link .cart-info{color:#777}
+.header-container.type15 .mybag-link .cart-info span{display:inline-block;font-size:12px;line-height:14px;font-weight:700;text-transform:uppercase}
+.header-container.type15 .mybag-link .cart-info span.cart-qty{margin-left:3px}
+.header-container.type15 .header .mini-cart .topCartContent{left:0;top:26px;font-weight:400}
+.header-container.type15 .header-wrapper{border:0;display:block;padding:10px 0}
+.header-container.type15 .top-links > .top-select:first-child .selectbox .select{padding-right:0}
+.header-container.type15 .menu-icon a{color:#777}
+.header-container.type15 .compare-popup{font-weight:400}
+.header-container.type15 .selectbox .dropdown{font-weight:400}
+.header-container.type15 .compare-link > a,.header-container.type15 .selectbox .select,.header-container.type15 .mini-cart .mybag-link{box-shadow:1px 2px 1px rgba(0,0,0,0.3)}
+.header-container.type15 .compare-link{margin-left:5px}
+.header-container.type15.sticky-header{position:fixed;width:100%;z-index:7}
+.header-container.type15 .compare-link > a{border-color:transparent;background-color:#e2e2dc;color:#777;text-align:center;padding:4px 7px;border-radius:3px;line-height:20px}
+@media (max-width:1439px) {
+.header-container.type15 .top-links-icon{display:inline-block}
+.header-container.type15 .top-links-area .links{position:absolute;right:0;top:100%;text-align:right;padding:10px 0;display:none;background-color:#fff;border:1px solid #ddd;border-radius:5px}
+.header-container.type15 .top-links-area .links li{display:block;padding:0 10px;font-weight:400;font-size:11px}
+.header-container.type15.sticky-header .links a{color:#000}
+}
+@media (max-width:1199px) {
+.header-container.type15 .header .search-area{margin-right:0}
+.header-container.type15 .header .search-area a.search-icon{display:inline-block}
+.header-container.type15 .header #search_mini_form{display:none}
+.header-container.type15 .header .form-search{position:absolute;right:0;background-color:#fff;top:100%}
+}
+@media (max-width:767px) {
+.header-container.type15 .switcher-area{display:block}
+}
+@media (max-width:480px) {
+.header-container.type15 .cart-area{margin-top:0}
+}
