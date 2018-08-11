@@ -95,6 +95,7 @@
             <action method="addMultipleConditionItem"><type>skin_css</type><name>css/header/type20_rtl.css</name><params></params><if>porto_settings/header/type</if><cond>19</cond><sep>and</sep><if_2>porto_settings/general/rtl</if_2><cond_2>1</cond_2></action>
             <action method="addMultipleConditionItem"><type>skin_css</type><name>css/header/type21.css</name><params></params><if>porto_settings/header/type</if><cond>20</cond><sep>and</sep><if_2>porto_settings/general/rtl</if_2><cond_2>0</cond_2></action>
             <action method="addMultipleConditionItem"><type>skin_css</type><name>css/header/type21_rtl.css</name><params></params><if>porto_settings/header/type</if><cond>20</cond><sep>and</sep><if_2>porto_settings/general/rtl</if_2><cond_2>1</cond_2></action>
+            <action method="addCss" condition="0"><stylesheet>css/sual.css</stylesheet></action>
             <action method="addCss" ifconfig="porto_settings/general/layout" condition="1024"><stylesheet>css/layout_1024.css</stylesheet></action>
             <action method="addCss" ifconfig="porto_settings/general/layout" condition="1280"><stylesheet>css/layout_1280.css</stylesheet></action>
 			<action method="removeItem" ifconfig="porto_settings/general/disable_responsive" condition="1"><type>skin_css</type><name>css/responsive.css</name></action>

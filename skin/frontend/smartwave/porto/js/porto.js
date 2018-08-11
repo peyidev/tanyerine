@@ -170,11 +170,12 @@ jQuery(function($){
     });
     $("a.search-icon").click(function(e){
         $(".top-links-icon").parent().children("ul.links").removeClass("show");
-        if($(this).parent().children("#search_mini_form").hasClass("show")){
-            $(this).parent().children("#search_mini_form").removeClass("show");
+        if($(".right-search #search_mini_form").hasClass("show")){
+            $(".right-search #search_mini_form").removeClass("show");
         }
         else
-            $(this).parent().children("#search_mini_form").addClass("show");
+            $(".right-search #search_mini_form").addClass("show");
+
         e.stopPropagation();
     });
     $("a.search-icon").parent().click(function(e){
