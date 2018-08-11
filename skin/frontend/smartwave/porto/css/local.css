@@ -336,8 +336,6 @@ tr.summary-details-excluded{font-style:italic}
 .top-container .paypal-logo{text-align:left;display:inline-table}
 .header .custom-block{font-size:14px;font-weight:400;display:inline-block;vertical-align:middle}
 .fixed-header-area{z-index:1001;text-align:left;transition:.5s top ease-in-out;-webkit-transition:.5s top ease-in-out}
-.mini-cart{position:absolute;right:20px;top:50%;margin-top:-20px;text-align:right}
-.topCartContent{display:none;position:absolute;right:0;top:40px;width:300px;background-color:#fff;border-width:6px 0 0;border-style:solid;z-index:1;border-radius:8px 8px 5px 5px;color:#777;box-shadow:0 2px 8px rgba(0,0,0,0.5);margin-top:10px}
 .topCartContent:before{content:"";position:absolute;border:10px solid transparent;display:block;right:15px;top:-25px;border-bottom-color:#08c}
 .mini-cart .topCartContent:after{content:"";position:absolute;left:0;top:-25px;height:25px;width:100%;display:block}
 .mybag-link{line-height:1;display:inline-block;color:#fff;border-radius:5px;height:40px;padding:5px;text-transform:uppercase;text-align:center;max-width:120px}
@@ -376,7 +374,6 @@ tr.summary-details-excluded{font-style:italic}
 .icon-group i{font-size:20px;color:#fff;float:left;border-radius:50%;width:40px;height:40px;text-align:center;line-height:40px;background-color:#000}
 .icon-group h3{color:#000;font-size:14px;margin:0;line-height:1.5;margin-left:48px}
 .icon-group p{font-size:11px;margin:0;margin-left:48px;line-height:1;color:#878787}
-.search-area{position:absolute;top:50%;margin-top:-20px;z-index:1;display:inline-block;height:40px;left:20px;vertical-align:middle}
 .cart-area{position:absolute;top:50%;margin-top:-20px;z-index:1;display:inline-block;height:40px;right:15px;text-align:right;vertical-align:middle}
 .header-container .header .custom-block span.split{height:14px;width:1px;border-right:1px solid #ccc;margin:0 13px}
 .header-container .top-links-icon{display:none;vertical-align:middle;font-size:11px;padding:7px 20px 7px 10px;position:relative}

@@ -4,16 +4,47 @@
     $code  = $store->getCode();
     $custom_block = Mage::getStoreConfig('porto_settings/header/static_block', $code);
 ?>
+<div class="header-search">
+    <div class="rightcontainer">
+        <?php echo $this->getChildHtml('minicart'); ?>
+        <div class="myaccount">
+            <span class="text-mini-cart"><?php echo $this->__("My account"); ?></span>
+            <div class="myaccountlink">
+                <i class="icon-user"></i>
+                <span class="account-info">
+                    <span ><?php echo $this->__("My"); ?></span>
+                    <span><?php echo $this->__("account"); ?></span>
+                </span>
+            </div>
+            <div class="options">
+                <?php echo $this->getChildHtml('topLinks'); ?>
+            </div>
+        </div>
+    </div>    
+    <div class="centercontainer">
+        <div class="search-area">
+            <a href="javascript:void(0);" class="search-icon"><i class="icon-search"></i></a>
+            <?php echo $this->getChildHtml('topSearch'); ?>
+        </div>
+    </div>
+</div>
 <div class="header-container type12 <?php if(Mage::getStoreConfig('porto_settings/header/new_skin', $code)): ?>header-newskin<?php endif; ?>">
     <div class="header">
         <div class="switcher-area">
             <?php echo $this->getChildHtml('store_currency'); ?>
             <?php echo $this->getChildHtml('store_language'); ?>
             <?php echo $this->getChildHtml('compare_link'); ?>
-            <?php echo $this->getChildHtml('minicart'); ?>
         </div>
         <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><a href="<?php echo $this->getUrl(''); ?>" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><img src="<?php echo $this->getLogoSrc(); ?>" alt="<?php echo $this->getLogoAlt(); ?>" /></a></h1>
+        <h1 class="logo">
+            <strong><?php echo $this->getLogoAlt(); ?></strong>
+            <a href="<?php echo $this->getUrl(''); ?>" title="<?php echo $this->getLogoAlt(); ?>" class="logo">
+                <img src="<?php echo $this->getLogoSrc(); ?>" alt="<?php echo $this->getLogoAlt(); ?>" />
+            </a>
+
+            <a href="javascript:void(0);" class="search-icon"><i class="icon-search"></i></a>
+            <div class="menu-icon"><a href="javascript:void(0)" title="<?php echo $this->__('Menu'); ?>"><i class="fa fa-bars"></i></a></div>
+        </h1>
         <?php else:?>
         <a href="<?php echo $this->getUrl(''); ?>" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><img src="<?php echo $this->getLogoSrc(); ?>" alt="<?php echo $this->getLogoAlt(); ?>" /></a>
         <?php endif; ?>
@@ -31,13 +62,12 @@
                 <div class="menu-icon"><a href="javascript:void(0)" title="<?php echo $this->__('Menu'); ?>"><i class="fa fa-bars"></i></a></div>
             </div>
         <?php else: ?>
-            <div class="search-area">
-                <a href="javascript:void(0);" class="search-icon"><i class="icon-search"></i></a>
+            <div class="search-area right-search">
                 <?php echo $this->getChildHtml('topSearch'); ?>
             </div>
-            <div class="menu-icon"><a href="javascript:void(0)" title="<?php echo $this->__('Menu'); ?>"><i class="fa fa-bars"></i></a></div>
+            
             <?php echo $this->getChildHtml('topMenu') ?>
-            <div class="mobile-group">
+            <div class="mobile-group account-menu">
                 <div class="top-links-area">
                     <div class="top-links-icon"><a href="javascript:void(0)"><?php echo $this->__("links"); ?></a></div>
                     <?php echo $this->getChildHtml('topLinks'); ?>
