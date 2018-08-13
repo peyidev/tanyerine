@@ -129,6 +129,9 @@
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="18"><template>page/html/header_type19.phtml</template></action>
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="19"><template>page/html/header_type20.phtml</template></action>
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="20"><template>page/html/header_type21.phtml</template></action>
+
+            <block type="cms/block" name="extra_menu" after="-"><action method="setBlockId"><block_id>extra_menu</block_id></action></block>
+
             <block type="directory/currency" name="store_currency" template="page/switch/currency.phtml"/>
 			<block type="catalog/product_compare_sidebar" name="compare_link">
 				<action method="setTemplate" ifconfig="porto_settings/product_compare/show_link"><template>catalog/product/compare/compare_link.phtml</template></action>
