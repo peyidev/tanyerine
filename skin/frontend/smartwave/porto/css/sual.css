@@ -1,18 +1,27 @@
 body {
 	padding-top: 60px;
 }
+
+
+.cms-index-index .header-container.type12.header-newskin,
+.header-container.type12.header-newskin{
+	background: #D3CCE3;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #E5E3E3, #dbd5eb);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #E5E3E3, #dbd5eb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .header-search {
     position: fixed;
     top: 0px;
     right: 0px;
     display: inline-block;
-    background: #e5e3e3;
+    background: white;
     width: calc(100% - 304px);
     z-index: 9999;
     padding: 10px 20px;
 }
 .header-search .myaccount {
-	color: #484747;
+	color: #9A9A9B;
     display: inline-block;
     float: right;
 	padding: 6px;
@@ -66,7 +75,7 @@ body {
 	float: right;
 }
 .header-search .rightcontainer {
-	width: 30%;
+	width: 25%;
 	float: right;
 }
 .search-area {
@@ -83,7 +92,7 @@ body {
     font-size: 18px;
 }
 .search-area #search {
-    background-color: #e5e3e3;
+    background-color: white;
     border: 0px;
     border-bottom: 1px solid #000;
 	height:40px;
@@ -103,7 +112,7 @@ body {
 }
 .mini-cart .mybag-link,
 .mini-cart .mybag-link i {
-	color: #484747;
+	color: #9A9A9B;
 }
 .account-menu {
 	display: none;
@@ -132,6 +141,47 @@ body {
 .logo .search-icon {
 	display: none;
 }
+
+
+.footer-top, .footer-middle{
+	background: #6F6F70 !important;
+}
+
+.footer-middle .block-middle2{
+	border-top:0px solid #565651 !important;
+}
+
+.footer-middle .block-bottom{
+	border-top:0px solid #565651 !important;
+}
+
+#submenu-sual{
+	float:left;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#submenu-sual ul li a{
+	font-weight: bold;
+	color:#2F1A49;
+}
+#submenu-sual ul li{
+	float:left;
+	margin-right: 30px;
+	padding-top:22px;
+}
+
+
+.cms-index-index .main-container{
+	display: none;
+}
+
+.container-100{
+	background-color:#efefef;
+}
+
+
 @media (min-width:991px) and (max-width:1100px) {
 	.header-search .centercontainer {
 		float: left;
@@ -150,7 +200,14 @@ body {
 		float: left;
 		position: relative;
 		padding: 0px;
+		background: #E5E3E3;
 	}
+
+	.cms-index-index .header-container.type12.header-newskin,
+	.header-container.type12.header-newskin{
+		background: #E5E3E3;
+	}
+
 	.logo {
 		width: 100%;
 		text-align: center;
@@ -237,8 +294,9 @@ body {
 		width: 100%;
 		top: 0px;
 	}
+
+	#submenu-sual{
+		display: none;
+	}
 }
-
-
-
 

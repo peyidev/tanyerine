@@ -12,8 +12,8 @@
             <div class="myaccountlink">
                 <i class="icon-user"></i>
                 <span class="account-info">
-                    <span ><?php echo $this->__("My"); ?></span>
-                    <span><?php echo $this->__("account"); ?></span>
+                    <span ><?php echo $this->__("Mi"); ?></span>
+                    <span><?php echo $this->__("cuenta"); ?></span>
                 </span>
             </div>
             <div class="options">
@@ -26,6 +26,9 @@
             <a href="javascript:void(0);" class="search-icon"><i class="icon-search"></i></a>
             <?php echo $this->getChildHtml('topSearch'); ?>
         </div>
+    </div>
+    <div id="submenu-sual">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('extra_menu')->toHtml();?>
     </div>
 </div>
 <div class="header-container type12 <?php if(Mage::getStoreConfig('porto_settings/header/new_skin', $code)): ?>header-newskin<?php endif; ?>">
