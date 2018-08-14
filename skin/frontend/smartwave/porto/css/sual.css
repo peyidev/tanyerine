@@ -181,6 +181,10 @@ body {
 	background-color:#efefef;
 }
 
+.product-brand{
+	text-transform: uppercase;
+}
+
 
 @media (min-width:991px) and (max-width:1100px) {
 	.header-search .centercontainer {
