@@ -146,7 +146,7 @@ var i = 0;
                     ?>
                 </div>
                 <div class="details-area">
-                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                    <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2>                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
                     <?php if(Mage::getStoreConfig("porto_settings/category/rating_star", $code)):?>
                     <?php
                     if (Mage::helper('catalog')->isModuleEnabled('Mage_Review')):
@@ -390,7 +390,7 @@ var i = 0;
                 </div>
                 <div class="details-area">
                     <?php if(!Mage::getStoreConfig("porto_settings/category_grid/move_title", $code)):?>
-                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                    <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2>                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
                     <?php endif;?>
                     <?php if(Mage::getStoreConfig("porto_settings/category/rating_star", $code)):?>
 					<?php
@@ -413,7 +413,7 @@ var i = 0;
                     <?php endif; ?>
                     <?php endif; ?>
                     <?php if(Mage::getStoreConfig("porto_settings/category_grid/move_title", $code)):?>
-                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                        <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2>                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
                     <?php endif;?>
 					<?php
 						if ($this->getChild('name.after')) {

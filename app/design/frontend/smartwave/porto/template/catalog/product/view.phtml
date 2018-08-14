@@ -204,6 +204,7 @@ if($enable_addtocart_sticky){
                     <?php endif; ?>
                 </div>
                 <div class="product-name">
+                    <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2>
                     <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
                 <?php if($enabled_richsnippets): ?>
@@ -290,6 +291,7 @@ if($enable_addtocart_sticky){
                     <?php endif; ?>
                 </div>
                 <div class="product-name">
+                    <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2>
                     <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
                 <?php if($enabled_richsnippets): ?>
