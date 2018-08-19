@@ -34,9 +34,9 @@
 <div class="header-container type12 <?php if(Mage::getStoreConfig('porto_settings/header/new_skin', $code)): ?>header-newskin<?php endif; ?>">
     <div class="header">
         <div class="switcher-area">
-            <?php echo $this->getChildHtml('store_currency'); ?>
-            <?php echo $this->getChildHtml('store_language'); ?>
-            <?php echo $this->getChildHtml('compare_link'); ?>
+            <?php //echo $this->getChildHtml('store_currency'); ?>
+            <?php //echo $this->getChildHtml('store_language'); ?>
+            <?php //echo $this->getChildHtml('compare_link'); ?>
         </div>
         <?php if ($this->getIsHomePage()):?>
         <h1 class="logo">
@@ -97,7 +97,19 @@
             </div>
         <?php endif; ?>
         <div class="clearer"></div>
-        <?php echo $this->getChildHtml('mobile.nav') ?>
+
+        <?php
+        $cacheId = 'top_menu_mobile';
+        $cacheTag = 'block_html';
+        if ($cachedTopMenu = Mage::app()->getCache()->load($cacheId)) {
+            $topMenuNav = unserialize($cachedTopMenu);
+        } else {
+            $topMenuNav = $this->getChildHtml('mobile.nav');
+            Mage::app()->getCache()->save(serialize($topMenuNav), $cacheId, array($cacheTag));
+        }
+        echo $topMenuNav;
+        ?>
+
         <?php
             $custom_block = Mage::getStoreConfig('porto_settings/header/static_block', $code);
         ?>
