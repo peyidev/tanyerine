@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sual_Importer>
+            <version>0.1.0</version>
+        </Sual_Importer>
+    </modules>
+    <global>
+        <models>
+            <sual_importer>
+                <class>Sual_Importer_Model</class>
+                <resourceModel>sual_importer_resource</resourceModel>
+            </sual_importer>
+            <sual_importer_resource>
+                <class>Sual_Importer_Model_Resource</class>
+                <entities>
+                    <importer_execute>
+                        <table>importer_execute</table>
+                    </importer_execute>
+                </entities>
+            </sual_importer_resource>
+        </models>
+        <blocks>
+            <sual_importer>
+                <class>Sual_Importer_Block</class>
+            </sual_importer>
+        </blocks>
+        <helpers>
+            <sual_importer>
+                <class>Sual_Importer_Helper</class>
+            </sual_importer>
+        </helpers>
+        <resources>
+            <sual_importer_setup>
+                <setup>
+                    <module>Sual_Importer</module>
+                </setup>
+            </sual_importer_setup>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Sual_Importer_Adminhtml before="Mage_Adminhtml">Sual_Importer_Adminhtml</Sual_Importer_Adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <system>
+                <children>
+                    <sual_importer module="sual_importer">
+                        <title>Importadores</title>
+                        <sort_order>199</sort_order>
+                        <action>adminhtml/importexecute/index/</action>
+                    </sual_importer>
+                </children>
+            </system>
+        </menu>
+    </adminhtml>
+
+
+</config>
