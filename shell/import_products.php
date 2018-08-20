@@ -8,27 +8,8 @@ class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
 {
 
     public $parentCategoryId = "";
-
-    public function imageExists($url)
-    {
-        return true;
-        $file_headers = @get_headers($url);
-        return $file_headers[count($file_headers) - 1] == 'Content-Type: image/jpeg';
-    }
-
-    public function getImage($url, $name)
-    {
-
-        $urlPieces = explode(".", $url);
-        $extension = end($urlPieces);
-        $img = $name . "." . $extension;
-        $whereToSave = 'media/imports/' . $img;
-
-        if(!file_exists($whereToSave))
-            file_put_contents($whereToSave, file_get_contents($url));
-
-        return $whereToSave;
-    }
+    public $insertados = 0;
+    public $actualizados = 0;
 
     public function run()
     {
@@ -37,16 +18,50 @@ class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
             ->setStoreId()
             ->addAttributeToFilter('name', 'SUAL')->getFirstItem()->getId();
 
+        $executionStartTime = microtime(true);
         $this->importCategories();
+        $executionEndTime1 = microtime(true);
+        $seconds = $executionEndTime1 - $executionStartTime;
+        echo "This script took $seconds to execute.\n";
+
         $this->importProducts();
+        $executionEndTime2 = microtime(true);
+        $seconds = $executionEndTime2 - $executionStartTime;
+        echo "This script took $seconds to execute.\n";
 
     }
+
+    public function imageExists($url)
+    {
+        return true;
+        $file_headers = @get_headers($url);
+        return $file_headers[count($file_headers) - 1] == 'Content-Type: image/jpeg';
+    }
+
+    public function getImage($url, $product)
+    {
+
+        $name = $product['seo_url'];
+        $sku = $product['sku'];
+        $brand = $product['brand'];
+
+        $urlPieces = explode(".", $url);
+        $extension = end($urlPieces);
+        $img = $sku . '-' .  strtoupper($this->getUrl($brand)) . '-' . $name . "." . $extension;
+        $whereToSave = 'media/imports/' . $img;
+
+        if(!file_exists($whereToSave))
+            file_put_contents($whereToSave, file_get_contents($url));
+
+        return $whereToSave;
+    }
+
 
     public function getUrl($name)
     {
 
-        $find = array("Á", "É", "Í", "Ó", "Ú", "Ñ", "&");
-        $replace = array("A", "E", "I", "O", "Ú", "N", "Y");
+        $find = array("Á", "É", "Í", "Ó", "Ú", "Ñ", "&", "'", "´", ".", "?");
+        $replace = array("A", "E", "I", "O", "Ú", "N", "Y", "", "", "", "");
         return str_replace(' ', '-', strtolower(str_replace($find, $replace, ($name))));
     }
 
@@ -167,7 +182,7 @@ class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
         foreach ($products as $product) {
 
             $product = $this->insertProduct($product);
-            echo "Producto " . $product->getSku() . " insertado/actualizado.\n";
+            echo "Producto " . $product->getSku() . " insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
         }
     }
 
@@ -197,7 +212,7 @@ class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
             ->setShortDescription($productSual['description'])
             ->setUrlKey($productSual['seo_url'])
             ->setMediaGallery(array('images' => array(), 'values' => array()))//media gallery initialization
-            ->addImageToMediaGallery($this->getImage($urlImage, $productSual['seo_url']), array('image', 'thumbnail', 'small_image'), false, false)//assigning image, thumb and small image to media gallery
+            ->addImageToMediaGallery($this->getImage($urlImage, $productSual), array('image', 'thumbnail', 'small_image'), false, false)//assigning image, thumb and small image to media gallery
 
             ->setStockData(array(
                     'use_config_manage_stock' => 0, //'Use config settings' checkbox
@@ -299,10 +314,12 @@ class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
                 $this->insertProductSapAttributes($product, $productSual);
                 $this->categorizeProduct($product, $productSual);
                 $product->save();
+                $this->insertados++;
                 return $product;
             } else {
                 $this->insertProductSapAttributes($productExists, $productSual);
                 $productExists->save();
+                $this->actualizados++;
                 return $productExists;
             }
 
