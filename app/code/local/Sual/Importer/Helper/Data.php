@@ -211,8 +211,9 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         foreach ($products as $product) {
             $this->insertProduct($product);
 
-            if(!empty($product))
-                echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+           // if(!empty($product))
+           //     echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+
         }
 
         if($limit > 0)
