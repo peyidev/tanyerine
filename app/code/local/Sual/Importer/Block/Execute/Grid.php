@@ -18,22 +18,13 @@ class Sual_Importer_Block_Execute_Grid extends Mage_Adminhtml_Block_Widget_Grid 
 
     protected function _prepareCollection()
     {
-        $collection = Mage::getModel('sual_importer/execute')->getCollection();
+        $collection = Mage::getModel('sual_importer/execute')->getCollection()->setOrder('importer_execute_id','desc');
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
 
     protected function _prepareColumns()
     {
-
-//       $this->addColumn('column_id',
-//           array(
-//               'header'=> $this->__('column header'),
-//               'width' => '50px',
-//               'index' => 'column_from_collection'
-//           )
-//       );
-
 
 
         $this->addColumn('importer_execute_id',
@@ -81,7 +72,9 @@ class Sual_Importer_Block_Execute_Grid extends Mage_Adminhtml_Block_Widget_Grid 
             array(
                 'header'=> $this->__('Resumen de ejecución'),
                 'width' => '50px',
-                'index' => 'resumen'
+                'index' => 'resumen',
+                'renderer' => 'Sual_Importer_Block_Execute_Renderer_Html'
+
             )
         );
 
