@@ -50,7 +50,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             )
         );
 
-        echo strip_tags($this->output);
+        //echo strip_tags($this->output);
         $model->save();
 
     }
