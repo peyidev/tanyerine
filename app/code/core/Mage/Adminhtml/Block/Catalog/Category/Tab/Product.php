@@ -77,6 +77,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
             ->addAttributeToSelect('name')
             ->addAttributeToSelect('sku')
             ->addAttributeToSelect('price')
+            ->addAttributeToSelect('line_sap')
             ->addStoreFilter($this->getRequest()->getParam('store'))
             ->joinField('position',
                 'catalog/category_product',
@@ -85,6 +86,9 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
                 'category_id='.(int) $this->getRequest()->getParam('id', 0),
                 'left');
         $this->setCollection($collection);
+//
+//        echo $collection->getSelect();
+//        die;
 
         if ($this->getCategory()->getProductsReadonly()) {
             $productIds = $this->_getSelectedProducts();
@@ -130,6 +134,10 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
             'width'     => '1',
             'currency_code' => (string) Mage::getStoreConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_BASE),
             'index'     => 'price'
+        ));
+        $this->addColumn('line_sap', array(
+            'header'    => Mage::helper('catalog')->__('Línea'),
+            'index'     => 'line_sap'
         ));
         $this->addColumn('position', array(
             'header'    => Mage::helper('catalog')->__('Position'),

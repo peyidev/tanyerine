@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: PedroLaris
  * Date: 12/02/17
  * Time: 22:00
  */
-class Sual_Importer_Adminhtml_ImportexecuteController extends Mage_Adminhtml_Controller_Action {
+class Sual_Importer_Adminhtml_ImportexecuteController extends Mage_Adminhtml_Controller_Action
+{
 
 
     public function indexAction()
@@ -52,6 +54,19 @@ class Sual_Importer_Adminhtml_ImportexecuteController extends Mage_Adminhtml_Con
 
     public function saveAction()
     {
+
+        $ejecucionesActivas = Mage::getModel('sual_importer/execute')->getCollection()
+            ->addFieldToFilter('tipo_ejecucion', array("eq" => $this->getRequest()->getParam('tipo_ejecucion')))
+            ->addFieldToFilter('fin', array('null' => 1))->getFirstItem()->getData();
+
+
+        if(!empty($ejecucionesActivas['importer_execute_id'])){
+            $this->_getSession()->addError("No es posible realizar esta importación. <br /> Existe un proceso de importación similar en ejecución");
+            $this->_redirect('*/*/index');
+            return;
+        }
+
+
         $redirectBack = $this->getRequest()->getParam('back', false);
         if ($data = $this->getRequest()->getPost()) {
 
@@ -77,6 +92,12 @@ class Sual_Importer_Adminhtml_ImportexecuteController extends Mage_Adminhtml_Con
                 $this->_getSession()->addSuccess(
                     Mage::helper('sual_importer')->__('La ejecución ha sido programada.')
                 );
+
+                if( $this->getRequest()->getParam('tipo_ejecucion') == "import_productos"){
+                    //shell_exec("php  " . Mage::getBaseDir('base') . "/shell/import_products.php --source frontend --executionid " . $model->getId() . " > /dev/null &");
+                    shell_exec("/Applications/MAMP/bin/php/php5.6.32/bin/php  " . Mage::getBaseDir('base') . "/shell/import_products.php --source frontend --executionid " . $model->getId() . " > /dev/null &");
+                }
+
             } catch (Mage_Core_Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
                 $redirectBack = true;
