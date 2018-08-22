@@ -222,7 +222,7 @@
         </reference>
         <reference name="left">
             <remove name="tags_popular"/>
-            <block type="cms/block" name="custom_side_block" after="-"><action method="setBlockId"><block_id>porto_left_side_category</block_id></action></block>
+            <!--<block type="cms/block" name="custom_side_block" after="-"><action method="setBlockId"><block_id>porto_left_side_category</block_id></action></block>-->
         </reference>
     </catalog_category_default>
     
@@ -238,11 +238,11 @@
         </reference>
         <reference name="left">
             <remove name="tags_popular"/>
-            <reference name="catalog.leftnav">
+            <!--<reference name="catalog.leftnav">
                 <block type="catalog/navigation" name="catalog.category" before="-" template="catalog/category/category_nav.phtml"/> 
                 <action method="unsetChild"><child>category_filter</child></action>
             </reference>
-            <block type="cms/block" name="custom_side_block" after="-"><action method="setBlockId"><block_id>porto_left_side_category</block_id></action></block>
+            <block type="cms/block" name="custom_side_block" after="-"><action method="setBlockId"><block_id>porto_left_side_category</block_id></action></block>-->
         </reference>
     </catalog_category_layered>
     <catalog_product_view>
