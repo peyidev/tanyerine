@@ -1,0 +1,1 @@
+echo "Arguments $1 $2"
