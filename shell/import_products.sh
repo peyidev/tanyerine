@@ -1,1 +1,1 @@
-php $3 --source $1 --executionid $2 &
+php $3 --source $1 --executionid $2 > /dev/null  &
