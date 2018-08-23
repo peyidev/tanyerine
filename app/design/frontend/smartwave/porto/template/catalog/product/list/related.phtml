@@ -71,7 +71,7 @@
                     </div>
                 </div>
         <?php
-            if($i % 3 == 0 && $i<$count)
+            if($i % 1 == 0 && $i<$count)
                 echo '</div><div class="item">';
         ?>
         <?php endforeach ?>
@@ -116,8 +116,9 @@
         $("#block-related").owlCarousel({
             navigation : true, // Show next and prev buttons
             slideSpeed : 300,
+            loop:true,
             paginationSpeed : 400,
-            singleItem:true,
+            items : 3,
             pagination:false,
             <?php if (!Mage::getStoreConfig("porto_settings/general/rtl",$code)) : ?>
             navigationText:["<i class='icon-left-open'></i>","<i class='icon-right-open'></i>"]

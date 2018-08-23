@@ -619,8 +619,10 @@ if($enable_addtocart_sticky){
             <?php echo $attr_custom_block_html; ?>
         </div>
     <?php endif;?>
+    <?php echo $this->getChildHtml('related_products'); ?>
     <?php $upsell = $this->getChildHtml('upsell_products'); ?>
     <?php if(!$product_page_type && Mage::getStoreConfig("porto_settings/product_view/move_upsell",$code)) echo $upsell; ?>
+
     <?php if($product_page_type == "sticky_right"): ?>
     <div class="product-collateral fullwidth-row">
         <div class="container">
