@@ -1,0 +1,476 @@
+<style type="text/css">
+
+    @font-face {
+
+        font-family: 'Gotham-Medium';
+        src:url("/skin/frontend/base/default/fonts/Gotham-Medium.woff");
+    }
+
+    @font-face {
+
+        font-family: 'Gotham-Book';
+        src:url("/skin/frontend/base/default/fonts/Gotham-Book.woff");
+    }
+    @font-face {
+
+        font-family: 'Gotham-Light';
+        src:url("/skin/frontend/base/default/fonts/Gotham-Light.woff");
+    }
+
+
+    #landing-contenedor-principal {
+        width: 100%;
+        font-family: Gotham-Light;
+        font-weight: 400;
+        font-size: 13px;
+        max-width: 100%;
+        color: #2b2b2b;
+    }
+
+    #landing-header {
+        width: calc(100% - 20px);
+        background: rgba(255,255,255,0.7);
+        position: fixed;
+        padding: 15px 10px;
+        z-index: 5;
+        max-width: 100%;
+        border-bottom: 1px solid black;
+
+    }
+
+    #landing-logo {
+        float: left;
+        margin-left: 60px;
+        width: calc(30% - 60px);
+    }
+
+    #landing-contenedor-principal nav {
+
+        float: right;
+        margin-right: 60px;
+        width: calc(60% - 60px);
+        text-align: right;
+    }
+
+    #landing-contenedor-principal nav a{
+        color:black;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 12px;
+        padding:0 10px;
+    }
+
+    #landing-contenedor-principal nav a:hover{
+        color:black;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-size: 12px;
+        padding:0 10px;
+    }
+
+    #landing-body {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner-marca {
+        width: 100%;
+        background: #e5dff5;
+        min-height: 500px;
+        background: url("/media/imports/banner_NP_Ara_02.jpg") center top;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.20);
+        position:relative;
+        z-index: 2;
+    }
+
+
+    .banner-marca img {
+        width: 100%;
+        float: left;
+    }
+
+    .editorial-top {
+        width: 100%;
+        min-height: 550px;
+        position: relative;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    .editorial-top-container {
+        position: absolute;
+        width: 380px;
+        left: 50%;
+        margin-left: -400px;
+        background: #F9F8F8;
+        padding: 100px;
+        -webkit-box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.78);
+        -moz-box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.78);
+        box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.78);
+    }
+
+    #landing-contenedor-principal h1{
+        font-family: Gotham-Book;
+        font-size: 34px;
+        margin: 10px 0;
+        text-transform: uppercase;
+        color:black;
+        font-weight: normal;
+    }
+
+    .linea-separadora{
+
+        width:30%;
+        text-align: left;
+        border: 1px solid #E5DFF5;
+        margin:10px 0;
+    }
+
+    #landing-contenedor-principal h2{
+        font-family: Gotham-Book !important;
+        font-size: 11px !important;
+        display: inline-block;
+        line-height: 5em;
+        margin: 0;
+        word-break: break-all;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        height: 30px;
+        padding:5px 0;
+    }
+
+    #landing-contenedor-principal h3{
+        font-family: Gotham-Book;
+        color: #555555;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: -5px;
+
+    }
+
+    .editorial-top-producto {
+        position: absolute;
+        width: 220px;
+        left: 50%;
+        margin-left: 200px;
+        margin-top: -200px;
+        background: #F9F8F8;
+        height: 350px;
+        text-align: center;
+        z-index: 3;
+    }
+
+    .editorial-top-producto img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .editorial-marca, .editorial-precio, .editorial-nombre {
+        width: 100%;
+    }
+
+    .editorial-nombre{
+        font-family: Gotham-Book;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    .editorial-marca, .editorial-precio{
+        text-transform: uppercase;
+        color:black;
+        font-family: Gotham-Medium;
+    }
+
+    .editorial-container-left-big, .editorial-container-right-big{
+        width: 100%;
+        margin: 0 auto;
+        min-height: 800px;
+        max-width: 1300px;
+        clear: both;
+        margin-bottom: 100px;
+    }
+
+    .editorial-left-big {
+        margin: -50px 0 0 50px;
+        padding: 50px;
+        float: left;
+        width: calc(50% - 100px);
+    }
+
+    .editorial-right-big {
+        margin: -50px 0 0 0;
+        padding: 50px;
+        float: right;
+        width: calc(50% - 100px);
+    }
+
+    .editorial-right-small {
+        margin: 50px 0 0 50px;
+        padding: 50px;
+        float: left;
+        width: 25%;
+    }
+
+    .editorial-left-small {
+        margin: 50px 0 0 100px;
+        padding: 50px;
+        float: left;
+        width: 25%;
+    }
+
+
+    .editorial-left-big img, .editorial-left-small img, .editorial-right-big img,.editorial-right-small img{
+        width: 100%;
+    }
+
+
+
+    .editorial-product-grid {
+        width: 60%;
+    }
+
+
+    .comprar-boton{
+        width: 100%;
+        display: block;
+        background: #E5DFF5;
+        text-align: center;
+        padding: 10px 0;
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .comprar-boton:hover{
+        background: #c3bdd3;
+    }
+
+
+
+    .landing-marca-media img{
+        width: 100%;
+        margin-bottom: 100px;
+        -webkit-box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.78);
+        -moz-box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.78);
+        box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.30);
+    }
+
+
+    .editorial-product-grid-container{
+        margin-top: 50px;
+        width: calc(100% - 400px);
+        padding:0 200px;
+        clear: both;
+        min-height: 600px;
+        background: linear-gradient(to bottom, #E5E3E3, #dbd5eb);
+        float: left;
+    }
+
+    .editorial-product-grid img{
+        width: 100%;
+    }
+    .editorial-product-grid .editorial-producto{
+        width: 40%;
+        float: left;
+        margin:5%;
+        text-align: center;
+        background: #F9F8F8;
+        box-shadow: 0px 32px 26px -25px rgba(0,0,0,0.20);
+    }
+    .editorial-product-grid{
+        width: 60%;
+        float: left;
+    }
+
+    .editorial-right-grid{
+        width: 30%;
+        float: right;
+        margin-top: 20%;
+    }
+
+
+</style>
+
+<div id="landing-contenedor-principal">
+    <div id="landing-header">
+        <div id="landing-logo">
+            <img src="logo.jpg" alt="logo marca"/>
+        </div>
+
+        <nav>
+            <a href="#">Seccion 1</a>
+            <a href="#">Seccion 2</a>
+            <a href="#">Seccion 3</a>
+            <a href="#">Seccion 4</a>
+            <a href="#">Seccion 5</a>
+        </nav>
+    </div>
+
+    <div id="landing-body">
+        <div class="banner-marca"></div>
+
+        <div class="editorial-top">
+
+            <article class="editorial-top-container">
+                <h2>Subtitulo top</h2>
+                <h1>Titulo principal</h1>
+                <h3>Descripcion del titulo principal</h3>
+                <hr class="linea-separadora"/>
+                <p class="editorial-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
+                <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+            </article>
+
+            <div class="editorial-top-producto">
+                <img src="/media/imports/846733014279.jpg" alt="producto editorial top"/>
+                <p class="editorial-marca">Marca</p>
+                <p class="editorial-nombre">Nombre del producto</p>
+                <p class="editorial-precio">$0.00</p>
+            </div>
+
+        </div>
+
+        <div class="editorial-container-left-big">
+            <article class="editorial-left-big">
+                <h2>Subtitulo top</h2>
+                <h1>Titulo principal</h1>
+                <h3>Descripcion del titulo principal</h3>
+                <hr class="linea-separadora"/>
+                <p class="editorial-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
+                <img src="/media/imports/846733024933.jpg" alt="imagen editorial"/>
+                <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+            </article>
+
+            <article class="editorial-right-small">
+                <h2>Subtitulo top</h2>
+                <h1>Titulo principal</h1>
+                <h3>Descripcion del titulo principal</h3>
+                <hr class="linea-separadora"/>
+                <p class="editorial-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <img src="/media/imports/846733018284.jpg" alt="imagen editorial"/>
+                <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+            </article>
+
+        </div>
+
+        <div class="landing-marca-media">
+            <img src="/media/imports/tartebanner.jpg" alt="banner marca2" />
+        </div>
+
+        <div class="editorial-container-right-big">
+            <article class="editorial-left-small">
+                <h2>Subtitulo top</h2>
+                <h1>Titulo principal</h1>
+                <h3>Descripcion del titulo principal</h3>
+                <hr class="linea-separadora"/>
+                <p class="editorial-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
+                <img src="/media/imports/846733022823.jpg" alt="imagen editorial"/>
+                <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+            </article>
+
+            <article class="editorial-right-big">
+                <h2>Subtitulo top</h2>
+                <h1>Titulo principal</h1>
+                <h3>Descripcion del titulo principal</h3>
+                <hr class="linea-separadora"/>
+                <p class="editorial-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
+                <img src="/media/imports/846733024926.jpg" alt="imagen editorial"/>
+                <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+            </article>
+
+        </div>
+
+
+        <div class="editorial-product-grid-container">
+            <div class="editorial-product-grid">
+                <div class="editorial-producto">
+                    <img src="/media/imports/846733024933.jpg" alt="producto editorial top"/>
+                    <p class="editorial-marca">Marca</p>
+                    <p class="editorial-nombre">Nombre del producto</p>
+                    <p class="editorial-precio">$0.00</p>
+                    <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+
+                </div>
+
+                <div class="editorial-producto">
+                    <img src="/media/imports/846733024933.jpg" alt="producto editorial top"/>
+                    <p class="editorial-marca">Marca</p>
+                    <p class="editorial-nombre">Nombre del producto</p>
+                    <p class="editorial-precio">$0.00</p>
+                    <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+
+                </div>
+
+                <div class="editorial-producto">
+                    <img src="/media/imports/846733024933.jpg" alt="producto editorial top"/>
+                    <p class="editorial-marca">Marca</p>
+                    <p class="editorial-nombre">Nombre del producto</p>
+                    <p class="editorial-precio">$0.00</p>
+                    <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+
+                </div>
+
+                <div class="editorial-producto">
+                    <img src="/media/imports/846733024933.jpg" alt="producto editorial top"/>
+                    <p class="editorial-marca">Marca</p>
+                    <p class="editorial-nombre">Nombre del producto</p>
+                    <p class="editorial-precio">$0.00</p>
+                    <a class="comprar-boton" href="url-del-producto-o-categoria">Comprar</a>
+
+                </div>
+            </div>
+
+            <article class="editorial-right-grid">
+                <h2>Subtitulo top</h2>
+                <h1>Titulo principal</h1>
+                <h3>Descripcion del titulo principal</h3>
+                <hr class="linea-separadora"/>
+                <p class="editorial-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
+                <a class="comprar-boton" href="url-del-producto-o-categoria">VER MÁS</a>
+            </article>
+
+
+        </div>
+
+    </div>
+</div>
