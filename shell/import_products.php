@@ -43,3 +43,4 @@ class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
 
 $shell = new Mage_Shell_ImportProduct();
 $shell->run();
+die();
