@@ -15,24 +15,24 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
     public function execute($executionId, $source)
     {
-        $this->output .= "Ejecutado desde <strong>{$source}</strong>\n";
+       // $this->output .= "Ejecutado desde <strong>{$source}</strong>\n";
         $this->parentCategoryId = Mage::getModel('catalog/category')
             ->getCollection()
             ->setStoreId()
             ->addAttributeToFilter('name', 'SUAL')->getFirstItem()->getId();
-
+//
         $executionStartTime = microtime(true);
-        $this->importCategories();
-        $executionEndTime1 = microtime(true);
-        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
-        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+//        $this->importCategories();
+//        $executionEndTime1 = microtime(true);
+//        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
+//        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
         $this->importProducts();
         $executionEndTime2 = microtime(true);
         $minutes = ($executionEndTime2 - $executionStartTime) / 60;
         $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
-        $this->closeExecution($executionId);
+        //$this->closeExecution($executionId);
 
     }
 
@@ -209,9 +209,10 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         $products = $connection->query('SELECT *  FROM sb_product' . $where);
 
         foreach ($products as $product) {
-            $this->insertProduct($product);
+            //$this->insertProduct($product);
 
-           // if(!empty($product))
+            if(!empty($product))
+                print_r($product);
            //     echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
 
         }
@@ -219,8 +220,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         if($limit > 0)
             $totalProducts = $limit;
 
-        $this->output .=  "Se procesaron {$totalProducts['howmany']} productos.\n";
-        $this->output .=  "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+        //$this->output .=  "Se procesaron {$totalProducts['howmany']} productos.\n";
+        //$this->output .=  "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
     }
 
 

@@ -95,10 +95,10 @@ class Sual_Importer_Adminhtml_ImportexecuteController extends Mage_Adminhtml_Con
 
                 if( $this->getRequest()->getParam('tipo_ejecucion') == "import_productos"){
                     $helper = Mage::helper('sual_importer/data');
-                    $helper->execute($model->getId(), "frontend");
+                    //$helper->execute($model->getId(), "frontend");
                     //echo "sh " . Mage::getBaseDir('base') . "shell/import_products.sh frontend executionid\n";
-                    //$path =  Mage::getBaseDir('base') . "/shell/import_products.php";
-                    //echo shell_exec("sh " . Mage::getBaseDir('base') . "/shell/import_products.sh frontend {$model->getId()} {$path}");
+                    $path =  Mage::getBaseDir('base') . "/shell/import_products.php";
+                    shell_exec("sh " . Mage::getBaseDir('base') . "/shell/import_products.sh frontend {$model->getId()} {$path}");
                     //shell_exec("/usr/bin/php  " . Mage::getBaseDir('base') . "/shell/import_products.php --source frontend --executionid " . $model->getId() . " > /var/null &");
                     //shell_exec("/Applications/MAMP/bin/php/php5.6.32/bin/php  " . Mage::getBaseDir('base') . "/shell/import_products.php --source frontend --executionid " . $model->getId() . " > /dev/null &");
                 }
