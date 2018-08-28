@@ -209,6 +209,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         $products = $connection->query('SELECT *  FROM sb_product' . $where);
 
         foreach ($products as $product) {
+            $product = $this->utf8_converter($product);
             //$this->insertProduct($product);
 
             if(!empty($product))
@@ -420,4 +421,17 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         }
         return false;
     }
+
+
+    function utf8_converter($array)
+    {
+        array_walk_recursive($array, function(&$item, $key){
+            if(!mb_detect_encoding($item, 'utf-8', true)){
+                $item = utf8_encode($item);
+            }
+        });
+
+        return $array;
+    }
+
 }
