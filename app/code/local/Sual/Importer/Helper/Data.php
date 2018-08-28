@@ -197,7 +197,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 10;
+        $limit = 5000;
         $limitSql = " LIMIT {$limit}";
 
         $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
