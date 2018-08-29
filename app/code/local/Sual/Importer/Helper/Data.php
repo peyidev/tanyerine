@@ -22,7 +22,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->addAttributeToFilter('name', 'SUAL')->getFirstItem()->getId();
 
         $executionStartTime = microtime(true);
-        $this->importCategories();
+        //$this->importCategories();
         $executionEndTime1 = microtime(true);
         $minutes = ($executionEndTime1 - $executionStartTime) / 60;
         $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
@@ -271,8 +271,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setColor($productSual['colors'])
             ->setGender($productSual['gender'])
             ->setBenefits($productSual['benefits'])
-            ->setUse($productSual['use'])
-            ->setHowToUse($productSual['howtouse'])
+            ->setHowtouse($productSual['howtouse'])
             ->setIngredients($productSual['ingredients'])
             ->setLabel($productSual['label'])
             /* Sual UX */
@@ -299,7 +298,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setContainerTypeSap($productSual['container_type'])
             ->setDescriptionSap($productSual['description'])
             ->setGenderSapTypeSap($productSual['gender'])
-            ->setHowTouseSap($productSual['howtouse'])
+            ->setHowtouseSap($productSual['howtouse'])
             ->setIdSap($productSual['id_sap'])
             ->setIngredientsSap($productSual['ingredients'])
             ->setLineSap($productSual['line'])
@@ -308,7 +307,9 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setSeoUrlSap($productSual['seo_url'])
             ->setSizesSap($productSual['sizes'])
             ->setSizeNameSap($productSual['size_name'])
-            ->setTypeSap($productSual['type']);
+            ->setTypeSap($productSual['type'])
+            //hay que quitar este
+            ->setHowtouse($productSual['howtouse']);
     }
 
     public function categorizeProduct(&$product, $productSual)
