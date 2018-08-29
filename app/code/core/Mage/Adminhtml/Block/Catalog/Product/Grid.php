@@ -113,9 +113,28 @@ class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Wid
                 'left',
                 $store->getId()
             );
+            $collection->joinAttribute(
+                'brand',
+                'catalog_product/brand',
+                'entity_id',
+                null,
+                'left',
+                $store->getId()
+            );
+
+            $collection->joinAttribute(
+                'line_sap',
+                'catalog_product/line_sap',
+                'entity_id',
+                null,
+                'left',
+                $store->getId()
+            );
         }
         else {
             $collection->addAttributeToSelect('price');
+            $collection->joinAttribute('brand', 'catalog_product/brand', 'entity_id', null, 'left');
+            $collection->joinAttribute('line_sap', 'catalog_product/line_sap', 'entity_id', null, 'left');
             $collection->joinAttribute('status', 'catalog_product/status', 'entity_id', null, 'inner');
             $collection->joinAttribute('visibility', 'catalog_product/visibility', 'entity_id', null, 'inner');
         }
@@ -189,12 +208,29 @@ class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Wid
                 'options' => $sets,
         ));
 
+
         $this->addColumn('sku',
             array(
                 'header'=> Mage::helper('catalog')->__('SKU'),
                 'width' => '80px',
                 'index' => 'sku',
         ));
+
+        $this->addColumn('brand',
+            array(
+                'header'=> Mage::helper('catalog')->__('Brand'),
+                'width' => '70px',
+                'index' => 'brand',
+                'type'  => 'options',
+                'options' => Mage::getModel('catalog/product_brand')->getBrands(),
+            ));
+
+        $this->addColumn('line_sap',
+            array(
+                'header'=> Mage::helper('catalog')->__('Line'),
+                'width' => '80px',
+                'index' => 'line_sap',
+            ));
 
         $store = $this->_getStore();
         $this->addColumn('price',
