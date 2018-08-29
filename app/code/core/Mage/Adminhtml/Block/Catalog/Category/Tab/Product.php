@@ -78,6 +78,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
             ->addAttributeToSelect('sku')
             ->addAttributeToSelect('price')
             ->addAttributeToSelect('line_sap')
+            ->addAttributeToSelect('brand')
             ->addStoreFilter($this->getRequest()->getParam('store'))
             ->joinField('position',
                 'catalog/category_product',
@@ -135,10 +136,22 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
             'currency_code' => (string) Mage::getStoreConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_BASE),
             'index'     => 'price'
         ));
+
+
+        $this->addColumn('brand',
+            array(
+                'header' => Mage::helper('catalog')->__('Brand'),
+                'width' => '70px',
+                'index' => 'brand',
+                'type' => 'options',
+                'options' => Mage::getModel('catalog/product_brand')->getBrands(),
+            ));
+
         $this->addColumn('line_sap', array(
             'header'    => Mage::helper('catalog')->__('Línea'),
             'index'     => 'line_sap'
         ));
+
         $this->addColumn('position', array(
             'header'    => Mage::helper('catalog')->__('Position'),
             'width'     => '1',
