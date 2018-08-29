@@ -28,7 +28,7 @@ body {
 }
 
 .banner-marca {
-	background-size: auto 108% !important;
+	min-height: 520px !important;
 }
 
 .footer-middle .block .block-title strong, .footer-top .block .block-title strong, .contact-info b, .subcribe strong{
