@@ -19,10 +19,6 @@ body {
 	src:url("/skin/frontend/base/default/fonts/Gotham-Light.woff");
 }
 
-#landing-contenedor-principal{
-	margin-left: -250px;
-}
-
 .footer-middle .block .block-title strong, .footer-top .block .block-title strong, .contact-info b, .subcribe strong{
 	font-family: Gotham-Light !important;
 	font-weight: 400 !important;
