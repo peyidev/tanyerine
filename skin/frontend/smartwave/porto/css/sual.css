@@ -2,6 +2,33 @@ body {
 	padding-top: 60px;
 }
 
+@font-face {
+
+	font-family: 'Gotham-Medium';
+	src:url("/skin/frontend/base/default/fonts/Gotham-Medium.woff");
+}
+
+@font-face {
+
+	font-family: 'Gotham-Book';
+	src:url("/skin/frontend/base/default/fonts/Gotham-Book.woff");
+}
+@font-face {
+
+	font-family: 'Gotham-Light';
+	src:url("/skin/frontend/base/default/fonts/Gotham-Light.woff");
+}
+
+.footer-middle .block .block-title strong, .footer-top .block .block-title strong, .contact-info b, .subcribe strong{
+	font-family: Gotham-Light !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.075em !important;
+}
+
+.footer-top{
+	font-family: Gotham-Book !important;
+}
+
 
 .cms-index-index .header-container.type12.header-newskin,
 .header-container.type12.header-newskin{
@@ -175,6 +202,10 @@ body {
 
 .cms-index-index .main-container{
 	display: none;
+}
+
+.container{
+	max-width: 98%;
 }
 
 .container-100{
