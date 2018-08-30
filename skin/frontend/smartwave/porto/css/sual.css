@@ -41,6 +41,10 @@ body {
 	font-family: Gotham-Book !important;
 }
 
+body.full-width .product-view .product-img-box:not(.type-){
+
+	margin-bottom: 0px !important;
+}
 
 .cms-index-index .header-container.type12.header-newskin,
 .header-container.type12.header-newskin{
