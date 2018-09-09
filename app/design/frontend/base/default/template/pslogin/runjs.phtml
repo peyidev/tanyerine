@@ -1,0 +1,48 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_SocialLogin
+ * @copyright   Copyright (c) 2014 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+
+<?php
+$helper = Mage::helper('pslogin');
+if (!$helper->moduleEnabled()) {
+    return;
+}
+?>
+
+<script type="text/javascript" id="pslogin-runjs">
+	try {
+		<?php echo $this->getJs(); ?>
+    } catch (err) {
+        if (window.location.protocol == "https:") {
+	        var js = document.getElementById('pslogin-runjs');
+	        if (js) {
+	            var form = document.createElement("form");
+	            form.method = 'post';
+	            form.action = "<?php echo $this->getUrl('pslogin/account/runjs', array('_secure' => false)) ?>";
+	            var textarea = document.createElement('textarea');
+	            textarea.name = 'js';
+	            textarea.innerHTML = js.innerHTML;
+	            form.appendChild(textarea);
+
+	            form.submit();
+	        } else if (window.opener) {
+	            window.close();
+	        }
+	    }
+    }
+</script>

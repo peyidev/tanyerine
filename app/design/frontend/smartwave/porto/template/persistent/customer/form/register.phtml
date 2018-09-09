@@ -2,9 +2,18 @@
     <div class="page-title">
         <h1><?php echo $this->__('Create an Account') ?></h1>
     </div>
+    
     <?php echo $this->getChildHtml('form_fields_before')?>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
+        <div class="social-container">
+            <?php echo $this->getChildHtml('pslogin_buttons')?>
+            <p class="line">
+                <span>
+                    <?php echo $this->__('ó') ?>
+                </span>
+            </p>
+        </div>
         <div class="fieldset">
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
@@ -20,24 +29,38 @@
                         <input type="text" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text validate-email required-entry" />
                     </div>
                 </li>
-                <?php if ($this->isNewsletterEnabled()): ?>
-                <li class="control">
-                    <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed"<?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
-                    <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
-                </li>
-                <?php endif ?>
+            </ul>
+        </div>
+        <div class="fieldset">
+            <ul class="form-list">
             <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-            <?php if ($_dob->isEnabled()): ?>
-                <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
-            <?php endif ?>
-            <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
-            <?php if ($_taxvat->isEnabled()): ?>
-                <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
-            <?php endif ?>
-            <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
-            <?php if ($_gender->isEnabled()): ?>
-                <li><?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?></li>
-            <?php endif ?>
+            <li class="fields">
+                <?php if ($_dob->isEnabled()): ?>
+                    <div class="field">
+                        <?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?>
+                    </div>
+                    <div class="field">
+                        <label for="phone" class="required"><em>*</em><?php echo $this->__('Phone Number') ?></label>
+                        <div class="input-box">
+                            <input type="text" name="phone" id="phone" title="<?php echo $this->__('Phone Number') ?>" class="input-text required-entry validate-telephone" />
+                        </div>
+                    </div>
+                <?php endif ?>
+            </li>
+            <li class="fields">
+                <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+                <?php if ($_taxvat->isEnabled()): ?>
+                    <div class="field">
+                        <?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
+                    </div>
+                <?php endif ?>
+                <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+                <?php if ($_gender->isEnabled()): ?>
+                    <div class="field">
+                        <?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?>
+                    </div>
+                <?php endif ?>
+            </li>
             </ul>
         </div>
     <?php if($this->getShowAddressFields()): ?>
@@ -137,6 +160,20 @@
                 <?php echo $this->getChildHtml('persistent.remember.me'); ?>
             </ul>
             <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
+        </div>
+        <div class="fieldset">
+            <ul class="form-list">
+                <li class="control">
+                    <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('I accept terms and condition') ?>" value="1" id="terms_and_conditions" class="checkbox required" />
+                    <label for="terms_and_conditions"><?php echo $this->__('I accept terms and condition') ?></label>
+                </li>
+                <?php if ($this->isNewsletterEnabled()): ?>
+                    <li class="control">
+                        <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed"<?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                        <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
+                    </li>
+                <?php endif ?>
+            </ul>
         </div>
         <div class="buttons-set">
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
