@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+            <complexType name="j2trewardapiStatsEntityToCreate">
+                <all>
+                    <element name="customer_id" type="xsd:int" minOccurs="0" />
+                    <element name="store_id" type="xsd:string" minOccurs="0" />
+                    <element name="order_id" type="xsd:string" minOccurs="0" />
+                    <element name="points_current" type="xsd:int" minOccurs="0" />
+                    <element name="points_spent" type="xsd:int" minOccurs="0" />
+                    <element name="date_start" type="xsd:string" minOccurs="0" />
+                    <element name="date_end" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            
+            <complexType name="j2trewardapiStatsInfoEntity">
+                <xsd:sequence>
+                    <element name="current" type="xsd:int" minOccurs="0" />
+                    <element name="received" type="xsd:int" minOccurs="0" />
+                    <element name="spent" type="xsd:int" minOccurs="0" />
+                    <element name="waiting" type="xsd:int" minOccurs="0" />
+                    <element name="lost" type="xsd:int" minOccurs="0" />
+                </xsd:sequence>
+            </complexType>
+            
+            
+            <complexType name="j2trewardapiStatsEntity">
+                <all>
+                    <element name="customer_id" type="xsd:int" minOccurs="0" />
+                    <element name="store_id" type="xsd:string" minOccurs="0" />
+                    <element name="order_id" type="xsd:string" minOccurs="0" />
+                    <element name="points_current" type="xsd:int" minOccurs="0" />
+                    <element name="points_spent" type="xsd:int" minOccurs="0" />
+                    <element name="date_start" type="xsd:string" minOccurs="0" />
+                    <element name="date_end" type="xsd:string" minOccurs="0" />
+                    
+                    <element name="customer_id" type="xsd:int" minOccurs="0" />
+                    <element name="created_at" type="xsd:string" minOccurs="0" />
+                    <element name="updated_at" type="xsd:string" minOccurs="0" />
+                    <element name="increment_id" type="xsd:string" minOccurs="0" />
+                    <element name="website_id" type="xsd:int" minOccurs="0" />
+                    <element name="created_in" type="xsd:string" minOccurs="0" />
+                    <element name="email" type="xsd:string" minOccurs="0" />
+                    <element name="firstname" type="xsd:string" minOccurs="0" />
+                    <element name="middlename" type="xsd:string" minOccurs="0" />
+                    <element name="lastname" type="xsd:string" minOccurs="0" />
+                    <element name="group_id" type="xsd:int" minOccurs="0" />
+                    <element name="prefix" type="xsd:string" minOccurs="0" />
+                    <element name="suffix" type="xsd:string" minOccurs="0" />
+                    <element name="dob" type="xsd:string" minOccurs="0" />
+                    <element name="taxvat" type="xsd:string" minOccurs="0" />
+                    <element name="confirmation" type="xsd:boolean" minOccurs="0" />
+                    <element name="password_hash" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="j2trewardapiStatsEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:j2trewardapiStatsEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            
+            <complexType name="j2trewardapiStatsInfoEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:j2trewardapiStatsInfoEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </types>
+    <message name="j2trewardapiStatsListRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters" />
+    </message>
+    <message name="j2trewardapiStatsListResponse">
+        <part name="statsView" type="typens:j2trewardapiStatsEntityArray" />
+    </message>
+    
+    <message name="j2trewardapiStatsInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="customerId" type="xsd:int" />
+        <part name="sotreId" type="xsd:string" />
+    </message>
+    <message name="j2trewardapiStatsInfoResponse">
+        <part name="statsView" type="typens:j2trewardapiStatsInfoEntityArray" />
+    </message>
+    
+    
+    
+    <message name="j2trewardapiStatsCreateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="pointsData" type="typens:j2trewardapiStatsEntityToCreate" />
+    </message>
+    <message name="j2trewardapiStatsCreateResponse">
+        <part name="result" type="xsd:int" />
+    </message>
+    <message name="j2trewardapiStatsInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="customerId" type="xsd:int" />
+        <part name="storeId" type="xsd:string" />
+    </message>
+    <message name="j2trewardapiStatsInfoResponse">
+        <part name="statsInfo" type="typens:j2trewardapiStatsEntity" />
+    </message>
+    <message name="j2trewardapiStatsAddRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="customerId" type="xsd:int" />
+        <part name="points" type="xsd:int" />
+        <part name="storeIds" type="xsd:string" />
+    </message>
+    <message name="j2trewardapiStatsAddResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="j2trewardapiStatsRemoveRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="customerId" type="xsd:int" />
+        <part name="points" type="xsd:int" />
+        <part name="storeIds" type="xsd:string" />
+    </message>
+    <message name="j2trewardapiStatsRemoveResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    
+    <message name="j2trewardapiStatsRemovepointsRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters" />
+    </message>
+    <message name="j2trewardapiStatsRemovepointsResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="j2trewardapiStatsList">
+            <documentation>Retrieve customer points</documentation>
+            <input message="typens:j2trewardapiStatsListRequest" />
+            <output message="typens:j2trewardapiStatsListResponse" />
+        </operation>
+        <operation name="j2trewardapiStatsCreate">
+            <documentation>Create customer points</documentation>
+            <input message="typens:j2trewardapiStatsCreateRequest" />
+            <output message="typens:j2trewardapiStatsCreateResponse" />
+        </operation>
+        <operation name="j2trewardapiStatsInfo">
+            <documentation>Retrieve customer points data</documentation>
+            <input message="typens:j2trewardapiStatsInfoRequest" />
+            <output message="typens:j2trewardapiStatsInfoResponse" />
+        </operation>
+        <operation name="j2trewardapiStatsAdd">
+            <documentation>Update customer stat data</documentation>
+            <input message="typens:j2trewardapiStatsAddRequest" />
+            <output message="typens:j2trewardapiStatsAddResponse" />
+        </operation>
+        <operation name="j2trewardapiStatsRemove">
+            <documentation>Remove customer points</documentation>
+            <input message="typens:j2trewardapiStatsRemoveRequest" />
+            <output message="typens:j2trewardapiStatsRemoveResponse" />
+        </operation>
+        <operation name="j2trewardapiStatsRemovepoints">
+            <documentation>Remove lines</documentation>
+            <input message="typens:j2trewardapiStatsRemovepointsRequest" />
+            <output message="typens:j2trewardapiStatsRemovepointsResponse" />
+        </operation>
+    </portType>
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="j2trewardapiStatsList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="j2trewardapiStatsCreate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="j2trewardapiStatsInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="j2trewardapiStatsAdd">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="j2trewardapiStatsRemove">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="j2trewardapiStatsRemovepoints">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+</definitions>

@@ -1,0 +1,44 @@
+<?php if ($this->canShow()): ?>
+<?php if ($this->isEmail()):?>
+    <div style="width:100%; border-top:1px dashed #C0C0C0; margin-top:5px;">&nbsp;</div>
+    <h2 style="font-size:18px; font-weight:normal; margin:0;"><?php echo Mage::helper('rewardpoints')->__('Reward Points Details') ?></h2>
+    <div style="font-size:12px; padding:7px 9px 9px 9px; border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA; margin-bottom:10px;">
+        <strong><?php echo Mage::helper('rewardpoints')->__('Point Gathered') ?></strong><br />
+        <strong><?php echo $this->getPointsOnOrder(); ?></strong><br /><br />
+        <?php echo Mage::helper('rewardpoints')->__('Point Used') ?><br />
+        <?php echo $this->getPointsUsed();?>
+    </div>
+    <h2 style="font-size:18px; font-weight:normal; margin:0;"><?php echo Mage::helper('rewardpoints')->__('Order Details') ?></h2>
+<?php else:?>
+<table cellspacing="0" width="100%" class="admin-rewardpoints-details">
+    <colgroup>
+        <col>
+        <col width="1">
+    </colgroup>
+    
+    <thead>
+        <tr>
+            <th colspan="2" class="admin-point-details"><h4 class="icon-head-reward"><?php echo Mage::helper('rewardpoints')->__('Reward Points Details') ?></h4></th>
+        </tr>
+    </thead>
+    
+    <tfoot>
+        <tr class="0">
+            <td class="label">
+                <strong><?php echo Mage::helper('rewardpoints')->__('Point Gathered') ?></strong>
+            </td>
+            <td class="emph">
+                <strong><?php echo $this->getPointsOnOrder(); ?></strong>
+            </td>
+        </tr>
+    </tfoot>
+
+    <tbody>
+        <tr class="0">
+            <td class="label"><?php echo Mage::helper('rewardpoints')->__('Point Used') ?></td>
+            <td><?php echo $this->getPointsUsed();?></td>
+        </tr>
+    </tbody>
+</table>
+<?php endif;?>
+<?php endif;?>

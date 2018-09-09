@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <J2t_Rewardapi>
+            <version>1.0.0</version>
+            <depends>
+                <Mage_Customer />
+                <Mage_Checkout />
+                <J2t_Rewardpoints />
+            </depends>
+        </J2t_Rewardapi>
+    </modules>
+    <global>
+        <resources>
+            <j2trewardapi_setup>
+                <setup>
+                    <module>J2t_Rewardapi</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection><use>core_setup</use></connection>
+            </j2trewardapi_setup>
+            <j2trewardapi_write>
+                <connection><use>core_write</use></connection>
+            </j2trewardapi_write>
+            <j2trewardapi_read>
+                <connection><use>core_read</use></connection>
+            </j2trewardapi_read>
+        </resources>
+        
+        <models>
+            <j2trewardapi>
+                <class>J2t_Rewardapi_Model</class>
+                <!--<resourceModel>rewardapi_mysql4</resourceModel>-->
+            </j2trewardapi>
+        </models>
+        
+        <!--<template>
+            <email>
+                <rewardpoints_j2trewardapi_email_template translate="label" module="j2trewardapi">
+                    <label>J2T Reward points Birthday Email</label>
+                    <file>j2trewardapi.html</file>
+                    <type>html</type>
+                </rewardpoints_j2trewardapi_email_template>
+            </email>
+        </template>-->
+        <!--
+        <blocks>
+            <j2trewardapi>
+                <class>J2t_Rewardapi_Block</class>
+            </j2trewardapi>
+        </blocks>-->
+        <helpers>
+            <j2trewardapi>
+                <class>J2t_Rewardapi_Helper</class>
+            </j2trewardapi>
+        </helpers>
+    </global>	
+	<!--<frontend>
+            <translate>
+                <modules>
+                    <j2trewardapi>
+                        <files>
+                            <default>j2trewardapi.csv</default>
+                        </files>
+                    </j2trewardapi>
+                </modules>
+            </translate>
+        
+            <layout>
+                <updates>
+                    <j2trewardapi>
+                        <file>j2trewardapi.xml</file>
+                    </j2trewardapi>
+                </updates>
+            </layout>	
+	</frontend>-->
+
+    <frontend>
+        <routers>
+            <j2trewardapi>
+                <use>standard</use>
+                <args>
+                    <module>RewardPoints</module>
+                    <frontName>j2trewardapi</frontName>
+                </args>
+            </j2trewardapi>
+        </routers>
+        
+        <!--<secure_url>
+            <j2trewardapi_index>/j2trewardapi/index</j2trewardapi_index>
+            <j2trewardshare_index>/j2trewardshare/index</j2trewardshare_index>
+        </secure_url>-->
+        
+    </frontend>
+
+
+    
+    <adminhtml>
+
+        <!--<layout>
+            <updates>
+                <j2trewardapi>
+                    <file>j2trewardapi.xml</file>
+                </j2trewardapi>
+            </updates>
+        </layout>
+        
+        <translate>
+            <modules>
+                <j2trewardapi>
+                    <files>
+                        <default>j2trewardapi.csv</default>
+                    </files>
+                </j2trewardapi>
+            </modules>
+        </translate>-->
+
+    </adminhtml>
+    
+    <!--<crontab>
+        <jobs>
+            <aggregate_j2trewardapi_data>
+                <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+                <run><model>j2trewardapi/observer::aggregateBirthdayData</model></run>
+            </aggregate_j2trewardapi_data>
+        </jobs>
+    </crontab>
+
+    <default>
+        <rewardpoints>
+            <j2trewardapi>
+                <birthday_points>0</birthday_points>
+                <email_template>rewardpoints_j2trewardapi_email_template</email_template>
+                <email_identity>support</email_identity>
+            </j2trewardapi>
+        </rewardpoints>
+    </default>-->
+    
+</config>
+
