@@ -40,6 +40,24 @@
             <?php endif ?>
             </ul>
         </div>
+        <div class="fieldset">
+            <ul class="form-list">
+                <li class="fields">
+                    <div class="field">
+                        <label for="phone" class="required"><em>*</em><?php echo $this->__('Phone Number') ?></label>
+                        <div class="input-box">
+                            <input type="text" name="phone" id="phone" title="<?php echo $this->__('Phone Number') ?>" class="input-text required-entry validate-telephone" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="birthdate" class="required"><em>*</em><?php echo $this->__('Birthdate') ?></label>
+                        <div class="input-box">
+                            <input type="text" name="birthdate" title="<?php echo $this->__('Birthdate') ?>" id="birthdate" class="input-text required-entry validate-date" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     <?php if($this->getShowAddressFields()): ?>
         <div class="fieldset">
             <input type="hidden" name="create_address" value="1" />

@@ -91,6 +91,7 @@ $add_upsell_background = Mage::getStoreConfig("porto_settings/product_view/add_u
                             ?>
                         </div>
                         <div class="details-area">
+                            <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2> 
                             <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_product->getName() ?></a></h2>
                             <?php if(Mage::getStoreConfig("porto_settings/category/rating_star", $code)):?>
                             <?php if (Mage::helper('catalog')->isModuleEnabled('Mage_Review')): ?>
