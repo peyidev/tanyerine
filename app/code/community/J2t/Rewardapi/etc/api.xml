@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Mage
+ * @package     Mage_Customer
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <api>
+        <resources>
+            <j2trewardapi translate="title" module="j2trewardapi">
+                <model>j2trewardapi/stats_api</model>
+                <title>Reward API</title>
+                <acl>j2trewardapi</acl>
+                <methods>
+                    <list translate="title" module="j2trewardapi">
+                        <title>Retrieve points</title>
+                        <method>items</method>
+                        <acl>j2trewardapi/items</acl>
+                    </list>
+                    <create translate="title" module="j2trewardapi">
+                        <title>Create points</title>
+                        <acl>j2trewardapi/create</acl>
+                    </create>
+                    <info translate="title" module="j2trewardapi">
+                        <title>Retrieve customer points data</title>
+                        <acl>j2trewardapi/info</acl>
+                    </info>
+                    <add translate="title" module="j2trewardapi">
+                        <title>Add customer points</title>
+                        <acl>j2trewardapi/add</acl>
+                    </add>
+                    <remove translate="title" module="j2trewardapi">
+                        <title>Remove customer points</title>
+                        <acl>j2trewardapi/remove</acl>
+                    </remove>
+                    <removepoints translate="title" module="j2trewardapi">
+                        <title>Remove lines</title>
+                        <acl>j2trewardapi/removepoints</acl>
+                    </removepoints>
+                </methods>
+                <faults module="j2trewardapi">
+                    <data_invalid>
+                        <code>100</code>
+                        <message>Invalid points data. Details in error message.</message>
+                    </data_invalid>
+                    <filters_invalid>
+                        <code>101</code>
+                        <message>Invalid poins specified. Details in error message.</message>
+                    </filters_invalid>
+                    <not_exists>
+                        <code>102</code>
+                        <message>Element not exists.</message>
+                    </not_exists>
+                    <not_deleted>
+                        <code>103</code>
+                        <message>Element not deleted. Details in error message.</message>
+                    </not_deleted>
+                </faults>
+            </j2trewardapi>
+        </resources>
+        <v2>
+            <resources_function_prefix>
+                <!--<customer>customerCustomer</customer>
+                <customer_group>customerGroup</customer_group>
+                <customer_address>customerAddress</customer_address>-->
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+                <j2trewardapi translate="title" module="j2trewardapi">
+                     <title>Reward Points</title>
+                     <sort_order>3</sort_order>
+                     <list translate="title" module="j2trewardapi">
+                        <title>List</title>
+                     </list>
+                     <create translate="title" module="j2trewardapi">
+                        <title>Create</title>
+                     </create>
+                     <add translate="title" module="j2trewardapi">
+                        <title>Add</title>
+                     </add>
+                     <remove translate="title" module="j2trewardapi">
+                        <title>Remove</title>
+                     </remove>
+                     <info translate="title" module="j2trewardapi">
+                        <title>Retrieve</title>
+                     </info>
+                     <removepoints translate="title" module="j2trewardapi">
+                        <title>Remove lines</title>
+                    </removepoints>
+                </j2trewardapi>
+            </resources>
+        </acl>
+    </api>
+</config>

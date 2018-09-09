@@ -1,0 +1,136 @@
+<?php
+/**
+ * J2T Giftvoucher
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@j2t-design.com so we can send you a copy immediately.
+ *
+ * @category   Magento extension
+ * @package    J2t_Giftvoucher
+ * @copyright  Copyright (c) 2015 J2T DESIGN. (http://www.j2t-design.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php $_htmlId      = $this->getElement()->getHtmlId() ?>
+<?php $_htmlClass   = $this->getElement()->getClass() ?>
+<?php $_htmlName    = $this->getElement()->getName() ?>
+<?php $_readonly    = $this->getElement()->getReadonly() ?>
+
+<tr>
+    <td class="label"><?php echo $this->getElement()->getLabel() ?></td>
+    <td colspan="10" class="grid rewardpoints">
+    <table cellspacing="0" class="data border" id="rewardpoints_table" style="width:300px;">
+        <col />
+        <col width="95" />
+        <col width="1" />
+        <thead>
+            <tr class="headings">
+                <th><?php echo Mage::helper('rewardpoints')->__('Points') ?></th>
+                <th><?php echo Mage::helper('rewardpoints')->__('Group') ?></th>
+                <th class="last"><?php echo Mage::helper('catalog')->__('Action') ?></th>
+            </tr>
+        </thead>
+        <tbody id="<?php echo $_htmlId ?>_container"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="a-right"><?php echo $this->getAddButtonHtml() ?></td>
+            </tr>
+        </tfoot>
+    </table>
+
+<script type="text/javascript">
+//<![CDATA[
+var pointListRowTemplate = '<tr>'
+    + '<td><input class="<?php echo $_htmlClass ?> point required-entry validate-greater-than-zero" type="text" name="<?php echo $_htmlName ?>[{{index}}][point]" value="{{point}}" id="point_list_row_{{index}}_point" /></td>'
+    
+<?php /*?>    + '<td><input class="<?php echo $_htmlClass ?> validity required-entry" type="text" name="<?php echo $_htmlName ?>[{{index}}][group_id]" value="{{group_id}}" id="point_list_row_{{index}}_group_id" /></td>'<?php */?>
+    
+    + '<td><select class="<?php echo $_htmlClass; ?> group_id required-entry" name="<?php echo $_htmlName; ?>[{{index}}][group_id]" id="point_list_row_{{index}}_group_id">'
+    <?php foreach ($this->getCustomerGroups() as $_groupName => $_groupId): ?>
+    + '<option value="<?php echo $_groupId; ?>"><?php echo $this->jsQuoteEscape($this->escapeHtml($_groupName)); ?></option>'
+    <?php endforeach; ?>
+    + '</select></td>'
+    
+    + '<td class="last"><input type="hidden" name="<?php echo $_htmlName ?>[{{index}}][delete]" class="delete" value="" id="point_list_row_{{index}}_delete" />'
+    + '<button title="<?php echo Mage::helper('catalog')->__("Delete Point") ?>" type="button" class="scalable delete icon-btn delete-product-option" id="point_list_row_{{index}}_delete_button" onclick="return pointListControl.deleteItem(event);">'
+    + '<span><span><span><?php echo Mage::helper('catalog')->__("Delete") ?></span></span></span></button></td>'
+    + '</tr>';
+
+var pointListControl = {
+    template: new Template(pointListRowTemplate, new RegExp('(^|.|\\r|\\n)({{\\s*(\\w+)\\s*}})', "")),
+    itemsCount: 0,
+    addItem : function () {
+        <?php if ($_readonly): ?>
+        if (arguments.length < 4) {
+            return;
+        }
+        <?php endif; ?>
+        var data = {
+            point: '',
+            group_id: '0',
+            readOnly: false,
+            index: this.itemsCount++
+        };
+
+        if(arguments.length >= 2) {
+            data.point      = arguments[0];
+            data.group_id   = arguments[1];
+        }
+        if (arguments.length == 3) {
+            data.readOnly = arguments[2];
+        }
+
+        Element.insert($('<?php echo $_htmlId ?>_container'), {
+            bottom : this.template.evaluate(data)
+        });
+        
+        //point_list_row_{{index}}_group_id
+        if (data.group_id > 0)
+            $('point_list_row_' + data.index + '_group_id').value    = data.group_id;
+
+        if (data.readOnly == '1') {
+            ['point', 'group_id', 'delete'].each(function(idx){
+                $('point_list_row_'+data.index+'_'+idx).disabled = true;
+            });
+            $('point_list_row_'+data.index+'_delete_button').hide();
+        }
+
+        <?php if ($_readonly): ?>
+        $('<?php echo $_htmlId ?>_container').select('input', 'select').each(this.disableElement);
+        $('<?php echo $_htmlId ?>_container').up('table').select('button').each(this.disableElement);
+        <?php else: ?>
+        $('<?php echo $_htmlId ?>_container').select('input', 'select').each(function(el){ Event.observe(el, 'change', el.setHasChanges.bind(el)); });
+        <?php endif; ?>
+    },
+    disableElement: function(el) {
+        el.disabled = true;
+        el.addClassName('disabled');
+    },
+    deleteItem: function(event) {
+        var tr = Event.findElement(event, 'tr');
+        if (tr) {
+            Element.select(tr, '.delete').each(function(elem){elem.value='1'});
+            Element.select(tr, ['input', 'select']).each(function(elem){elem.hide()});
+            Element.hide(tr);
+            Element.addClassName(tr, 'no-display template');
+        }
+        return false;
+    }
+};
+<?php if ($this->getValues() && is_array($this->getValues()) && sizeof($this->getValues())): foreach ($this->getValues() as $_item): ?>
+pointListControl.addItem('<?php echo $_item['point'] ?>', '<?php echo $_item['group_id'] ?>', <?php echo (int)!empty($_item['readonly'])?>);
+<?php endforeach; endif; ?>
+<?php if ($_readonly): ?>
+$('<?php echo $_htmlId ?>_container').up('table').select('button')
+    .each(pointListControl.disableElement);
+<?php endif; ?>
+//]]>
+</script>
+<p class="note"><?php echo $this->__('Points must be greater than 0.');?></p>
+</td></tr>

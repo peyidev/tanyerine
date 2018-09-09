@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}"
+             targetNamespace="urn:{{var wsdl.name}}">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+            <xsd:complexType name="j2trewardapiStatsEntityToCreate">
+                <xsd:sequence>
+                    <xsd:element name="customer_id" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="store_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="order_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="points_current" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="points_spent" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="date_start" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="date_end" type="xsd:string" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            
+            
+            <xsd:complexType name="j2trewardapiStatsInfoEntity">
+                <xsd:sequence>
+                    <xsd:element name="current" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="received" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="spent" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="waiting" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="lost" type="xsd:int" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            
+            <xsd:complexType name="j2trewardapiStatsEntity">
+                <xsd:sequence>
+                    
+                    <xsd:element name="customer_id" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="store_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="order_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="points_current" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="points_spent" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="date_start" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="date_end" type="xsd:string" minOccurs="0" />
+                    
+                    <xsd:element name="customer_id" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="created_at" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="updated_at" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="increment_id" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="website_id" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="created_in" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="email" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="firstname" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="middlename" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="lastname" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="group_id" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="prefix" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="suffix" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="dob" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="taxvat" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="confirmation" type="xsd:boolean" minOccurs="0" />
+                    <xsd:element name="password_hash" type="xsd:string" minOccurs="0" />
+                    
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="j2trewardapiStatsEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:j2trewardapiStatsEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            
+            <xsd:complexType name="j2trewardapiStatsInfoEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:j2trewardapiStatsInfoEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            
+
+            <xsd:element name="j2trewardapiStatsListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="filters" type="typens:filters" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:j2trewardapiStatsEntity" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            
+            
+            
+            <xsd:element name="j2trewardapiStatsInfoRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="customerId" type="xsd:int" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sotreId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsInfoResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:j2trewardapiStatsInfoEntity" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            
+            
+            
+            <xsd:element name="j2trewardapiStatsCreateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="pointsData" type="typens:j2trewardapiStatsEntityToCreate" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsCreateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsInfoRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="customerId" type="xsd:int" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="storeId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsInfoResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:j2trewardapiStatsEntity" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsAddRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="customerId" type="xsd:int" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="points" type="xsd:int" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="storeIds" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsAddResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsRemoveRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="customerId" type="xsd:int" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="points" type="xsd:int" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="storeIds" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsRemoveResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="j2trewardapiStatsRemovepointsRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="filters" type="typens:filters" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="j2trewardapiStatsRemovepointsResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            
+            
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="j2trewardapiStatsListRequest">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsListRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsListResponse">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsListResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsCreateRequest">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsCreateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsCreateResponse">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsCreateResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsInfoRequest">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsInfoRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsInfoResponse">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsInfoResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsAddRequest">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsAddRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsAddResponse">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsAddResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsRemoveRequest">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsRemoveRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsRemoveResponse">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsRemoveResponseParam" />
+    </wsdl:message>
+    
+    <wsdl:message name="j2trewardapiStatsRemovepointsRequest">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsRemovepointsRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="j2trewardapiStatsRemovepointsResponse">
+        <wsdl:part name="parameters" element="typens:j2trewardapiStatsRemovepointsResponseParam" />
+    </wsdl:message>
+    
+    
+    <wsdl:portType name="{{var wsdl.handler}}PortType">
+        <wsdl:operation name="j2trewardapiStatsList">
+            <wsdl:documentation>Retrieve customer points</wsdl:documentation>
+            <wsdl:input message="typens:j2trewardapiStatsListRequest" />
+            <wsdl:output message="typens:j2trewardapiStatsListResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsCreate">
+            <wsdl:documentation>Create customer points</wsdl:documentation>
+            <wsdl:input message="typens:j2trewardapiStatsCreateRequest" />
+            <wsdl:output message="typens:j2trewardapiStatsCreateResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsInfo">
+            <wsdl:documentation>Retrieve customer points data</wsdl:documentation>
+            <wsdl:input message="typens:j2trewardapiStatsInfoRequest" />
+            <wsdl:output message="typens:j2trewardapiStatsInfoResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsAdd">
+            <wsdl:documentation>Add customer points data</wsdl:documentation>
+            <wsdl:input message="typens:j2trewardapiStatsAddRequest" />
+            <wsdl:output message="typens:j2trewardapiStatsAddResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsRemove">
+            <wsdl:documentation>Remove customer points</wsdl:documentation>
+            <wsdl:input message="typens:j2trewardapiStatsRemoveRequest" />
+            <wsdl:output message="typens:j2trewardapiStatsRemoveResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsRemovepoints">
+            <wsdl:documentation>Remove lines</wsdl:documentation>
+            <wsdl:input message="typens:j2trewardapiStatsRemovepointsRequest" />
+            <wsdl:output message="typens:j2trewardapiStatsRemovepointsResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="j2trewardapiStatsList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsCreate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsInfo">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsAdd">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="j2trewardapiStatsRemove">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+</wsdl:definitions>
