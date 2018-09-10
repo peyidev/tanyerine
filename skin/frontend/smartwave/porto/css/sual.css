@@ -266,7 +266,8 @@ body.full-width .product-view .product-img-box:not(.type-){
 	top: 50%;
 	width: 100%;
 }
-.product-details .product-name a,
+#crosssell-products-list .product-details .product-name a,
+.products-grid 	.product-details .product-name a,
 .category-products .products-grid li.item .details-area .product-name a {
     font-size: 14px;
     width: 100%;
