@@ -1,0 +1,63 @@
+<?php
+/**
+ * J2T RewardsPoint2
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@j2t-design.com so we can send you a copy immediately.
+ *
+ * @category   Magento extension
+ * @package    RewardsPoint2
+ * @copyright  Copyright (c) 2009 J2T DESIGN. (http://www.j2t-design.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ ?>
+<?php $point_value = Mage::helper('core')->currency(Mage::helper('rewardpoints')->convertPointsToMoneyEquivalence(floor(1)), true, false);?>
+<?php $current_points = $this->getPointsCurrent();?>
+<?php $current_points_value = Mage::helper('core')->currency(Mage::helper('rewardpoints')->convertPointsToMoneyEquivalence(floor($current_points)), true, false);?>
+<?php $lifetime_points = $this->getPointsReceived();?>
+<?php $lifetime_points_value = Mage::helper('core')->currency(Mage::helper('rewardpoints')->convertPointsToMoneyEquivalence(floor($lifetime_points)), true, false);?>
+
+<p><?php echo $this->__('Each Reward Points is Equal to the Following Value: 1 Point Equals %s', $point_value) ?></p>
+<p><?php echo $this->__('Your Current Usable Points Have the Following Value: %s', $current_points_value) ?></p>
+<p><?php echo $this->__('Your Total Value of Your Lifetime Points Achieved: %s', $lifetime_points_value) ?></p>
+
+<table class="data-table linearize-table reward-data-table" id="my-rewardpoints-table">
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+            <tr>
+                <th><?php echo $this->__('Your Points') ?></th>
+                <?php if($this->showReferralColumn()):?>
+                <th><?php echo $this->__('Referral Points Accumulated') ?></th>
+                <?php endif;?>
+                <th><?php echo $this->__('Total Lifetime Points') ?></th>
+                <th><?php echo $this->__('Total Points Spent') ?></th>
+                <th><?php echo $this->__('Pending Points') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-theme-label="<?php echo $this->__('Your Points') ?>"><?php echo $current_points; ?></td>
+                <?php if($this->showReferralColumn()):?>
+                <td data-theme-label="<?php echo $this->__('Referral Points Accumulated') ?>"><?php echo $this->getReferralPointsReceived();?></td>
+                <?php endif;?>
+                <td data-theme-label="<?php echo $this->__('Total Lifetime Points') ?>">
+                    <?php echo $lifetime_points; ?>
+                    <?php if ($points_lost = $this->getPointsLost()):?>
+                    <div class="j2t-point-lost"><?php echo $this->__("You also have %s expired points.", $points_lost);?></div>
+                    <?php endif;?>
+                </td>
+                <td data-theme-label="<?php echo $this->__('Total Points Spent') ?>"><?php echo $this->getPointsSpent(); ?></td>
+                <td data-theme-label="<?php echo $this->__('Pending Points') ?>"><?php echo $this->getPointsWaitingValidation(); ?></td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-rewardpoints-table')</script>
