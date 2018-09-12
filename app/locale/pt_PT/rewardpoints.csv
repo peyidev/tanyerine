@@ -1,0 +1,466 @@
+Points,Pontos
+Reward points,Pontos de Fidelização
+You have %d point(s) available,Você tem %d pontos disponíveis
+To get a discount you need at least %d points,"Para ganhar um desconto, precisa de pelo menos %d de pontos."
+Enter quantity of credit you want to use.,Digite a quantidade de pontos que deseja utilizar.
+%d points,%d de pontos.
+Apply Points,Utilizar os pontos
+Apply points,Utilizar os pontos
+You are currently using %d point(s) of your %d point(s) available,Está usando %d pontos de um total de %d pontos disponíveis
+Remove Points,Remover os pontos
+Not enough points available.,Não tem pontos suficientes
+The minimum required points is not reached,Não foi alcançado o mínimo de pontos necessário
+Amount of points wrongly used,Pontos utilizados incorretamente
+Your Points,Os meus pontos
+Total Accumulated Points,Total de pontos acumulados
+Total Points Spent,Total de pontos usados
+Points waiting for validation,Pontos pendentes para validação
+Your cart amount has not reached the minimum required points,O total do seu carrinho não alcançou o mínimo de pontos necessário
+yes,Sim
+no,Não
+Please enter a valid email address,"Por favor, digite um endereço de e-mail válido."
+Please enter your friend name,"Por favor, digite o nome do amigo(a)"
+This email has been already submitted,Este e-mail já foi utilizado
+There was a problem with the invitation,Ocorreu um erro com o envio do convite
+This email was successfully invited,O e-mail foi enviado com sucesso.
+Friend's name,Nome do amigo(a)
+Statistics,Estatísticas
+Reward Points,Pontos de Fidelização
+Customer full name,Nome completo do cliente
+Customer email,E-mail do cliente
+Accumulated points,Pontos acumulados
+Spent points,Pontos usados
+Add New,Novo
+Action Type,Tipo de acção
+Rule Title,Nome da Regra
+Type of action,Tipo de acção
+Check Order Points,Consultar os pontos
+Refresh customer points,Actualizar os pontos de cliente
+Defaults,Padrões
+Points gathered per Money spent,Pontos conseguidos por unidade de dinheiro gasto
+"Points gathered for 1 unit of money spent. (e.g. if set to 2, you will obtain 100 points for $50 spent).","Equivalência de pontos por unidade de dinheiro gasto (por ex. Se 2, e o cliente gastar 50Kz, obterá 100 pontos)"
+Points to obtain 1 €,Pontos necessários para obter 1KZ
+Amount of points required to obtain a discount.,Pontos necessários para obter um desconto
+Apply points by step,Aplicar pontos por lotes (passos)
+"Apply credit points step by step. e.g. 250, 500, 750, etc.","Aplicar os pontos por passos, por exemplo 250, 500, 750,..."
+Step value,Intervalo de passo
+The step value,O intervalo de passo
+Use max amount of points,Utilizar o máximo de pontos
+Apply the maximum amount of point to the order,Usar o máximo de pontos disponíveis a cada pedido
+Round up points,Reunir os pontos
+"If yes, the points will be rounded. Otherwise, it will be floored.","Se sim, os pontos ganhos serão reunidos"
+Referral points,Pontos de Indicação
+Referral points (%s),Pontos de Indicação (%s)
+Points earned when referred friend orders.,"Pontos ganhos quando um amigo indicado faz um pedido, e o pagamento é confirmado."
+Referral child points,Pontos de Indicação filho
+Points earned by referred friend for first order.,Pontos ganhos através do primeiro pedido do(a) amigo(a) indicado(a).
+Select email template (Referral subscribe),Selecione o template de e-mail (inscrição de indicação)
+Select email template (Referral confirm),Selecione o template de e-mail (primeiro pedido do indicado)
+Referrals,Programa de Indicação
+Catalog point rules,Regra de pontos - Catálogo
+Cart point rules,Regra de pontos - Carrinho
+Order details,Detalhes do pedido
+Customer ID,ID do Cliente
+Store ID,ID da Loja
+Points are,Os pontos são
+Order ID,ID do Pedido
+Points Spent,Pontos Gastos
+Related to Order ID,Relacionados a um pedido
+Not related to Order ID,Não relacionados a um pedido
+Registration points,Pontos de registo
+Points earned upon customer registration.,Pontos ganhos no registo do cliente.
+This shopping cart is worth %s loyalty point(s).,Com este pedido irá ganhar %s ponto(s) de fidelidade.
+You have %d loyalty point(s) available.,Tem %d ponto(s) de fidelidade.
+To get a discount you need at least %d loyalty point(s).,"Para conseguir um desconto, precisa de pelo menos %d ponto(s) de fidelidade."
+Enter quantity of loyalty point(s) you want to use.,Insira a quantidade de pontos que deseja utilizar.
+%d loyalty point(s),%s ponto(s) de fidelidade
+You are currently using %d point(s) of your %d loyalty point(s) available.,Está utilizando %d ponto(s) de fidelidade de um total de %d ponto(s).
+Not enough points available.,Não tem pontos suficientes disponíveis.
+The minimum required points is not reached.,A quantidade mínima de pontos não foi atingida.
+Amount of points wrongly used.,Pontos utilizados de maneira incorrecta.
+Please enter a valid email address.,"Por favor, digite um endereço de e-mail válido."
+Please enter your friend name.,"Por favor, digite o nome do(a)  amigo(a)."
+This email has been already submitted.,Este e-mail já está sendo utilizado.
+This email was successfully invited.,E-mail enviado com sucesso.
+There was a problem with the invitation.,Ocorreu um erro com o envio do convite.
+Referral,Programa de Indicação
+Referred Friends,Amigos Indicados
+Friend's name,Nome do(a) amigo(a)
+Friend's email address,Endereço de e-mail do(a) amigo(a)
+* Required Fields,* Campos Obrigatórios
+Refer a friend,Indique um(a) amigo(a)
+Full Name,Nome completo
+Email,E-mail
+Coupon codes restriction,Restrição de códigos promocionais
+"If yes, customers will not be able to use coupon codes and reward points at the same time within an order.","Se sim, os clientes não poderão usar os códigos de desconto e pontos de fidelização ao mesmo tempo, ao realizar um pedido."
+"With this product, you earn <span id='j2t-pts'>%d</span> loyalty point(s).","Com este produto, irá ganhar <span id='j2t-pts'>%d</span> ponto(s) de fidelidade."
+Registered?,Registado?
+First order?,Primeiro pedido?
+Show referral link,Mostrar link de indicação
+Show refer a friend link in user account.,Mostrar o link de “indique um amigo” na conta de usuário.
+Apply store scope,Restringir compra
+"If yes, the points collected will be available only for the store where the points were earned.","Se sim, os pontos adquiridos estarão disponíveis somente para a loja onde foram ganhos."
+Client points,Pontos do cliente
+Type of points,Tipo de pontos
+Type of point,Tipo de ponto
+Points added,Pontos adicionados
+Points used,Pontos utilizados
+Valid until,Válidos até
+Order: %s,Pedido : %s
+Referral order state: %s,Status do pedido do indicado : %s
+Order state: %s,Status do pedido : %s
+Customer email,E-mail do cliente
+Accumulated points,Pontos acumulados
+Spent points,Pontos utilizados
+Admin Gift,Presente do administrador
+Store input %s,Pontos de administrador %s
+Parent email,E-mail do cliente que indicou
+Referred email,E-mail do cliente indicado
+Referred Name,Nome do cliente indicado
+Status,Status
+Has ordered,Realizou um pedido
+Waiting for order,À espera de um pedido
+Name,Nome
+Rule details,Detalhe da regra
+Rule Name,Nome da regra
+To Date,Data de finalização
+Type of rule,Tipo de regra
+Cart amount,Total do carrinho
+Product sku,SKU do Produto
+Rule condition,Condição da regra
+Operator,Operador
+Between,Entre
+Test value,Valor de teste
+From,De
+To,Para
+Points to be earned,Pontos ganhos
+Status,Status
+Inactive,Inactivo
+Active,Activo
+Automatic use of points,Utilização automática de pontos
+Use maximum amount of point while in shopping cart.,Uso automático de todos os pontos disponíveis
+Referral order state : %s,Status do pedido do indicado : %s
+Order state : %s,Status do pedido : %s
+new,Novo
+processing,Processando
+complete,Completo
+Points per validated review,Pontos por opinião válida sobre o produto
+Points the customer get while sending a valid review.,Pontos recebidos pelo cliente por enviar uma opinião válida sobre o produto.
+Review points,Pontos por opinião
+User location,Endereço do cliente
+User post code,Código Postal do cliente
+User region,Província do cliente
+User country,País do cliente
+Cart Attributes,Atributos do carrinho
+Action Type,Tipos de acção
+Don't process points,Não processar os pontos
+Add / remove points,Adicionar / Remover pontos
+Points validity duration,Validade dos pontos
+Points validity duration in days (use 0 for unlimited).,Validade dos pontos em dias (use 0 se for ilimitado).
+Maximum points collected per order,Máximo de pontos ganhos por pedido
+Maximum points to be collected per order (use 0 for unlimited).,Máximo de pontos ganhos por pedido (use 0 se for ilimidado).
+Maximum points used per order,Máximo de pontos usados por pedido
+Maximum points to be used per order (use 0 for unlimited).,Máximo de pontos usados por pedido (use 0 se for ilimitado).
+"You tried to use %s loyalty points, but you can use a maximum of %s points per shopping cart.","Você tentou utilizar %s pontos de fidelidade, mas você pode utilizar no máximo %s pontos por pedido."
+Registration/Referral points,Pontos por Registro/Indicação
+Points gathered / unit of money spent,Pontos ganhos / unidade de dinheiro
+Points to obtain 1 unit of money,Pontos para obter 1 unidade de dinheiro
+Permanent Link,Link permanente
+Share the following link with your friends: <br /><strong>%s</strong>,Compartilhe o link com seus amigos : <br /><strong>%s</strong>
+Share referring link,Compartilhar link de indicados
+Great deals here!,Grandes ofertas!
+Visit this for great deals!,Visite esta página para grandes ofertas!
+Show referral permanent link,Mostrar link de indicação permanente
+This will allow customers to share permanent their permanent link to refer friends.,Isto permitirá aos clientes compartilharem permanentemente o link para indicar amigos.
+Share with addthis,Compartilhar com addthis
+Allow customers to share permanent link using addthis. Visit addthis.com to create an account.,Permite aos clientes compartilhar o link permanentemente utilizando o addthis. Visite addthis.com para criar uma conta.
+addthis account name,Nome da conta Addthis
+Sharing title (may not be used),Título a ser compartilhado (uso não obrigatório)
+Sharing text (may not be used),Texto a ser compartilhado (uso não obrigatório)
+"For any first valid order placed by referred friend, you earn: <strong>%s points</strong>","Pela primeira compra confirmada feita pelo amigo(a) indicado(a), irá ganhar : <strong>%s ponto(s)</strong>"
+"For any first valid order placed by referred friend, your friend gets: <strong>%s extra points</strong>","Pela primeira compra confirmada feita pelo amigo(a) indicado(a), o amigo ganha : <strong>%s ponto(s) extra(s)</strong>"
+Attribute restriction,Restrição de atributo
+Only process points when reward_points attribute is filled (reward_points attribute needs to be created and must containt integer).,Os pontos só serão processados quando o atributo reward points estiver preenchido (o atributo reward_points precisa ser criado e conter um número inteiro).
+Include tax in reward point discounts (only when customer tax applied before discount in customer tax tab).,Incluir impostos nos descontos do Reward Point (apenas quando a taxa do cliente for aplicada antes do desconto na tabela de impostos do cliente).
+Include Tax,Incluir Impostos
+Include shipping,Incluir despesas de envio
+Include shipping price in discount (only for magento 1.4.x or greater).,Incluir despesas de envio no desconto (somente para Magento 1.4.x ou superior).
+"Math method applied to point calculation. (For exact point value, round up method might be used when necessary.)","Método aplicado para o cálculo dos pontos. (Caso seja escolhido 'valor exacto', um método de arredondamento pode ser utilizado quando necessário)."
+Process currency rate,Utilizar taxa de conversão de câmbio
+Use currency exchange rate while calculating points & discount (default magento base currency is used).,Utilização de taxa de conversão de moeda quando calcular pontos e descontos (moeda padrão do Magento será utilizada).
+Use slider,Utilizar o slider
+Use slider to specify points.,Utilizar o slider para especificar a quantidade de pontos a utilizar.
+Slide to specify the amount of points to be used.,Clique e arraste para especificar a quantidade de pontos a ser utilizada.
+%s credit points,%s ponto(s) de fidelidade
+Minimum points balance to apply,Número mínimo de pontos a utilizar
+The minimum amount of points a customer must have to be able to use at checkout (use 0 for no-limit).,Número mínimo de pontos que um cliente deve ter para usar em um pedido (use 0 para ilimitado).
+You must have at least %s point(s) to apply points.,Você deve ter pelo menos %s ponto(s) para poder utilizá-los.
+You haven't invited any friend.,Você ainda não convidou nenhum(a) amigo(a).
+Validity status field,Campo de status de validação
+Only for magento 1.4.x or greater. Order status database field used (modify this only if you know what you are doing).,Apenas para Magento 1.4.x ou superior. Campo 'order status' do banco de dados utilizado (modifique isto somente se você souber o que está fazendo).
+Valid statuses,Status válidos
+Order status database field used when checking points validity (modify this only if you know what you are doing).,Campo 'order status' do banco de dados utilizado para checar a validade dos pontos (modifique isto somente se você souber o que está fazendo).
+Points availability delay,Atraso na disponibilização de pontos
+Delaying the points availability (use 0 for no-delay).,Atraso na disponibilização de pontos (use 0 para nenhum tempo de espera).
+Referral Email Sender,Remetente do e-mail de indicação
+Referral confirmation Email Sender,Remetente do e-mail de confirmação de indicação
+Design and Graphics,Design e Gráficos
+Setup graphic design of the module,Configure o design do módulo
+Small inline image,Imagem pequena
+Big inline image,Imagem grande
+Show small image,Mostrar imagem pequena
+Show small inline image on product views.,Mostrar imagem pequena na página de detalhe dos produtos.
+Show big image,Mostrar imagem grande
+Show big image on shopping cart area.,Mostrar imagem grande na página do carrinho
+Email notification,E-mail de notificação
+Email sent before points expiring,E-mail enviado antes dos pontos expirarem
+In days.,Em dias.
+Number of days before points expiring,Número de dias antes dos pontos expirarem
+Email Sender notification,Remetente de e-mail de notificação
+Add/Remove points,Adicionar/Remover pontos
+Points Balance,Balanço dos pontos
+You also have %s expired points.,Também tem %s ponto(s) expirados
+Turbo Mode,Modo Turbo
+Note that guest orders do not allow referral points to be collected.,As encomendas de visitantes não permitem a utilização de pontos
+Unable guest orders,Não permitir encomendas de visitantes
+Unable guest orders when customer orders from referral url/email.,Não permitir encomendas de visitantes quando o cliente vier de indicação via site/e-mail.
+Turbo Mode allow performance increases within cart process and customer account dashboard.,O Modo Turbo permite aumentar o desempenho junto ao processo de compra e do dashboard da conta do usuário.
+Step multiplier,Passo multiplicador
+"Multiplier for the step value. e.g. if the multiplier is 10 and step value 20, the steps will be: 20, 200, 2000, etc. Default value is 1.","Multiplicador para o valor do passo.  Por exemplo: se o multiplicador é 10 e o valor do passo 20, os passos serão: 20, 200, 2000, etc. O valor padrão é 1."
+Show onepage checkout summary,Mostrar resumo da compra em uma página.
+Show summary of point usage within onepage checkout review (compatible with magento 1.4.x or greater).,Mostrar resumo do uso de pontos na revisão do pedido em uma página (compatível com Magento 1.4.x ou superior).
+Review your <a href='%s'>shopping cart</a> to apply or modify points usage.,Reveja  <a href='%s'>seu carrinho</a> para aplicar ou modificar o uso dos pontos.
+* Points are gathered only for registered clients.,* Os pontos são apenas para clientes registrados.
+Points cannot be redeemed within multiple shipping orders.,Os pontos não podem ser utilizados em pedidos com múltiplos endereços.
+Wrong email address (%s).,Endereço de e-mail inválido (%s).
+Friend name is required for email: %s on line %s.,O nome do(a) amigo(a) é necessário para o e-mail : %s na linha %s.
+Email %s has been already submitted.,O e-mail %s já foi registado anteriormente.
+Email %s was successfully invited.,O convite para o e-mail %s foi enviado com sucesso.
+There was a problem with the invitation email %s.,Houve um erro com o envio do convite para o e-mail %s.
+%s points used,%s ponto(s) utilizados
+Birthday points,Pontos de aniversário
+Referral Redirection,Redirecionamento de Fidelidade
+"Redirection path for permanent link, excluding domain name and index.php/ part (e.g. electronics/cell-phones.html). Leave blank to use default redirection.","Caminho de redirecionamento para o link permanente, excluindo o nome do domínio e index.php/ (por exemplo: electronicos/telemoveis.html). Deixe em branco para usar redirecionamento padrão."
+Show remove link,Mostrar link remover
+Show link from cart totals area.,Mostrar o link do total do carrinho.
+Referral point rules,Regras para pontos de indicação
+Always recalculate,Recalcular sempre
+Always recalculate points when order is modified. Note that points allocated to an order may vary according to rules and points configuration.,Recalcular sempre os pontos quando o pedido é modificado. Note que pontos atribuídos a um pedido podem variar de acordos com as regras e configurações dos pontos.
+Show money point equivalence,Mostrar pontos de equivalência em unidade monetária
+Show to the customer point value in unit of money as well as amout of points.,Mostrar ao cliente o valor dos pontos em Kz bem como a quantidade de pontos.
+Multiply By,Multiplicar por
+Divide By,Dividir por
+Value,Valor
+Update Reward Points,Actualizar os Pontos de fidelização
+Only integer values accepted.,Somente valores inteiros são aceitos.
+Setup graphic design of the module.,Configure o design do módulo.
+Exports are available from 'Default config store' scope and Import is available from website scope. No referral points nor validation dates are imported.,Exportações estão disponíves à partir da 'Configuração de Loja Padrão' e importações estão disponíveis à partir do site. Nenhum ponto de indicação ou datas de validação serão importadas.
+Email address,Endereço de e-mail
+Order Reference,Referência do Pedido
+Store Ids,Id da Loja
+Import/Export,Importar/Exportar
+Import profile,Perfil de importação
+Not available,Não disponível
+First column,Primeira coluna
+Second column,Segunda coluna
+Third column,Terceira coluna
+Forth column,Quarta coluna
+addthis code,Código do Addthis
+Addthis buttons code without javascript element.,Código dos botões Addthis sem elementos javascript.
+Order statuses used to validate points (modify this only if you know what you are doing).,Status dos pedidos usados para validar os pontos (modifique isto somente se souber o que está fazendo).
+Points related to order #%s (%s),Pontos relacionados ao pedido #%s (%s)
+Percent usage per order,Percentagem de pontos por pedido
+"Order total amount percent value of maximum point usage (e.g. for a total cart amount of $400, if this value is set to 50, maximum point discount will not be higher than $200).","Percentagem máxima de pontos por pedido (por exemplo: para um pedido com total de 400Kz, se este valor estiver configurado para 50, o desconto máximo não poderá ser maior que 200Kz)."
+Referral min. order,Pedido mínimo de referência
+Referral minimum order amount (base subtotal amount without shipping fees) in order to process referral actions (0 for no minimum amount).,Total mínimo de pedido para indicação (baseado no subtotal sem despesas de envio) no pedido para processar acções de indicação (use 0 para deixar sem mínimo).
+"For any first valid order placed by referred friend, you earn: <strong>%s points x product price values</strong>","Com a primeira encomenda feita por um amigo, irá ganhar : <strong>%s pontos x preço do produto</strong>"
+"For any first valid order placed by referred friend, you earn: <strong>%s points x cart summary</strong>","Com a primeira encomenda feita por um amigo, irá ganhar : <strong>%s pontos x sub-total do carrinho de compras</strong>"
+"For any first valid order placed by referred friend, you friend gets: <strong>%s points x product price values</strong>","Com a primeira encomenda feita por um amigo, ele irá ganhar : <strong>%spontos x preço do produto</strong>"
+"For any first valid order placed by referred friend, you friend gets: <strong>%s points x cart summary</strong>","Com a primeira encomenda feita por um amigo, ele irá ganhar : <strong>%s pontos x sub-total do carrinho de compras</strong>"
+Minimum order for referral program to be processed is: <strong>%s</strong>,Montante mínimo para uma encomenda de fidelidade : <strong>%s</strong>
+%d points = %s.,%d pontos = %s.
+Newsletter points,Newsletter de pontos
+Newsletter points. Give points when user registers to newsletter (unsubscribing doesn't remove points).,Newsletter de pontos. Oferece pontos quando um usuário subscreve-se na newsletters (ao terminar a subscrição os pontos não serão removidos).
+Product point information,Informações sobre os pontos de um produto
+Details on product page regarding points customer collects.,Detalhes sobre as páginas de produtos referentes aos pontos dos produtos 
+Show information,Ver as informações
+Show point details on product page.,Mostrar os detalhes dos pontos sobre as páginas de produtos
+Default block name,Nome padrão do campo
+Default layout block name where the point details will be injected (default is: product.info.addtocart).,"Nome do bloco do layout por defeito, onde serão injectados os detalhes dos pontos (por defeito: product.info.addtocart)"
+Extra block name,Nome do bloco suplementar
+Layout block name where duplicated point details will be injected (default is: product.info.configurable).,"Nome do bloco do tema, onde serão injectados os detalhes dos pontos suplementares (por defeito: product.info.configurable)."
+Show list points,Ver os pontos em listas
+"Show point details on product list page. Depending on your theme, you may need to set this value to no and modify your theme according to explanations available on installation procedures.","Mostrar os detalhes dos pontos na página  dos produtos. Em função do tema, pode ser necessário não usar esta funcionalidade e inserir manualmente, como descrito no procedimento de instalação."
+"With this product, you earn from %d to %d loyalty point(s).",Com este produto irá ganhar de %d a %d ponto(s) de fidelidade.
+%d points = %s and %d points = %s.,%d pontos = %s e %d pontos = %s.
+Multiplication (%s points x %s = %s points),Multiplicação (%s pontos x %s = %s pontos)
+Division (%s points / %s = %s points),Divisão (%s pontos / %s = %s pontos)
+Addition (%s points + %s = %s points),Adição (%s pontos + %s = %s pontos)
+Substraction (%s points - %s = %s points),Subtracção (%s pontos - %s = %s pontos)
+"Multiplication (%s points x %s = %s points, %s)","Multiplicação (%s pontos x %s = %s pontos, %s)"
+"Division (%s points / %s = %s points, %s)","Divisão (%s pontos / %s = %s pontos, %s)"
+"Addition (%s points + %s = %s points, %s)","Adição (%s pontos + %s = %s pontos, %s)"
+"Substraction (%s points - %s = %s points, %s)","Substracção (%s pontos - %s = %s pontos, %s)"
+Extra details,Detalhes suplementares
+"For any referred friend registration, you earn: <strong>%s points</strong>","Por todas as inscrições de amigo(s), irá receber <strong>%s pontos</strong>"
+"For any referred friend registration, you friend earn: <strong>%s points</strong>","Por todas as inscriçõs de amigo(s), eles recebem <strong>%s pontos</strong>"
+Referral registration points (%s),Pontos de inscrição ao programa de fidelidade (%s)
+Referral registration points,Pontos de inscrição ao programa de fidelidade
+Referrer Registration points,Pontos de inscrição do padrinho
+Referred Registration points,Pontos de inscrição do afilhado
+Extra points earned by referrer customer upon referred friend registration (points are allocated when customer logs into the system for the first time).,Pontos adicionais atribuidos ao padrinho durante a inscrição dos afilhados ( os pontos são atribuidos unicamente após a conexão do usuário).
+Extra points earned by referred customer upon registration (points are allocated when customer logs into the system for the first time).,Pontos adicionais atribuidos ao afilhado durante a inscrição dos afilhados ( os pontos são atribuidos unicamente após a conexão do usuário).
+Module Serial,Número de série
+"Module serial key linked to your server IP address. Note that it is necessary to fill your IP address on <a href='http://www.j2t-design.net' target='blank'>http://www.j2t-design.net</a>. If serial value is wrong, configuration can't be saved.","Número de série associado ao IP do servidor. Deve inserir o seu IP em: <a href='http://www.j2t-design.net' target='blank'>http://www.j2t-design.net</a>.  Se o número de série estiver incorrecto, não poderá registar-se."
+This is the module serial key linked to your server IP address. This information is available on your user account page on <a href='http://www.j2t-design.net' target='blank'>http://www.j2t-design.net</a>.,"Este é o Número de série associado ao seu endereço IP. Esta informação esta disponivel na página da sua conta, em : <a href='http://www.j2t-design.net' target='blank'>http://www.j2t-design.net</a>."
+Serial defined for store domain '%s',Número de série definido pelo domínio '%s'
+Math method,Método matemático
+Valid gathering statuses,Status de coleção válidos
+Valid usage statuses,Status de utilização válidos
+Order statuses used to validate used points (modify this only if you know what you are doing).,Status da encomendas válidas no momento da utilizaçéao dos pontos (Não modificar se não conhecer o assunto).
+Always recalculate referral,Recalcular sempre as encomendas do programa de fidelidade
+"Always recalculate referral points when order is modified. Note that points allocated to an order may vary according to rules, points configuration and referral program configuration.","Recalcular sempre os pontos de fidelidade quando a encomenda é modificada. Repare que os pontos atribuídos  a uma encomenda podem variar consoante a regra de atribuição de pontos, da configuração do modelo e da da configuração do programa de apadrinhamento"
+Remove discounts,Remover os descontos
+Remove discount value to point collection.,Remover o valor do desconto do cálculo de pontos.
+Remove cancelled orders,Remover as encomendas anuladas
+Remove points linked to cancel orders - automated task (Magento cron needs to be active).,Remover os pontos associados às encomendas anuladas - tarefa automática (Cron Magento deve estar activo)
+Show Log In,Mostrar Login
+"Show Log In url on cart review page, within reward point area.","Mostrar o url de Login na página para rever o carrinho de compras, para utilizadores não conectados."
+Show Details,Mostrar os detalhes
+"Show point gathering details on cart review page, within reward point area.",Mostrar os detalhes dos atributos dos pontos na página do carrinho de compras.
+Custom point values,Valor dos pontos personalizados
+Custom point values according to customer groups and dates.,Valor dos pontos personalizados consoante os grupos e datas.
+Custom point worthing values,Valor dos pontos personalizados
+Min Cart,Carrinho de compras min.
+Max Cart,Carrinho de compras max.
+Customer Group,Grupo cliente
+Until,Até
+"Setup custom point worthing values according to cart <strong>min/max</strong> values (use 0 for no min or max value), <strong>groups</strong> and <strong>date range</strong> (date is optional value). <strong>Value</strong> is point value that will worth 1 unit of money (e.g. if set to 2, $100 spent will give 200 points - 100 x 2 - if unit of money is '$'). <strong>Important:</strong> if always recalculate is set to yes, make sure that the above rules are still available when updating an order.","Configuração dos valores dos pontos personalizados consoante os valores do carrinho de compras <strong>min/max</strong> (0 para nenhum valor min ou max), <strong>grupos</strong> e <strong>datas</strong> (datas opcionais). <strong>Valor</strong> é o valor do ponto por 1 unidade monetária (ex : se 2, 100kz gastos permitem a acumulação de 200 pontos - 100 x 2 - se a unidade monetária é o 'Kz'). <strong>Importante:</strong> se o valor recalcular sempre for activado, assegure-se que a regra aqui definida é válida."
+"Setup custom point usage values according to cart <strong>min/max</strong> values (use 0 for no min or max value), <strong>groups</strong> and <strong>date range</strong> (date is optional value). <strong>Value</strong> is the point required in order to get 1 unit of money discount (e.g. if set to 100, 200 points will give $2 discount - 200 / 100 - if unit of money is '$'). <strong>Important:</strong> if always recalculate is set to yes, make sure that the above rules are still available when updating an order.","Configuração dos pontos personalizados usados consoante os valores do carrinho de compras<strong>min/max</strong> (0 para nenhum valor min ou max), <strong>grupos</strong> e <strong>datas</strong> (datas opcionais). <strong>Valor</strong>é o valor do ponto por 1 unidade monetária de desconto (ex : si 100, 200 dão 2€ de desconto - 200 / 100 - se a unidade monetária é o 'Kz'). <strong>Importante:</strong> se o valor recalcular sempre for activado, assegure-se que a regra aqui definida é válida."
+Poll points,Pontos de inquérito
+Points collected for poll participation.,Pontos adquiridos pela participação em inquéritos
+Tag points,Pontos Tag
+Points collected for any new valid customer tag.,Pontos adquiridos no momento de fazer tag num produto.
+Advanced Referral Points,Pontos de apradinhamento
+Min qty orders,Qde. de encomendas min
+Max qty orders,Qde. de encomendas max
+Referrer Point/Ratio,Pontos/Ratio Padrinho
+Referrer Calc. Type,Tipo de cálculo (pontos padrinho)
+Referred Point/Ratio,Pontos/Ratio Afilhado
+Referred Calc. Type,Tipo de cálculo (points afilhado)
+Min/Max valid orders' quantity values for referrer and referred friends while collecting points. Dates are optionnal and 0 can be used as min/max values as no values. Note that no re-calculations are available for advanced referral points' allocation. Important: only valid orders (defined as above configuration) are processed and order can be processed more than once.,"Min/Max quantidade de encomendas validas por pontos pais e filhos. Datas opcionais e 0 podem ser usados como valores min/max, se não tiver nenhum valor. A função de recalculo não está disponível para esta configuração. Importante: unicamente as encomendas válidas são tomadas em consideração."
+Used for import file configuration.,Utilizado para configurar o ficheiro de import
+Used for import file configuration. Negative values may be used for used points.,Utilizado para configurar o ficheiro de import.Os valores negativos podem ser utilizados
+Used for import file configuration. This is the incremented order reference. This field is not a mandatory field (default value will be admin gift). Use -1 for admin gift.,Utilizado para configurar o ficheiro de import. Esta é a referencia da encomenda incrementada. Valor opcional (valor por defeito: Valeur référence incrémentale de commande. Valeur optionnelle (valeur par défaut vai ser prenda do admin). Usar -1 para prenda de admin
+"Used for import file configuration. This field is not a mandatory field (store ids of current website scope will be used). For multiple values, separate with comma.","Utilizado para configurar o ficheiro de import. Valor opcional (o id da loja do wensite corrente deve ser usado). Par avalores múltiplos, separar por vírgulas."
+Cart Rule Messages,Mensagens Regras Carrinho de compras
+Reward Points Cart Rule Messages shown on cart page.,"Mensagem sobre as regras dos pontos do carrinho de compras, mostra na página do carrinho."
+Duration between messages,Duração entre as diferentes mensagens
+Default layout block name where the rule messages will be injected (default is: global_messages). Other block name could be checkout.cart.form.before for example.,"Nome do block padrão, onde serão colocados os detalhes dos pontos ( padrão :  global_messages). Pode-se usar o  checkout.cart.form.before, se estiver disponível, ou outro nome de block disponível na página do carrinho ."
+Duration in seconds between each messages (default is: 2000).,"Duração em segundo, entre as diferentes mensagens (valor por omissão : 2000)."
+Expiry Email notifications,Email de mensagens de expiração
+Notify customers by email when points are reaching expiry date.,Notificação dos clientes por email quando chega a data de expiração dos pontos.
+Activate expiry notifications,Activar as notificações
+Activate point expiry notifications.,Activar as notificações de expiração
+Email point status notification,Email de notificação com o status dos pontos
+Sends email notifications according to rules.,Envio de email de notificação de acordo com a regra
+Customer Point status Notifications,Notificação do número de pontos do cliente
+Setup point value used to notify customers of their accumuated point value. Min and Max value must be defined. Duration is the gap in days between two same customer's notifications.,Configuração do valor dos pontos durante a notificação dos clientes. Min et Max são valores a definir. A duração é o tempo entre duas notificações do mesmo cliente.
+Min value,Valor min.
+Max value,Valor max.
+Duration (in days),Duração (em dias)
+Email sender,Email do emissor
+Email template,Email template
+Email sent to notify customers,Email enviado para notificar os clientes
+Admin Email notifications,Email de notificação do Admin
+Customer points notifications through admin area.,Notificações dos pontos do cliente via a zona de administração do site.
+Admin Email Sender notification,Notificação de envio do admin email
+Email sent through admin points adding,Email enviado no momento de adicionar/remover pontos pelo admin
+Small inline image size,Icone de tamanho pequeno
+Define the small inline image size. The value inserted will be used as: value x value.,Icone de tamanho pequeno. O valor inserido sera usado como segue : valor x valor.
+Big inline image size,Icone de tamanho grande
+Define the big inline image size. The value inserted will be used as: value x value.,Icone de tamanho grande. O valor inserido sera usado como segue : valor x valor.
+Admin Dashboard,Zona de configuração de Admin
+Point dashboard on admin area page.,Dashboard dos pontos na página principal.
+Show point dashboard area within admin.,Mostrar os pontos na página principal
+Event Observers,Observador de eventos
+Specify custom event triggering point actions,Permet de spécifier les actions d'évènements à observer.
+"List of event defined by: observed magento class name, point value, type of process, maximum point allocation (0 for no value), duration in days between two insertions (0 for no value). Customer needs to be logged in order to collect customer details. Id verification constraint insertion of points only for different model ids for same customer (same inserted model id will be rejected). Validity duration refers to the points validity duration in days (use 0 for unlimited). Verifications allow you to use object variables and their values as condition (defined as variable_name|variable_expected_value. If many verifications, separate them by ';') for point allocation (e.g. group_id|1;active|1 will verify that the group id is 1 and active is 1).","Lista de eventos definida por: nome da classe magento, valor dos pontos, tipo de processo, alocaçéao de pontos max.  (0 quando não tiver valor), duração em dias entre 2 inserções (0 quando não tiver valor). O cliente deve estar conectado. A restrição de verificação do id para diferentes modelos do mesmo cliente (o mesmo id não sera tratado). Duração de validade em número de dias (0 quando não tiver valor). Verificações permitem a utilização de variáveis objecto e os seus valores enquanto condições (definido por nome_variavel|valor_previsto. Utilizar o separador ';' para varias verificações) para alocação de pontos (ex : group_id|1;active|1 verifique que o grupo id = 1 e active = 1)."
+Class Name,Nome da classe
+Id Verification,ID de verificação
+Point Value,Valor do ponto
+Process Once,Tratamento único 
+Duration,Duração
+Max Points,Pontos max.
+Max Usage,Utilização max.
+Verifications,Verificações
+Orders / Invoices summary,Resumo de encomendas/facturas
+Enable/disable summary on orders / invoices.,Activer/desactivar resumo de encomendas/facturas
+Show on admin orders,Mostrar encomendas de admin
+Show on order's viewing admin pages.,Mostrar nas pàginas de visualização as encomendas de admin
+Show on admin invoices,Mostrar as facturas de admin
+Show on invoice's viewing admin pages.,Mostrar nas pàginas de visualização as facturas de admin
+Show on client orders,Montrer sur commandes clients
+Show on order's viewing client pages.,Montrer sur les pages de visualisations de commandes clients
+Show on client invoices,Mostrar as facturas dos clientes
+Show on invoice's viewing client pages.,Mostrar as facturas vendo as páginas dos clientes
+Show on pdf invoices,Mostrar as facturas em formato pdf
+Show on pdf generated invoice's.,Mostrar as facturas geradas em pdf
+Invited friends,Amigo(s) convidado(s)
+Show details,Mostrar os detalhes
+Hide details,Esconder os detalhes
+Validity duration,Validade da duração
+Other point attibution,Outra atribuição de pontos
+"Other point allocation such as product review points, newsletter points, polls points are available from this section.",A configuração de outras atribuições de pontos estão disponíveis nesta secção.
+Participate to a poll and collect %s points.,Participe numa sondagem e ganhe %s pointos.
+Tag a product and collect %s points.,Faça um tag num produto e ganhe  %s pointos.
+Review and collect %s points.,Dê a sua opinião sobre um produto e ganhe %s pontos.
+Collect %s points when you create a new account.,Ganhe %s pontos na criação da conta.
+Signup to our newsletter and collect %s extra points.,Inscreva-se na newsletter para ganhar %s pontos suplementares.
+Key,Chave
+Exclude Tax,Excluir o IVA
+Exclude tax on gathered points.,Excluir o IVA nos pontos adquiridos.
+Show Top Points,Mostrar os pontos encima.
+Show customer points next to my account (works with default top.links theme).,Permite mostrar os pontos proximos do menu onde a está (função com o elemento top.links)
+Custom point usage values,Uso personalizado de pontos
+Points earned upon customer registration (points are allocated when customer logs into the system for the first time).,Pontos adquiridos no registo do utilizador (adquiridos unicamente quando o utilizador conecta-se pela primeira vez).
+Show registration point sentence (account creation),Mostrar os detalhes dos pontos (criação de conta)
+"If set to yes, registration point sentence is shown on top of account creation form (detault magento theme).","Se o valor estiver definido com o valor sim, uma frase será mostrada no topo do formulario de criação de conta (unicamente para temas Magento)."
+From customer id,Do Id cliente
+Start processing registration point from specific user id.,Tratar dos pontos deTraiter les points d'enregistrement uniquement depuis l'id utilisateur ci-dessus.
+Calculation type (referral points),Tipo de cálculo (points padrinho)
+"Calculation type used. ""Cart summary Ratio points"" multiplies cart subtotal by inserted value, ""Ratio points"" uses inserted value to calculate points and ""static value"" uses configuration value without any calculation. Note that any configured rules or points on product page will override Ratio points calculation.","Tipo de cálculo utilizado.  “Ratio do subtotal do carrinho” multiplica o subtotal pelo valor inserido. “Ratio dos pontos” usa o valor inserido para o cálculo dos pontos, e “valor estático” usa o campo dos valores sem cálculo.  "
+Referral child points or ratio,Pontos ou ratio afilhado
+Calculation type (child points),Tipo de cálculo (pontos filhos)
+Show review point sentence,Mostrar as frases de comentário dos pontos
+"If set to yes, review point sentence is shown under review urls on product view pages.","Se sim, uma frase será mostrada no link dos comentários na página dos produtos.B414"
+Show newsletter sentence (account creation),Mostrar a frase dos pontos da newsletter (creação de conta)
+"If set to yes, newsletter point sentence is shown on top of account creation form (detault magento theme).","se sim, um afrase será mostrada no topo do formulário de criação de conta (Tema Magento)."
+Show poll point sentence,Mostrar a frase do inquérito
+"If set to yes, poll point sentence is shown within poll sideboxes.","Se sim, uma frase será mostrada por baixo do formulário de sondagens."
+Show tag point sentence,Mostrar frases de tag point
+"If set to yes, tag point sentence is shown within tag form (product.tag.list.list.before block alias must be loaded within your layout.).","Se sim, uma frase tag point vai aparecer dentro do formulário tag (o alias do bloco product.tag.list.list.before deve ser carregado no tema)."
+Advanced referral points' configuration.,Configurção avançada dos pontos de apadrinhamento
+Referral Steps,Referral Steps
+Duplicate text on top,Duplicar o texto no topo
+Duplicate text on top of product page (only when product have options with price on top and price on bottom of the page).,Duplicar o texto no topo da página do produto (unicamente quando o produto tem opções com preço duplicado na página).
+Specify custom event triggering point actions.,Define os pontos durante uns eventos diversos.
+Event List,Lista de eventos
+%s point(s) calculation adjustment,Ajustamento de pontos após o resultado final: %s ponto(s)
+Find more about this!,Descubra mais!
+points multiplied by %s,pontos multiplicados por %s
+points divided by %s,pontos divididos por %s
+%s extra points added,%s pontos adicionados
+%s points substracted,%s pontos subtraídos
+"points multiplied by %s, %s (%s points)","pontos multiplicados por %s, %s (%s pontos)"
+"points divided by %s, %s (%s points)","pontos divididos por %s, %s (%s pontos)"
+"%s extra points added, %s","%s pontos adicionados, %s"
+"%s points substracted, %s","%s pontos subtraídos, %s"
+Please %s in order to redeem points.,Para poder usar os seus pontos : %s
+Please %s in order to use referral program.,Para poder usar o programa de fidelidade : %s
+"For any referred friend's registration, you earn: <strong>%s points</strong>","Por cada registo de um amigo indicado, irá receber <strong>%s pontos</strong>"
+"For any referred friend's registration, you friend earn: <strong>%s points</strong>","Por cada registo de um amigo indicado, o seu amigo recebe: <strong>%s pontos</strong>"
+Benefits from referral program,Vantagens do programa de fidelidade
+"With this product, you earn %d loyalty point(s).",Com este produto irá ganhar %d ponto(s) de fidelidade
+"With this product, you earn <span id='j2t-pts'>%s</span> loyalty point(s).",Com este produto irá ganhar <span id='j2t-pts'>%s</span> ponto(s) de fidelidade.
+"With this product, you earn <span id='j2t-pts'>%d</span> loyalty point(s).",Com este produto irá ganhar <span id='j2t-pts'>%s</span> ponto(s) de fidelidade.
