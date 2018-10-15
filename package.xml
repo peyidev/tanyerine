@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+    <name>Entrepids_Completeaddress</name>
+    <version>1.0.3</version>
+    <stability>stable</stability>
+    <license>CLUF Entrepids</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>M&#xF3;dulo de autocompletado de domicilio a partir del c&#xF3;digo postal. S&#xF3;lo para M&#xE9;xico.</summary>
+    <description>M&#xF3;dulo de autocompletado de domicilio a partir del c&#xF3;digo postal. S&#xF3;lo para M&#xE9;xico. Contiene los c&#xF3;digos postales de todo M&#xE9;xico obtenidos de la base de datos de Sepomex al 16 de Enero de 2017.</description>
+    <notes>Versi&#xF3;n.&#xD; 1.0.3</notes>
+    <authors><author><name>Miguel P&#xE9;rez</name><user>maph65</user><email>miguel.perez@entrepids.com.mx</email></author></authors>
+    <date>2017-02-23</date>
+    <time>13:40:18</time>
+    <compatible/>
+    <dependencies><required><php><min>5.4.3</min><max>7.0.14</max></php></required></dependencies>
+</package>

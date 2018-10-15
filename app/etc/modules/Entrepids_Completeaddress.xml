@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<config> 
+    <modules> 
+        <Entrepids_Completeaddress>
+        	<active>true</active>
+        	<codePool>community</codePool>
+        </Entrepids_Completeaddress>
+    </modules> 
+</config>
