@@ -111,6 +111,8 @@
                         <input type="text" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"  title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
                     </div>
                 </div>
+            </li>
+            <li class="fields">
                 <div class="field">
                     <label for="region_id" class="required"><em>*</em><?php echo $this->__('State/Province') ?></label>
                     <div class="input-box">
@@ -125,14 +127,14 @@
                         <input type="text" id="region" name="region" value="<?php echo $this->escapeHtml($this->getAddress()->getRegion()) ?>"  title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('region') ?>" />
                     </div>
                 </div>
-            </li>
-            <li class="fields">
                 <div class="field">
                     <label for="country" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
                     <div class="input-box">
                         <?php echo $this->getCountryHtmlSelect() ?>
                     </div>
                 </div>
+            </li>
+            <li class="fields">
                 <div class="field">
                     <label for="neighborhood" class="required"><em>*</em><?php echo $this->__('Neighborhood') ?></label>
                     <div class="input-box">
