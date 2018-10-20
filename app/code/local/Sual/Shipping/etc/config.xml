@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Sual_Shipping>
+            <version>0.1.0</version>
+        </Sual_Shipping>
+    </modules>
+    <global>
+        <models>
+            <sual_shipping>
+                <class>Sual_Shipping_Model</class>
+            </sual_shipping>
+        </models>
+    </global>
+    <default>
+        <carriers>
+            <sual_rates>
+                <active>1</active>
+                <model>sual_shipping/carrier_rates</model>
+                <title>Shipping Methods</title>
+                <name>Shipping Methods</name>
+            </sual_rates>
+        </carriers>
+    </default>
+</config>
