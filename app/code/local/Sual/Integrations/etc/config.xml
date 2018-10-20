@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sual_Integrations>
+            <version>0.1.0</version>
+        </Sual_Integrations>
+    </modules>
+    <global>
+        <models>
+            <sual_integrations>
+                <class>Sual_Integrations_Model</class>
+                <resourceModel>sual_integrations_resource</resourceModel>
+            </sual_integrations>
+            <sual_integrations_resource>
+                <class>Sual_Integrations_Model_Resource</class>
+            </sual_integrations_resource>
+        </models>
+        <blocks>
+            <sual_integrations>
+                <class>Sual_Integrations_Block</class>
+            </sual_integrations>
+        </blocks>
+        <helpers>
+            <sual_integrations>
+                <class>Sual_Integrations_Helper</class>
+            </sual_integrations>
+        </helpers>
+        <resources>
+            <sual_integrations_setup>
+                <setup>
+                    <module>Sual_Integrations</module>
+                </setup>
+            </sual_integrations_setup>
+        </resources>
+    </global>
+</config>
