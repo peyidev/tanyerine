@@ -33,7 +33,10 @@ class Entrepids_Completeaddress_IndexController extends Mage_Core_Controller_Fro
         }
         //Imprimimos resultados
         $json = json_encode($result);
-        $this->getResponse()->setHeader('Content-type', 'application/json');
-        $this->getResponse()->setBody($json);
+        //$this->getResponse()->setHeader('Content-type', 'application/json');
+        header('Content-Type: application/json');
+        echo $json;
+        die;
+        //$this->getResponse()->setBody($json);
     }
 }
