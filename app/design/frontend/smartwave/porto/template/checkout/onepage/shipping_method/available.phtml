@@ -69,7 +69,15 @@
                 <?php endforeach; ?>
                 </ul>
             <?php else: ?>
-                <select name="shipping_method">
+                <ul>
+                    <li>
+                        <input name="shipping_method" type="radio" value="<?php echo $code ?>" id="s_method_<?php echo $code ?>"<?php if(strpos($code, $this->getAddressShippingMethod()) !== false) echo ' checked="checked"' ?> class="radio"/>
+                        <label for="s_method_<?php echo $code ?>">
+                            <?php echo $this->escapeHtml($this->getCarrierName($code)) ?>
+                        </label>                        
+                    </li>
+                </ul>
+                <select name="shipping_method" id="selector_<?php echo $code ?>">
                     <?php foreach ($_rates as $_rate): ?>
                         <option value="<?php echo $_rate->getCode() ?>">
                             <?php echo $this->escapeHtml($_rate->getMethodTitle()) ?>
@@ -82,6 +90,14 @@
     </dl>
 <script type="text/javascript">
 //<![CDATA[
+    jQuery(document).ready(function(){
+        jQuery('#s_method_sual_storepickup').click(function(){
+            jQuery('#s_method_sual_storepickup').val(jQuery('#selector_sual_storepickup').val());
+        });
+        jQuery('#selector_sual_storepickup').change(function(){
+            jQuery('#s_method_sual_storepickup').val(jQuery('#selector_sual_storepickup').val());
+        });
+    });
     <?php if (!empty($shippingCodePrice)): ?>
         var shippingCodePrice = {<?php echo implode(',',$shippingCodePrice); ?>};
     <?php endif; ?>
