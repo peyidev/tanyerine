@@ -20,6 +20,12 @@
                 <title>Shipping Methods</title>
                 <name>Shipping Methods</name>
             </sual_rates>
+             <sual_storepickup>
+                <active>1</active>
+                <model>sual_shipping/carrier_storepickup</model>
+                <title>Pickup in Store</title>
+                <name>Pickup in Store</name>
+            </sual_storepickup>
         </carriers>
     </default>
 </config>
