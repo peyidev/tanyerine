@@ -17,14 +17,20 @@
             <sual_rates>
                 <active>1</active>
                 <model>sual_shipping/carrier_rates</model>
-                <title>Shipping Methods</title>
-                <name>Shipping Methods</name>
+                <title>Sual methods</title>
+                <name>Sual methods</name>
+                <estafeta_title>DLH</estafeta_title>
+                <dhl_title>Estafeta</dhl_title>
             </sual_rates>
-             <sual_storepickup>
+            <sual_storepickup>
                 <active>1</active>
                 <model>sual_shipping/carrier_storepickup</model>
                 <title>Pickup in Store</title>
                 <name>Pickup in Store</name>
+                <store1>Store 1</store1>
+                <store2>Store 2</store2>
+                <store3>Store 3</store3>
+                <store4>Store 4</store4>
             </sual_storepickup>
         </carriers>
     </default>

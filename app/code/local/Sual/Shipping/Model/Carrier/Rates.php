@@ -9,7 +9,7 @@ class Sual_Shipping_Model_Carrier_Rates
 
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
-        if (!$this->getConfigFlag('active')) {
+        if (!$this->getConfigData('active')) {
             return false;
         }
         
@@ -37,9 +37,9 @@ class Sual_Shipping_Model_Carrier_Rates
         if($response->result->status) {
             $method = Mage::getModel('shipping/rate_result_method');
             $method->setCarrier('sual_rates');
-            $method->setCarrierTitle('Estafeta');
+            $method->setCarrierTitle($this->getConfigData('title'));
             $method->setMethod('sual_estafeta');
-            $method->setMethodTitle('Estafeta');
+            $method->setMethodTitle($this->getConfigData('estafeta_title'));
             $method->setPrice($response->result->rate);
             $method->setCost($response->result->rate);
             return $method; 
@@ -55,9 +55,9 @@ class Sual_Shipping_Model_Carrier_Rates
         if($response->result->status) {
             $method = Mage::getModel('shipping/rate_result_method');
             $method->setCarrier('sual_rates');
-            $method->setCarrierTitle('DHL');
+            $method->setCarrierTitle($this->getConfigData('title'));
             $method->setMethod('sual_dhl');
-            $method->setMethodTitle('DHL');
+            $method->setMethodTitle($this->getConfigData('dhl_title'));
             $method->setPrice($response->result->rate);
             $method->setCost($response->result->rate);
             return $method; 

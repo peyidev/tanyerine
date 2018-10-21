@@ -3,8 +3,8 @@
 	<sections>
 		<carriers>
 			<groups>
-				<banorte translate="label">
-                    <label>Sual</label>
+				<sual_storepickup translate="label">
+                    <label>Sual Pickup in Store</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>200</sort_order>
                     <show_in_default>1</show_in_default>
@@ -12,7 +12,7 @@
                     <show_in_store>0</show_in_store>
                     <fields>
                         <active translate="label">
-                            <label>State</label>
+                            <label>Enable</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>10</sort_order>
@@ -22,24 +22,105 @@
                         </active>
                         <title translate="label">
                             <label>Title</label>
-                            <comment>The label for the module which will appear in Magento's checkout payment step</comment>
                             <frontend_type>text</frontend_type>
-                            <sort_order>20</sort_order>
+                            <sort_order>70</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
+                            <show_in_store>0</show_in_store>
                         </title>
                         <name translate="label">
-                            <label>URL</label>
-                            <comment>Url to process payment</comment>
+                            <label>Name</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>70</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </name>
+                        <store1 translate="label">
+                            <label>Store 1 - Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </store1>
+                        <store2 translate="label">
+                            <label>Store 2 - Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </store2>
+                        <store3 translate="label">
+                            <label>Store 3 - Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </store3>
+                        <store4 translate="label">
+                            <label>Store 4 - Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </store4>
                     </fields>
-                </banorte>
+                </sual_storepickup>
+                <sual_rates translate="label">
+                    <label>Sual Estafeta/DHL</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </title>
+                        <name translate="label">
+                            <label>Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </name>
+                        <estafeta_title translate="label">
+                            <label>Estafeta title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </estafeta_title>
+                        <dhl_title translate="label">
+                            <label>DHL title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </dhl_title>
+                    </fields>
+                </sual_rates>
 			</groups>
 		</carriers>
 	</sections>
