@@ -12,10 +12,6 @@ class Sual_Integrations_Helper_Data extends Mage_Core_Helper_Abstract {
 
     public function callService($type, $params){
 
-        if(is_array($params)){
-            $params = json_encode($params);
-        }
-
         $handle = curl_init();
 
         $url = $this->url . $type;
