@@ -32,5 +32,15 @@
                 </setup>
             </sual_integrations_setup>
         </resources>
+        <events>
+            <controller_action_predispatch_customer_account_loginPost>
+                <observers>
+                    <sual_integrations_controller_action_predispatch_customer_account_loginPost>
+                        <class>Sual_Integrations_Model_Observer</class>
+                        <method>importCustomer</method>
+                    </sual_integrations_controller_action_predispatch_customer_account_loginPost>
+                </observers>
+            </controller_action_predispatch_customer_account_loginPost>     
+        </events>
     </global>
 </config>
