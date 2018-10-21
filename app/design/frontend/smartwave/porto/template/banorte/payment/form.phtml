@@ -28,6 +28,16 @@
                 <input type="text" id="<?php echo $_code ?>_cc_number" name="payment[cc_number]" title="<?php echo $this->__('Credit Card Number') ?>" class="input-text validate-cc-number validate-cc-type" value="" />
             </div>
         </li>
+        <li class="cardform-name">
+            <div class="input-box firstname" >
+                <label for="<?php echo $_code ?>_firstname"><?php echo $this->__('Firstname') ?> <span class="required">*</span></label><br/>
+                <input type="text" id="<?php echo $_code ?>_cc_number" name="payment[firstname]" title="<?php echo $this->__('Firstname') ?>" class="input-text required-entry" value="" />
+            </div>
+            <div class="input-box lastname">
+                <label for="<?php echo $_code ?>_lastfirstname"><?php echo $this->__('Lastname') ?> <span class="required">*</span></label><br/>
+                <input type="text" id="<?php echo $_code ?>_cc_number" name="payment[lastname]" title="<?php echo $this->__('Firstname') ?>" class="input-text required-entry" value="" />
+            </div>
+        </li>
         <li>
             <div class="input-box">
                 <label for="<?php echo $_code ?>_expiration"><?php echo $this->__('Expiration Date') ?> <span class="required">*</span></label><br />
@@ -65,7 +75,7 @@
                 <label for="<?php echo $_code ?>_cc_deferred"><?php echo $this->__('Months') ?> <span class="required">*</span></label><br />
                 <div class="v-fix">
                     <?php $_ccDeferred = $this->getInfoData('cc_deferred')?>
-                    <select id="<?php echo $_code ?>_cc_deferred" name="payment[cc_deferred]" class="required-entry">
+                    <select id="<?php echo $_code ?>_cc_deferred" name="payment[cc_deferred]">
                         <option value=""><?php echo $this->__('--Please Select--')?></option>
                     <?php foreach($this->getInstallments() as $v):?>
                         <option value="<?php echo $v?>"<?php if($v == $_ccDeferred):?> selected="selected"<?php endif?>><?php echo $v . " " . $this->__($v == 1 ? 'payment' : 'months') ?> </option>

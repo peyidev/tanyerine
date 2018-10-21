@@ -30,17 +30,60 @@ class Sual_Banorte_Model_Payment extends Mage_Payment_Model_Method_Cc {
      * @param Varien_Object $payment
      * @param  float  $amount
      */
-    public function authorize(Varien_Object $payment, $amount) {
-       
-        if(true) {
+    public function authorize(Varien_Object $payment, $amount) 
+    {
+        
+
+        $response = $this->createPayment();
+        if($response->data->approved) {
             $payment->setIsTransactionClosed(true);
             $payment->setTransactionId("sdsdasd");
         } else{
-            Mage::throwException(urldecode($response->getText()));
+            Mage::throwException($this->__('Error procesing the order'));
         }
-        
         return $this;
     }
+
+    private function createPayment() 
+    {
+        $billing = $this->_getOrder()->getBillingAddress();
+        $helper =  Mage::helper('sual_integrations/data');
+        $cart = Mage::app()->getRequest()->getParam('payment');
+        $params = array();
+        $params['BillTo_firstName'] = $cart['firstname'];
+        $params['BillTo_lastName'] = $cart['lastname'];
+        $params['BillTo_street'] = str_replace(' ', '', $billing->getStreet(1));
+        $params['BillTo_streetNumber'] = str_replace(' ', '', $billing->getStreet(2));
+        $params['BillTo_streetNumber2'] =str_replace(' ', '', $billing->getStreet(3));
+        $params['BillTo_street2Col'] = $billing->getNeighborhood();
+        $params['BillTo_street2Del'] = $billing->getCity();
+        $params['BillTo_city'] = $billing->getCity();
+        $params['BillTo_state'] = $billing->getRegion();
+        $params['BillTo_country'] = $billing->getCountryId();
+        $params['BillTo_phoneNumber'] = $billing->getTelephone();
+        $params['BillTo_postalCode'] = $billing->getPostcode();
+        $params['BillTo_email'] = $billing->getEmail();
+ 
+        if ($cart['cc_type'] == "VI") {
+            $cardtype = "001";
+        } else if ($cart['cc_type'] == "MC") {
+            $cardtype = "002";
+        } else {
+            $cardtype = "";
+        }
+        //002 PARA MASTERCARD - 001 PARA VISA
+        $params['Card_accountNumber'] = $cart['cc_number'];
+        $params['Card_cardType'] = $cardtype;
+        $params['Card_expirationMonth'] = $cart['cc_exp_month'];
+        $params['Card_expirationYear'] = $cart['cc_exp_year'];
+        $params['Card_cardCCV'] = $cart['cc_cid'];
+        $params['PurchaseTotals_grandTotalAmount'] = $this->_getOrder()->getGrandTotal();
+        //0 3 6
+
+        $params['Card_cardPromotion'] = (int)$cart['cc_deferred'];
+        $params['DeviceFingerprintID'] = rand(10000000, 19999999);
+        return $helper->callService("procesa/banorte",$params);
+    } 
 
     /**
      * Retrieve information from payment configuration

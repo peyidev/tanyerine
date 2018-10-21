@@ -278,6 +278,17 @@ body.full-width .product-view .product-img-box:not(.type-){
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.cardform-name .input-box {
+	width: 50%;
+	float: left;
+	clear: initial;
+}
+.cardform-name .input-box.firstname {
+	padding-right: 5px;
+}
+.cardform-name .input-box.lastname {
+	padding-left: 5px;
+}
 @media (min-width:991px) and (max-width:1100px) {
 	.header-search .centercontainer {
 		float: left;
