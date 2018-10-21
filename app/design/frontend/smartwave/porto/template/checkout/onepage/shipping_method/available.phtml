@@ -77,9 +77,9 @@
                         </label>                        
                     </li>
                 </ul>
-                <select name="shipping_method" id="selector_<?php echo $code ?>">
+                <select name="shipping_method_pickup" id="selector_<?php echo $code ?>">
                     <?php foreach ($_rates as $_rate): ?>
-                        <option value="<?php echo $_rate->getCode() ?>">
+                        <option value="<?php echo $_rate->getCode() ?>" <?php if($_rate->getCode()===$this->getAddressShippingMethod()) echo ' selected' ?> >
                             <?php echo $this->escapeHtml($_rate->getMethodTitle()) ?>
                         </option>  
                     <?php endforeach; ?>
@@ -94,8 +94,12 @@
         jQuery('#s_method_sual_storepickup').click(function(){
             jQuery('#s_method_sual_storepickup').val(jQuery('#selector_sual_storepickup').val());
         });
+        jQuery('input[name="shipping_method"]').click(function(){
+            jQuery(this).prop('checked', true);
+        });
         jQuery('#selector_sual_storepickup').change(function(){
             jQuery('#s_method_sual_storepickup').val(jQuery('#selector_sual_storepickup').val());
+            jQuery('#s_method_sual_storepickup').prop('checked', true);
         });
     });
     <?php if (!empty($shippingCodePrice)): ?>

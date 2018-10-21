@@ -9,7 +9,7 @@ class Sual_Shipping_Model_Carrier_Storepickup
 
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
-        if (!$this->getConfigFlag('active')) {
+        if (!$this->getConfigData('active')) {
             return false;
         }
 
@@ -21,6 +21,9 @@ class Sual_Shipping_Model_Carrier_Storepickup
             $result->append($storepickup);
         }
         if($storepickup = $this->getStorePickUp(3)) {
+            $result->append($storepickup);
+        }
+        if($storepickup = $this->getStorePickUp(4)) {
             $result->append($storepickup);
         }
         return $result;
@@ -35,11 +38,11 @@ class Sual_Shipping_Model_Carrier_Storepickup
     {
         $method = Mage::getModel('shipping/rate_result_method');
         $method->setCarrier('sual_storepickup');
-        $method->setCarrierTitle('PickUp in Store');
+        $method->setCarrierTitle($this->getConfigData('title'));
         $method->setMethod('sual_storepickup_'.$storeId);
-        $method->setMethodTitle('PickUp in Store '.$storeId);
-        $method->setPrice(10);
-        $method->setCost(10);
+        $method->setMethodTitle($this->getConfigData('store'.$storeId));
+        $method->setPrice(0);
+        $method->setCost(0);
         return $method; 
     }
 
