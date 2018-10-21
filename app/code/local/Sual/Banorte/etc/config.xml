@@ -36,6 +36,7 @@
                 <payment_action>authorize</payment_action>
                 <cctypes>VI,MC</cctypes>
                 <sort_order>0</sort_order>
+                <installments>3,6</installments>
             </banorte>
         </payment>
     </default>

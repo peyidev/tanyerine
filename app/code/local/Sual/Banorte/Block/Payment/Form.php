@@ -28,12 +28,7 @@ class Sual_Banorte_Block_Payment_Form extends Mage_Payment_Block_Form_Cc {
     public function canDefer(){
         $model = Mage::getSingleton('banorte/payment');
         $result = false;
-        $minTotal = $model->getConfigData('min_total_deferred');
-        
-        if($model->getConfigData('months') &&
-                $model->getConfigData('installments') !== '' &&
-                (!empty($minTotal)) &&
-                $this->_getQuote()->getGrandTotal() >= $minTotal) {
+        if($model->getConfigData('installments') !== '') {
             $result = true;
         }
 
