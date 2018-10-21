@@ -6,14 +6,17 @@
     <?php echo $this->getChildHtml('form_fields_before')?>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
-        <div class="social-container">
-            <?php echo $this->getChildHtml('pslogin_buttons')?>
-            <p class="line">
-                <span>
-                    <?php echo $this->__('ó') ?>
-                </span>
-            </p>
-        </div>
+        <?php $social =  $this->getChildHtml('pslogin_buttons')?>
+        <?php if(trim($social)): ?>
+            <div class="social-container">
+                <?php echo $social ?>
+                <p class="line">
+                    <span>
+                        <?php echo $this->__('ó') ?>
+                    </span>
+                </p>
+            </div>
+        <?php endif; ?>
         <div class="fieldset">
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
