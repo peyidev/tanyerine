@@ -21,14 +21,17 @@
                 <div class="registered-users form-wrap">
                     <div class="content">
                         <h2><?php echo $this->__('Registered Customers') ?></h2>
-                        <div class="social-container">
-                            <?php echo $this->getChildHtml('pslogin_buttons')?>
-                            <p class="line">
-                                <span>
-                                    <?php echo $this->__('ó') ?>
-                                </span>
-                            </p>
-                        </div>
+                        <?php $social =  $this->getChildHtml('pslogin_buttons')?>
+                        <?php if(trim($social)): ?>
+                            <div class="social-container">
+                                <?php echo $social ?>
+                                <p class="line">
+                                    <span>
+                                        <?php echo $this->__('ó') ?>
+                                    </span>
+                                </p>
+                            </div>
+                        <?php endif; ?>
                         <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
                         <ul class="form-list">
                             <li>
