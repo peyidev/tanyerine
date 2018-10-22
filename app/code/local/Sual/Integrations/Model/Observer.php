@@ -29,4 +29,38 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
       }
       return $this;
    }
+
+   public function exportCustomer($observer) 
+   {
+      $this->add_member();
+   }
+
+   public function add_member($customer) 
+   {
+      try {
+         $resquest = Mage::app()->getRequest();
+         $login_as = $resquest->getParam('email');
+         $name = $resquest->getParam('firstname');
+         $first_name = $resquest->getParam('firstname');
+         $last_name = $resquest->getParam('lastname');
+         $last_name = $resquest->getParam('lastname');
+         $email = $resquest->getParam('email');
+         $password = $resquest->getParam('password');
+         $mobile = $resquest->getParam('phone');
+         $password = $resquest->getParam('password');
+         $birth_day = $resquest->getParam('day');
+         $birth_month = $resquest->getParam('month');
+         $birth_year = $resquest->getParam('year');
+         $newsletter = $resquest->getParam('is_subscribed');
+
+         $query = "INSERT INTO sb_member ( login_as, name, first_name, last_name, email, password, mobile, birth_day, birth_month, birth_year, newsletter, is_guest, ctrl_status ) " .
+                    "VALUES ('','{$name}','{$first_name}','{$last_name}','{$email}',AES_ENCRYPT('{$password}','SualBeauty'),'{$mobile}',{$birth_day},{$birth_month},{$birth_year},'{$newsletter}', 'N', 'P' )";
+                    
+         $new_db_resource = Mage::getSingleton('core/resource');
+         $connection = $new_db_resource->getConnection('import_db');
+         $customerData = $connection->query($query);
+      } catch (Exception $e) {
+         Mage::log($e->getMessage());
+      }
+   }
 }
