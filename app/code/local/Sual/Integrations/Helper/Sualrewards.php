@@ -31,7 +31,6 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
 
         if (!$this->rewardsEqual($sbeauty, $magento)) {
 
-
             $originRewards = $this->getDetailRewardsFromOrigin($customerId);
             $magentoRewards = $this->getDetailRewardsFromMagento($customerId);
             $magentoControlKeys = array_column($magentoRewards,'rewardpoints_description');
@@ -45,7 +44,6 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
 
             }
 
-
         }
     }
 
@@ -53,6 +51,7 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
     public function testRewards()
     {
         $this->balancePoints(2);
+        $this->getPointsFromOrder(100000003);
     }
 
     public function getDetailRewardsFromMagento($customerId)
@@ -185,7 +184,7 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
         }
 
         $data = array(
-            (($points > 0) ? 'points_current' :  'points_spent') => $points,
+            (($points > 0) ? 'points_current' :  'points_spent') => abs($points),
             'customer_id' => $customerId,
             'store_id' => $storeIds,
             'order_id' => J2t_Rewardpoints_Model_Stats::TYPE_POINTS_ADMIN,
@@ -206,6 +205,26 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
         return true;
     }
 
+    public function getPointsFromOrder($orderId){
 
+        $resource = Mage::getSingleton('core/resource');
+        $readConnection = $resource->getConnection('core_read');
+
+        $tableName = $resource->getTableName('rewardpoints_account');
+
+        $query = "SELECT * FROM $tableName  WHERE order_id = '{$orderId}'";
+        $magentoRewards = $readConnection->fetchAll($query);
+        $result = array();
+
+        foreach($magentoRewards as $reward){
+            if($reward['points_current'] != 0)
+                $result[] = $reward['points_current'];
+            if($reward['points_spent'] != 0)
+                $result[] = $reward['points_spent'] * -1;
+        }
+
+        return $result;
+
+    }
 
 }
