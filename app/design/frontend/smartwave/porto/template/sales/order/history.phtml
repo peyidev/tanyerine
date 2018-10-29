@@ -88,7 +88,6 @@
                     <th><?php echo $this->__('Ship To') ?></th>
                     <th><span class="nobr"><?php echo $this->__('Order Total') ?></span></th>
                     <th><span class="nobr"><?php echo $this->__('Order Status') ?></span></th>
-                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -100,11 +99,6 @@
                     <td><?php echo $_order['shipping_firstname']." ".$_order['shipping_lastname'] ?></td>
                     <td><?php echo $_order['subtotal'] ?></td>
                     <td><em><?php echo $_order['payment_status'] ?></em></td>
-                    <td class="a-center">
-                        <span class="nobr">
-                            &nbsp;
-                        </span>
-                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
