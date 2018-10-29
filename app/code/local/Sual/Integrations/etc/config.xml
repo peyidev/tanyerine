@@ -41,6 +41,16 @@
                     </sual_integrations_controller_action_predispatch_customer_account_loginPost>
                 </observers>
             </controller_action_predispatch_customer_account_loginPost>     
+            
+            <customer_login>
+                <observers>
+                    <sual_integrations_customer_customer_login>
+                        <class>Sual_Integrations_Model_Observer</class>
+                        <method>importRewards</method>
+                    </sual_integrations_customer_customer_login>
+                </observers>
+            </customer_login>
+
             <customer_register_success>
                 <observers>
                     <sual_integrations_customer_register_success>
