@@ -226,5 +226,4 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
         return $result;
 
     }
-
 }

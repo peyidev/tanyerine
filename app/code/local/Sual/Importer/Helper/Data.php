@@ -18,11 +18,11 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         $this->output .= "Ejecutado desde <strong>{$source}</strong>\n";
         $this->parentCategoryId = Mage::getModel('catalog/category')
             ->getCollection()
-            ->setStoreId()
+            ->setStoreId(1)
             ->addAttributeToFilter('name', 'SUAL')->getFirstItem()->getId();
 
         $executionStartTime = microtime(true);
-        //$this->importCategories();
+        $this->importCategories();
         $executionEndTime1 = microtime(true);
         $minutes = ($executionEndTime1 - $executionStartTime) / 60;
         $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
@@ -102,15 +102,18 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         }
     }
 
-    public function categoryExist($childCategoryName, $parentCategoryId)
+    public function categoryExist($childCategoryName, $parentCategoryId, $inactive = false)
     {
 
         $parentCategory = Mage::getModel('catalog/category')->load($parentCategoryId);
-        $childCategory = Mage::getModel('catalog/category')->getCollection()
-            ->addIdFilter($parentCategory->getChildren())
-            ->addAttributeToFilter('name', $childCategoryName)
-            ->getFirstItem()->getId();
 
+
+        $childCategory = Mage::getModel('catalog/category')->getCollection()
+            ->addIdFilter(
+                !$inactive ? $parentCategory->getChildren() :  $parentCategory->getResource()->getChildrenIds($parentCategory)
+            )
+            ->addAttributeToFilter('name_sap', $childCategoryName)
+            ->getFirstItem()->getId();
 
         if (!empty($childCategory)) {
             return $childCategory;
@@ -140,10 +143,11 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
             if (!$categoryId) {
                 //$this->output .=  "Insertando Categoria {$category['category']} URL {$url}\n";
+                //echo  "Insertando Categoria {$category['category']} URL {$url}\n";
                 $categoryId = $this->insertCategory($name, $url, $parentCategoryId);
             }
 
-            //$this->output .=  $categoryId . " CATEGORIA PADRE - \n";
+            //echo  $categoryId . " CATEGORIA PADRE - \n";
 
 
             $subcategories = $connection->query(" SELECT subcategory
@@ -160,7 +164,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 $subcategoryId = $this->categoryExist($nameSub, $categoryId);
 
                 if (!$subcategoryId) {
-                    //$this->output .=  "\tInsertando subcategoria {$subcategory['subcategory']} URL -> {$urlSub}\n";
+                    //echo "\tInsertando subcategoria {$subcategory['subcategory']} URL -> {$urlSub}\n";
                     $subcategoryId = $this->insertCategory($nameSub, $urlSub, $categoryId);
                 }
 
@@ -172,15 +176,16 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 foreach ($lines as $line) {
 
                     $line = $this->utf8_converter($line);
-                    continue;
+                    //continue;
                     //Remove this to insert lines
                     $nameLine = $line['line'];
                     $urlLine = $this->getUrl($nameLine);
 
-                    $lineId = $this->categoryExist($nameLine, $subcategoryId);
+                    $lineId = $this->categoryExist($nameLine, $subcategoryId, true);
 
                     if (!$lineId) {
                         //$this->output .=  "\t\tInsertando linea {$lineId['line']} URL -> {$urlLine}\n";
+                        //echo  "\t\tInsertando linea {$lineId['line']} URL -> {$urlLine}\n";
                         $this->insertCategory($nameLine, $urlLine, $subcategoryId, false);
 
                     }
@@ -197,7 +202,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 5000;
+        $limit = 50;
         $limitSql = " LIMIT {$limit}";
 
         $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
@@ -217,7 +222,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             $this->insertProduct($product);
 
            // if(!empty($product))
-           //     echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+           //     //echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
 
         }
 
@@ -315,12 +320,11 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     public function categorizeProduct(&$product, $productSual)
     {
 
-
         $parentCategory = $this->parentCategoryId;
 
         $category = $this->categoryExist($productSual['category'], $parentCategory);
         $subcategory = $this->categoryExist($productSual['subcategory'], $category);
-        $line = $this->categoryExist($productSual['line'], $subcategory);
+        $line = $this->categoryExist($productSual['line'], $subcategory, true);
 
         $categories = array();
 
@@ -341,8 +345,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
     public function insertProduct($productSual)
     {
-
-
+        
         Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
         $product = Mage::getModel('catalog/product');
 
@@ -380,6 +383,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         $categoryMagento = Mage::getModel('catalog/category');
         $categoryMagento->setName($name);
+        $categoryMagento->setNameSap($name);
         $categoryMagento->setUrlKey($url);
         $categoryMagento->setIsActive($isActive);
         $categoryMagento->setDisplayMode(Mage_Catalog_Model_Category::DM_PRODUCT);
