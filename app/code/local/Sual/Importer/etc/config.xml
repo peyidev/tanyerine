@@ -21,6 +21,11 @@
             </sual_importer_resource>
         </models>
         <blocks>
+            <sales>
+                <rewrite>
+                    <order_history>Sual_Importer_Block_Order_History</order_history>
+                </rewrite>
+            </sales>
             <sual_importer>
                 <class>Sual_Importer_Block</class>
             </sual_importer>
