@@ -16,7 +16,6 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
       $customer->setWebsiteId($websiteId)->setStore($store);
       $current = $customer->loadByEmail($email);
       
-            $this->importOrders($customerData);
       if ($customerData && !$current->entity_id) {
          $customer->setFirstname($customerData['first_name'])
                ->setLastname($customerData['last_name'])
@@ -24,11 +23,12 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
                ->setPhone($customerData['mobile'])
                ->setDob($customerData['birth_day']."/".$customerData['birth_month']."/".$customerData['birth_year'])
                ->setPassword($customerData['decryptedpassword']);
-         // /try{
+         try{
             $customer->save();
-         //} catch (Exception $e) {
-           // Mage::log("Error creating customer on login event");
-         //}
+            //$this->importOrders($customerData);
+         } catch (Exception $e) {
+            Mage::log("Error creating customer on login event");
+         }
       }
       return $this;
    }
@@ -171,14 +171,14 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
          'save_in_address_book' => 0
       ));
 
-      if($shipprice==0){
-         $shipmethod = 'freeshipping_freeshipping';
-      }
+      //if($shipprice==0){
+         //$shipmethod = 'freeshipping_freeshipping';
+      //}
 
       // Collect Rates and Set Shipping & Payment Method
       $shippingAddress->setCollectShippingRates(true)
       ->collectShippingRates()
-      ->setShippingMethod('flatrate_flatrate')
+      ->setShippingMethod('freeshipping_freeshipping')
       ->setPaymentMethod('checkmo');
 
       // Set Sales Order Payment
