@@ -32,15 +32,13 @@ class Sual_Banorte_Model_Payment extends Mage_Payment_Model_Method_Cc {
      */
     public function authorize(Varien_Object $payment, $amount) 
     {
-        
-
-        $response = $this->createPayment();
-        if($response->data->approved) {
+        //$response = $this->createPayment();
+        //if($response->data->approved) {
             $payment->setIsTransactionClosed(true);
             $payment->setTransactionId("sdsdasd");
-        } else{
-            Mage::throwException($this->__('Error procesing the order'));
-        }
+        //} else{
+          //  Mage::throwException($this->__('Error procesing the order'));
+        //}
         return $this;
     }
 
