@@ -176,7 +176,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 foreach ($lines as $line) {
 
                     $line = $this->utf8_converter($line);
-                    //continue;
+                    continue;
                     //Remove this to insert lines
                     $nameLine = $line['line'];
                     $urlLine = $this->getUrl($nameLine);
