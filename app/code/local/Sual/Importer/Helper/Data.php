@@ -237,6 +237,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     public function insertProductBaseAttributes(&$product, $productSual, $urlImage)
     {
 
+        print_r($productSual);
         $idAttribute = $this->addAttributeValue('brand', $productSual['brand']);
 
         $product
@@ -265,7 +266,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                     'use_config_manage_stock' => 0, //'Use config settings' checkbox
                     'manage_stock' => 1, //manage stock
                     'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
-                    'is_in_stock' => ($productSual['description'] > 0) ? 1 : 0, //Stock Availability
+                    'is_in_stock' => ($productSual['available'] > 0) ? 1 : 0, //Stock Availability
                     'qty' => $productSual['available'] //qty
                 )
             )
@@ -319,7 +320,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                     'use_config_manage_stock' => 0, //'Use config settings' checkbox
                     'manage_stock' => 1, //manage stock
                     'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
-                    'is_in_stock' => ($productSual['description'] > 0) ? 1 : 0, //Stock Availability
+                    'is_in_stock' => ($productSual['available'] > 0) ? 1 : 0, //Stock Availability
                     'qty' => $productSual['available'] //qty
                 )
             );
