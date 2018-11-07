@@ -202,7 +202,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 50;
+        $limit = 500;
         $limitSql = " LIMIT {$limit}";
 
         $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
@@ -288,8 +288,9 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         //$this->output .=  "Insertando Atributos base";
     }
 
-    public function insertProductSapAttributes(&$product, $productSual)
+    public function insertProductSapAttributes(&$product, $productSual, $isUpdate = false)
     {
+
         $product->setBrandSap($productSual['brand'])
             ->setSubbrandSap($productSual['subbrand'])
             ->setNameSap($productSual['name'])
@@ -314,15 +315,17 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setSizeNameSap($productSual['size_name'])
             ->setTypeSap($productSual['type'])
             //hay que quitar este
-            ->setHowtouse($productSual['howtouse'])
-            ->setStockData(array(
-                    'use_config_manage_stock' => 0, //'Use config settings' checkbox
-                    'manage_stock' => 1, //manage stock
-                    'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
-                    'is_in_stock' => ($productSual['available'] > 0) ? 1 : 0, //Stock Availability
-                    'qty' => $productSual['available'] //qty
-                )
-            );
+            ->setHowtouse($productSual['howtouse']);
+
+            if($isUpdate){
+                $stockItem = Mage::getModel('cataloginventory/stock_item');
+                $stockItem->assignProduct($product);
+                $stockItem->setData('is_in_stock', ($productSual['available'] > 0) ? 1 : 0);
+                $stockItem->setData('stock_id', 1);
+                $stockItem->setData('store_id', 1);
+                $stockItem->setData('qty', $productSual['available']);
+                $stockItem->save();
+            }
     }
 
     public function categorizeProduct(&$product, $productSual)
@@ -375,7 +378,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 $this->insertados++;
                 return $product;
             } else {
-                $this->insertProductSapAttributes($productExists, $productSual);
+                $this->insertProductSapAttributes($productExists, $productSual, true);
                 $this->categorizeProduct($productExists, $productSual);
                 $productExists->save();
                 $this->actualizados++;
