@@ -265,8 +265,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                     'use_config_manage_stock' => 0, //'Use config settings' checkbox
                     'manage_stock' => 1, //manage stock
                     'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
-                    'is_in_stock' => 1, //Stock Availability
-                    'qty' => 10 //qty
+                    'is_in_stock' => ($productSual['description'] > 0) ? 1 : 0, //Stock Availability
+                    'qty' => $productSual['available'] //qty
                 )
             )
             /* Sual eCom */
@@ -314,7 +314,15 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setSizeNameSap($productSual['size_name'])
             ->setTypeSap($productSual['type'])
             //hay que quitar este
-            ->setHowtouse($productSual['howtouse']);
+            ->setHowtouse($productSual['howtouse'])
+            ->setStockData(array(
+                    'use_config_manage_stock' => 0, //'Use config settings' checkbox
+                    'manage_stock' => 1, //manage stock
+                    'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
+                    'is_in_stock' => ($productSual['description'] > 0) ? 1 : 0, //Stock Availability
+                    'qty' => $productSual['available'] //qty
+                )
+            );
     }
 
     public function categorizeProduct(&$product, $productSual)
