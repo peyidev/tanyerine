@@ -2,6 +2,7 @@
 
 require_once 'abstract.php';
 ini_set('display_errors', 1);
+ini_set("memory_limit", -1);
 
 
 class Mage_Shell_ImportProduct extends Mage_Shell_Abstract
