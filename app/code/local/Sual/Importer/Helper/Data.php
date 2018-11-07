@@ -237,7 +237,6 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     public function insertProductBaseAttributes(&$product, $productSual, $urlImage)
     {
 
-        print_r($productSual);
         $idAttribute = $this->addAttributeValue('brand', $productSual['brand']);
 
         $product
