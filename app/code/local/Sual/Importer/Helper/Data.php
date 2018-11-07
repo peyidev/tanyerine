@@ -4,7 +4,9 @@
  * User: palberto
  * Date: 8/19/18
  * Time: 4:48 PM
- */ 
+ */
+ini_set("memory_limit", -1);
+
 class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
     public $parentCategoryId = "";
@@ -202,7 +204,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 500;
+        $limit = 50000;
         $limitSql = " LIMIT {$limit}";
 
         $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
