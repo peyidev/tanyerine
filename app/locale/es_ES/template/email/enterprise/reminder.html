@@ -1,0 +1,40 @@
+<!--@subject Promotion reminder at {{var store.getFrontendName()|escape}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var store.getFrontendName()|escape":"Store Name",
+"var promotion_name|escape":"Promotion Name",
+"var promotion_description|escape|nl2br":"Promotion Description",
+"var coupon.getCode()|escape":"Coupon Code",
+"var coupon.getUsageLimit()|escape":"Coupon Usage Limit",
+"var coupon.getUsagePerCustomer()|escape":"Coupon Usage Per Customer",
+"var customer.getName()|escape":"Customer Name"}
+@-->
+<!--@styles
+@-->
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="action-content">
+            <h1>{{var owner.getName()|escape}},</h1>
+            <p>Date prisa para tomar ventaja de la promoción {{if promotion_name}} <strong>{{var promotion_name|escape}}</strong>{{else}}a {{/if}}!</p>
+            {{if promotion_description}}
+            <p>{{var promotion_description|escape|nl2br}}</p>
+            {{/If}}
+            <p>Para aprovechar la promoción deberás ingresar en <a href="{{store url=&quot;customer/account/&quot;}}">{{var store.getFrontendName ()|escape}}</a>{{if coupon.getCode()}}y aplicar el cupón de "{{var coupon.getCode()|escape}}" en la cesta de compras{{/if}}.</p>
+            {{if coupon.getUsageLimit()}}
+            <p>Este cupón puede ser utilizado solo por{{var coupon.getUsageLimit()|escape}} tiempo (s) por usted u otros clientes.</p>
+            {{/if}}
+            {{if coupon.getUsagePerCustomer()}}
+            <p>Usted puede usar este cupón hasta {{var coupon.getUsagePerCustomer ()|escape}} vez/veces.</p>
+            {{/If}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer"}}

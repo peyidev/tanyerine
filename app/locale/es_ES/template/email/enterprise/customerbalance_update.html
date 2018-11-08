@@ -1,0 +1,26 @@
+<!--@subject Store Credit update @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var name|escape":"Customer Name",
+"var balance":"Customer Store Credit Balance"}
+@-->
+<!--@styles
+@-->
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="action-content">
+            <h1>{{var name|escape}}</h1>
+            <p>Hemos actualizado tu cuenta en <a href="{{store url=&quot;&quot;}}">{{store url=""}}</a> y tienes credito que puedes usar en una futura compra.</p>
+            <p><strong>El saldo de su tienda de crédito es:</strong> {{var balance}}</p>
+            <p>Apreciamos tu negocio.</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer"}}
