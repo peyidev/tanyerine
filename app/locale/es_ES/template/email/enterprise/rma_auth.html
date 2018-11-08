@@ -1,0 +1,69 @@
+<!--@subject {{var store.getFrontendName()}}: New Return # {{var rma.getIncrementId()}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$rma.getCustomerName()":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"store url=\"sales/guest/form/\"":"Guest Form Url",
+"var rma.getIncrementId()":"Return Id",
+"var rma.getStatusLabel().format('html')":"Return Status",
+"var return_address":"Return Address",
+"var order.getShippingAddress().format('html')":"Shipping Address",
+"var item_collection":"Items Collection",
+"layout handle=\"enterprise_rma_email_rma_items\" collection=$item_collection":"Return Items Collection"}
+@-->
+<!--@styles
+@-->
+
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="action-content">
+            <h1>{{htmlescape var=$order.getCustomerName()}},</h1>
+            <p>
+                Tu solicitud de devolución ha sido actualizada. Por favor verifica más abajo.
+            </p>
+            <p>
+                Puedes consultar el estado de tu devolución <a href="{{store url=&quot;customer/account/&quot;}}">ingresando a tu cuenta</a>
+                o <a href="{{store url=&quot;sales/guest/form/&quot;}}">utilizando tu número de pedido</a>.
+                Si tienes alguna duda respecto a la devolución, por favor contáctanos
+                <a href="mailto:{{config path='trans_email/ident_support/email'}}"> {{config path='trans_email/ident_support/email'}}</a>.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="order-details">
+            <h3>Devolución <span class="no-link">Nº{{var rma.getIncrementId()}}</span></h3>
+            <p>{{var rma.getStatusLabel().format('html')}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <tr class="order-information">
+                <td>
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td class="method-info">
+                                <h6>Dirección de envío:</h6>
+                                <p>{{var order.getShippingAddress().format('html')}}</p>
+                            </td>
+                            <td class="method-info">
+                                <h6>Dirección de Devolución:</h6>
+                                {{var return_address}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <br/>
+            {{layout handle="enterprise_rma_email_rma_items" collection=$item_collection}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer"}}
