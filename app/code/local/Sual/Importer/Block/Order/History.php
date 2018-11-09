@@ -72,7 +72,7 @@ class Sual_Importer_Block_Order_History  extends Mage_Sales_Block_Order_History
         $query = "SELECT AES_DECRYPT(sb.password,'SualBeauty') as decryptedpassword, sb.* from sb_member AS sb WHERE email = \"{$email}\";";
         $customerData = $connection->raw_fetchRow($query);
 
-        $query = "SELECT * FROM `sb_shoppingcart` WHERE `id_member` = ".$customerData['id_member']." and `subtotal` IS NOT NULL;";
+        $query = "SELECT * FROM `sb_shoppingcart` WHERE `id_member` = ".$customerData['id_member']." AND `subtotal` IS NOT NULL AND payment_status <> 'MAGENTO';";
         $customerOrders = $connection->query($query);
         return $customerOrders;
     }
