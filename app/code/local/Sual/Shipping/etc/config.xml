@@ -19,8 +19,8 @@
                 <model>sual_shipping/carrier_rates</model>
                 <title>Sual methods</title>
                 <name>Sual methods</name>
-                <estafeta_title>DLH</estafeta_title>
-                <dhl_title>Estafeta</dhl_title>
+                <estafeta_title>Estafeta</estafeta_title>
+                <dhl_title>DHL</dhl_title>
             </sual_rates>
             <sual_storepickup>
                 <active>1</active>
