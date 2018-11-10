@@ -23,28 +23,47 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
 
     }
 
-    public function balancePoints($customerId)
+
+
+    public function balancePoints($customerId, $orderId = '')
     {
 
-        $sbeauty = $this->getTotalRewardsFromOrigin($customerId);
-        $magento = $this->getTotalRewardsFromMagento($customerId);
+        if(empty($orderId)){
+            $sbeauty = $this->getTotalRewardsFromOrigin($customerId);
+            $magento = $this->getTotalRewardsFromMagento($customerId);
 
-        if (!$this->rewardsEqual($sbeauty, $magento)) {
+            if (!$this->rewardsEqual($sbeauty, $magento)) {
 
-            $originRewards = $this->getDetailRewardsFromOrigin($customerId);
-            $magentoRewards = $this->getDetailRewardsFromMagento($customerId);
-            $magentoControlKeys = array_column($magentoRewards,'rewardpoints_description');
-            $magentoControlOrders = array_column($magentoRewards,'order_id');
+                $originRewards = $this->getDetailRewardsFromOrigin($customerId);
+                $magentoRewards = $this->getDetailRewardsFromMagento($customerId);
+                $magentoControlKeys = array_column($magentoRewards,'rewardpoints_description');
+                $magentoControlOrders = array_column($magentoRewards,'order_id');
 
-            foreach($originRewards as $oReward){
+                foreach($originRewards as $oReward){
 
-                if(!in_array($oReward['ctrl_entry'], $magentoControlKeys) && !in_array($oReward['ctrl_entry'], $magentoControlOrders)){
-                    $this->add($customerId,$oReward['points'],1, $oReward['ctrl_entry']);
+                    if(!in_array($oReward['ctrl_entry'], $magentoControlKeys) && !in_array($oReward['ctrl_entry'], $magentoControlOrders)){
+                        $this->add($customerId,$oReward['points'],1, $oReward['ctrl_entry']);
+                    }
+
                 }
 
             }
+        }else{
+
+            $pointsToExport = $this->getPointsFromOrder($orderId);
+            $hasPoints =  $this->getPointsFromOrderOrigin($orderId);
+
+            if(!empty($hasPoints))
+                return false;
+
+
+
+            die;
+
+
 
         }
+
     }
 
 
@@ -150,6 +169,14 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
     }
 
 
+    public function addRemote($customerId, $order, $points)
+    {
+        $customer = $this->getCustomer($customerId);
+
+
+
+    }
+
 
     /**
      * Add points data
@@ -203,6 +230,19 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
 
 
         return true;
+    }
+
+    public function getPointsFromOrderOrigin($orderId){
+        $new_db_resource = Mage::getSingleton('core/resource');
+        $connection = $new_db_resource->getConnection('import_db');
+        $totalPoints = $connection->query('SELECT * FROM sb_member_track_points WHERE ctrl_entry = "' . $orderId . '"');
+        $total = 0;
+        foreach ($totalPoints as $point) {
+            $total = $point['points'];
+            break;
+        }
+
+        return $total;
     }
 
     public function getPointsFromOrder($orderId){
