@@ -56,9 +56,6 @@ class Conekta_Webhook_AjaxController extends Mage_Core_Controller_Front_Action {
   }
 
   public function authenticateEvent($body, $digest) {
-    if ($digest != "Conekta Webhook Notifier") {
-      throw new Exception("Empty digest");
-    }
     /*$private_key_string = Mage::getStoreConfig('payment/webhook/signature_key');
     if (!empty($private_key_string) && !empty($body)) {
       if (!empty($digest)) {
