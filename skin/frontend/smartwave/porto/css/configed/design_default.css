@@ -41,9 +41,7 @@ button.button span,.pager li >a:hover,.pager li >a:focus,.pager .pages .current,
 @media (max-width: 767px){
     .owl-banner-carousel .content.type2 h2{border-top-color:#2f1a49}
 }
-html, body {
-    font-family: ;
-}
+
 .data-table button.button:hover > span,
 button.button span{
 }

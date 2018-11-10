@@ -1162,7 +1162,7 @@ a.addtowishlist:hover, .link-wishlist:hover, a.comparelink:hover, .link-compare:
 }
 @media (min-width:768px) {
     body.side-header .top-container > .breadcrumbs.fixed-position {
-        width: calc(100% - 280x);
+        width: calc(100% - 280px);
     }
 }
 @media (min-width:1440px) {

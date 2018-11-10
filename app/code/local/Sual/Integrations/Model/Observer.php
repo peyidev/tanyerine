@@ -106,10 +106,32 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $orderQuery = "INSERT INTO sb_shoppingcart(id_shopping, id_member, quantity, subtotal, payment_status) 
                           VALUES('{$exportIdShopping}',{$exportIdMember},{$exportTotalQty},{$exportSubtotal},'MAGENTO');";
 
-        $this->connection->query($orderQuery);
-        $this->connection->query($itemsQuery);
+        try{
+            $this->connection->query($orderQuery);
+            $this->connection->query($itemsQuery);
+            $order->setIdWarehouse($this->setWarehouse($exportIdMember, $exportIdShopping));
+        }catch(Exception $e){
+            //La orden ya fue insertada en origen o no pudo ser obtenido el warehouse
+            Mage::log($e->getMessage());
+        }
 
         return $observer;
+    }
+
+    protected function setWarehouse($exportIdMember,$exportIdShopping){
+
+        $params = array(
+            "member" => $exportIdMember,
+            "cart" => $exportIdShopping
+        );
+
+        $helper = Mage::helper('sual_integrations/data');
+        $response = $helper->callService("magento/confirm_shoppingcart_all_warehouse", $params);
+
+        if(!empty($response->data->warehouse))
+            return $response->data->warehouse;
+        else
+            Mage::throwException('Hubo un error al crear tu pedido, por favor intenta nuevamente (EWHS).');
     }
 
     public function verifyStock($observer){
