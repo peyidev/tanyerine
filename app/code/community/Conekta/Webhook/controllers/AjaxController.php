@@ -3,6 +3,7 @@ class Conekta_Webhook_AjaxController extends Mage_Core_Controller_Front_Action {
   public function listenerAction() {
     $body = @file_get_contents('php://input');
     self::authenticateEvent($body, $_SERVER['HTTP_DIGEST']);
+    Mage::log($body);
     $event = json_decode($body);
     $charge = $event->data->object;
     sleep(2);
@@ -21,7 +22,6 @@ class Conekta_Webhook_AjaxController extends Mage_Core_Controller_Front_Action {
       $increment_id = $readConnection->fetchOne($query);
       $order = Mage::getModel('sales/order')->loadByIncrementId($increment_id);
     }
-
     if ($charge_id_matches_format && $entity_id_matches_format && $event->type == "order.paid" && $order->getId()) {   
       if ($order->hasInvoices() != true) {
         $invoice = $order->prepareInvoice();
