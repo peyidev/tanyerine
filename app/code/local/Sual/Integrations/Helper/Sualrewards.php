@@ -56,11 +56,7 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
             if(!empty($hasPoints))
                 return false;
 
-
-
-            die;
-
-
+            $this->addRemote($customerId, $orderId, $pointsToExport[0]);
 
         }
 
@@ -171,12 +167,18 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
 
     public function addRemote($customerId, $order, $points)
     {
-        $customer = $this->getCustomer($customerId);
+        $new_db_resource = Mage::getSingleton('core/resource');
+        $connection = $new_db_resource->getConnection('import_db');
 
+        $customer = Mage::getModel('customer/customer')->load($customerId);
 
+        $customerPhone = $customer->getData('phone');
 
+        $insertQuery = "INSERT INTO sb_member_track_points(id_unique_member, points, ctrl_entry, ctrl_state) 
+                          VALUES ('{$customerPhone}', '{$points}', '{$order}', 'A')";
+
+        $connection->query($insertQuery);
     }
-
 
     /**
      * Add points data

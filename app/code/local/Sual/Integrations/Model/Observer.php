@@ -36,10 +36,13 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
     }
 
     public function exportRewards($observer){
-        $order = $observer->getEvent()->getOrder();
-        $helper = Mage::helper('sual_integrations/sualrewards');
-        $points = $helper->getPointsFromOrder($order->getId());
 
+        $invoice = $observer->getEvent()->getInvoice();
+        $order = $invoice->getOrder();
+        $customerId = $order->getCustomerId();
+
+        $helper = Mage::helper('sual_integrations/sualrewards');
+        $helper->balancePoints($customerId, $order->getIncrementId());
     }
 
     public function importRewards($observer)
