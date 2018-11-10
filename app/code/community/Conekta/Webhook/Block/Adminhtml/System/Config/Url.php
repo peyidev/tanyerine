@@ -20,7 +20,7 @@ class Conekta_Webhook_Block_Adminhtml_System_Config_Url extends Mage_Adminhtml_B
       'html_id'   => $element->getId()
       );
     $url->setData($data);
-    $webhook_url = Mage::getBaseUrl() . "index.php/webhook/ajax/listener";
+    $webhook_url = Mage::getBaseUrl() . "/webhook/ajax/listener";
 
 		$elementValue = $element->getValue();
     if (!empty($elementValue)) {
