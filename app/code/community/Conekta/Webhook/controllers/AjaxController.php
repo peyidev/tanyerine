@@ -2,8 +2,9 @@
 class Conekta_Webhook_AjaxController extends Mage_Core_Controller_Front_Action {
   public function listenerAction() {
     $body = @file_get_contents('php://input');
-    self::authenticateEvent($body, $_SERVER['HTTP_DIGEST']);
     Mage::log($body);
+    Mage::log(json_encode($_SERVER));
+    self::authenticateEvent($body, $_SERVER['HTTP_DIGEST']);
     $event = json_decode($body);
     $charge = $event->data->object;
     sleep(2);
