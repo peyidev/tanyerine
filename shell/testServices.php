@@ -8,7 +8,8 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
 {
 
 
-    public function cotizarEnvio(){
+    public function cotizarEnvio()
+    {
 
         //dhlexpress
         //estafeta
@@ -18,8 +19,8 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
     public function run()
     {
 
-        $helper = Mage::helper('sual_integrations/sualrewards');
-//        $helper =  Mage::helper('sual_integrations/data');
+        //$helper = Mage::helper('sual_integrations/sualrewards');
+        $helper = Mage::helper('sual_integrations/data');
 //        $response = $helper->callService("mensajeria/cotizar",'{"carrier":"dhlexpress","calle":"Cerrada de la Talavera","colonia":"El Cobano","codigoPostal":"53040","municipio":"San antonio de ayala","ciudad":"Irapuato","estado":"guanajuato","pais":"Mexico"}');
 //        $response = $helper->callService("mensajeria/cotizar",'{"carrier":"estafeta","calle":"Cerrada de la Talavera","colonia":"El Cobano","codigoPostal":"53040","municipio":"San antonio de ayala","ciudad":"Irapuato","estado":"guanajuato","pais":"Mexico"}');
 
@@ -53,10 +54,16 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
 //        $params['Card_cardPromotion'] = "0";
 //        $params['DeviceFingerprintID'] = rand(10000000, 19999999);
 //
-//        $response = $helper->callService("procesa/banorte",$params);
-//        print_r($response);
 
-        $helper->testRewards();
+        //member=1802&cart=100000004
+        $params = array(
+            "member" => 1802,
+            "cart" => '100000004'
+        );
+        $response = $helper->callService("magento/confirm_shoppingcart_all_warehouse", $params);
+        print_r($response->data->warehouse);
+
+        //$helper->testRewards();
 
     }
 
