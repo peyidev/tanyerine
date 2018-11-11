@@ -317,6 +317,9 @@ if($enable_addtocart_sticky){
                     }else{
                 ?>
                     <div class="ratings">
+                        <p class="rating-sku">
+                            <a href="javascript:void(0)"><?php echo $this->__('Sku: ');?><?php echo $product->getSku();?></a>
+                        </p>
                         <div class="rating-box">
                             <div class="rating" style="width:0"></div>
                         </div>
