@@ -94,7 +94,7 @@
                 <?php $_odd = ''; ?>
                 <?php foreach ($_oldOrders as $_order): ?>
                 <tr>
-                    <td><?php echo $_order['id_shopping'] ?></td>
+                    <td><a href="#" val="<?php echo $_order['id_shopping'] ?>">ECOM</a></td>
                     <td><span class="nobr"><?php echo $_order['ctrl_created'] ?></span></td>
                     <td><?php echo $_order['shipping_firstname']." ".$_order['shipping_lastname'] ?></td>
                     <td><?php echo $_order['subtotal'] ?></td>
