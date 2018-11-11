@@ -21,7 +21,7 @@ body {
 }
 
 #landing-header {
-    margin-top: 0px !important;
+    /*margin-top: 0px !important;*/
 }
 
 #landing-body {
@@ -30,6 +30,7 @@ body {
 
 .banner-marca {
     min-height: 520px !important;
+    top: -3px;
 }
 
 .footer-middle .block .block-title strong, .footer-top .block .block-title strong, .contact-info b, .subcribe strong {
@@ -130,7 +131,7 @@ body.full-width .product-view .product-img-box:not(.type-) {
 }
 
 .header-search .centercontainer {
-    width: 40%;
+    width: 50%;
     float: right;
 }
 
@@ -324,9 +325,10 @@ body.full-width .product-view .product-img-box:not(.type-) {
     padding-left: 5px;
 }
 
-#landing-contenedor-principal #landing-header{
-    position: absolute;
+#landing-contenedor-principal #landing-header {
+
 }
+
 @media (min-width: 991px) and (max-width: 1100px) {
     .header-search .centercontainer {
         float: left;
@@ -338,6 +340,91 @@ body.full-width .product-view .product-img-box:not(.type-) {
     }
 }
 
+
+
+@media (min-width: 1600px) {
+    #landing-contenedor-principal #landing-header{
+        top: 80px;
+    }
+}
+@media (max-width: 1614px) {
+    .header-search .centercontainer {
+        width: 40%;
+    }
+
+    #landing-contenedor-principal #landing-header nav {
+        float: left;
+
+        margin-right: 0;
+
+        width: 60%;
+
+        text-align: right;
+    }
+
+    #landing-logo {
+        float: left;
+        width: 30%;
+        position: relative;
+        height: 20px;
+    }
+    #landing-contenedor-principal #landing-header{
+        top: 80px;
+    }
+}
+
+@media (max-width: 1234px) {
+    .header-search .centercontainer {
+        width: 35%;
+    }
+}
+
+@media (min-width: 1180px) and (max-width: 1250px){
+    .header-search .rightcontainer,
+    .header-search .centercontainer {
+        width: 50%;
+    }
+
+    #landing-contenedor-principal #landing-header #landing-logo img {
+        height: 25px;
+    }
+
+    #landing-contenedor-principal #landing-header nav {
+        width: 55%;
+    }
+    #landing-contenedor-principal #landing-header{
+        top: 112px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1179px) {
+    #landing-body {
+        margin-top: 17px !important;
+    }
+    #landing-contenedor-principal #landing-header{
+        top: 112px;
+    }
+
+    #landing-contenedor-principal #landing-body .editorial-left-big,
+    #landing-contenedor-principal #landing-body .editorial-left-small,
+    #landing-contenedor-principal #landing-body .editorial-right-big,
+    #landing-contenedor-principal #landing-body .editorial-right-small {
+        padding: 0px;
+
+    }
+
+    #landing-contenedor-principal #landing-body .editorial-container-left-big,
+    #landing-contenedor-principal #landing-body .editorial-container-right-big {
+        min-height: 650px;
+        margin-bottom: 0px;
+    }
+    #landing-contenedor-principal #landing-header nav{
+        width: 55%;
+    }
+    #landing-contenedor-principal #landing-header img{
+        height: 25px;
+    }
+}
 @media (max-width: 990px) {
     body {
         padding-top: 0px;
@@ -466,40 +553,27 @@ body.full-width .product-view .product-img-box:not(.type-) {
     #submenu-sual {
         display: none;
     }
+
+    #landing-contenedor-principal #landing-header {
+        top: 130px;
+    }
+
 }
 
-@media (min-width: 1024px) and (max-width: 1180px){
-    #landing-body {
-        margin-top: 17px !important;
-    }
-    #landing-contenedor-principal #landing-body .editorial-left-big,
-    #landing-contenedor-principal #landing-body .editorial-left-small,
-    #landing-contenedor-principal #landing-body .editorial-right-big,
-    #landing-contenedor-principal #landing-body .editorial-right-small {
-        padding: 0px;
-
-    }
-    #landing-contenedor-principal #landing-body .editorial-container-left-big,
-    #landing-contenedor-principal #landing-body .editorial-container-right-big {
-        min-height: 650px;
-        margin-bottom: 0px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px){
+@media (min-width: 768px) and (max-width: 1023px) {
     #landing-body {
         margin-top: -17px !important;
     }
+
     #landing-contenedor-principal #landing-header {
         width: 100%;
         background: rgba(255, 255, 255, 0.8);
-        position: absolute;
         padding: 16px 10px;
         z-index: 5;
         max-width: 100%;
         border-bottom: 1px solid black;
-        margin-top: -17px;
         height: 50px;
+        margin-top: -3px;
     }
 
     #landing-contenedor-principal #landing-header #landing-logo {
@@ -539,13 +613,16 @@ body.full-width .product-view .product-img-box:not(.type-) {
     }
 }
 
-@media (min-width: 400px)and (max-width: 767px) {
+@media (max-width: 767px) {
+    #landing-contenedor-principal{
+
+    }
     #landing-contenedor-principal #landing-header {
         width: 100%;
         padding: 15px 10px 5px;
-        position: relative;
+
         height: 110px;
-        top: -19px;
+        top: 144px;
         background: #F9F8F8;
     }
 
@@ -572,6 +649,7 @@ body.full-width .product-view .product-img-box:not(.type-) {
         float: left;
         height: 25px;
         text-align: center;
+        position: relative;
     }
 
     #landing-contenedor-principal #landing-header nav a:nth-child(4) {
@@ -594,7 +672,7 @@ body.full-width .product-view .product-img-box:not(.type-) {
     }
 
     #landing-body .editorial-top .editorial-top-producto {
-        left: 160px;
+        left: 30%;
         margin-left: 0;
         top: -270px;
         margin-top: 0;
@@ -605,11 +683,11 @@ body.full-width .product-view .product-img-box:not(.type-) {
 
     #landing-body .editorial-top .editorial-top-container {
         position: absolute;
-        width: 495px;
-        left: 50%;
-        margin-left: -250px;
+        width: 100%;
+        left: 0%;
+        margin-left: 0;
         background: #F9F8F8;
-        padding: 50px 80px;
+        padding: 50px 20px;
         box-shadow: 0px 32px 26px -25px rgba(0, 0, 0, 0.28);
     }
 
@@ -625,11 +703,13 @@ body.full-width .product-view .product-img-box:not(.type-) {
     #landing-body .landing-marca-media {
         float: left;
         height: 150px;
+        margin-top: 40px;
     }
 
     #landing-body .editorial-container-left-big,
     #landing-body .editorial-container-right-big {
         margin-bottom: 0px;
+        margin-top: 30px;
     }
 
     #landing-contenedor-principal #landing-body .editorial-product-grid {
@@ -640,6 +720,10 @@ body.full-width .product-view .product-img-box:not(.type-) {
         width: 90%;
         margin-bottom: 10%;
         border-top: 1px solid;
+    }
+
+    .header-search .rightcontainer, .header-search .centercontainer {
+        width: 100%;
     }
 
 }
