@@ -204,7 +204,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 50;
+        $limit = 50000;
         $limitSql = " LIMIT {$limit}";
 
         $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
@@ -414,7 +414,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     function addAttributeValue($attributeCode, $attValue) {
 
         $idAttribute = $this->attributeValueExists($attributeCode, $attValue);
-        if (!$idAttribute) {
+        if (!$idAttribute && (!empty(trim($attValue) && !empty(trim($attributeCode))))) {
             $attr_model = Mage::getModel('catalog/resource_eav_attribute');
             $attr = $attr_model->loadByCode('catalog_product', $attributeCode);
             $attr_id = $attr->getAttributeId();
