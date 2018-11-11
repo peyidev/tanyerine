@@ -32,8 +32,13 @@
 <?php else: ?>
 <div class="category-products">
     <?php // Grid Mode ?>
-
-    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php if($this->getCategoryId()): ?>
+        <?php echo $category = Mage::getModel('catalog/category')->load($this->getCategoryId());?>
+        <h2><?php echo $category->getName(); ?></h2>
+        <?php $_collectionSize = $_productCollection->count() ?>
+    <?php else: ?>
+    <h2><?php echo $this->__("Featured products"); ?></h2>
+    <?php endif ?>
     <?php
         $_columnCount = $this->getColumnCount();
         if(!$_columnCount)
@@ -200,6 +205,10 @@
                     <?php if(Mage::getStoreConfig("porto_settings/category/product_price", $code)):?>
                     <?php echo $this->getPriceHtml($_product, true) ?>
                     <?php endif; ?>
+                    
+                    <?php $extraHtml = Mage::helper('rewardpoints/data')->getProductPointsText($product, false, true);
+                      echo $extraHtml; 
+                    ?>
                     <?php if(Mage::getStoreConfig("porto_settings/category/actions", $code)):?>
                     <div class="actions">
                         <?php if(Mage::getStoreConfig("porto_settings/category/qty_field", $code)):?>

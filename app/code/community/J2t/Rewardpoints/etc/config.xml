@@ -1076,7 +1076,7 @@
                 <duplicate_text_product_page>0</duplicate_text_product_page>
                 <block_default><![CDATA[product.info.addtocart]]></block_default>
                 <block_extra><![CDATA[product.info.configurable]]></block_extra>
-                <show_list_points>0</show_list_points>
+                <show_list_points>1</show_list_points>
             </product_page>
             <admin_dashboard>
                 <show_dashboard>0</show_dashboard>
