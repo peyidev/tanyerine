@@ -271,7 +271,8 @@ class J2t_Rewardpoints_Model_Catalogpointrules extends Mage_Rule_Model_Rule
                         $points += $points_temp - $item_default_points;
                     }
                     if ($message){
-                        $rules_message_cart[] = Mage::helper('rewardpoints')->__('points multiplied by %s, %s (%s points)', $rule_validate->getPoints(), $message, ceil($points_temp));
+                        //$rules_message_cart[] = Mage::helper('rewardpoints')->__('points multiplied by %s, %s (%s points)', $rule_validate->getPoints(), $message, ceil($points_temp));
+                        $rules_message_cart[] = $message;
                     } else {
                         $rules_message_cart[] = Mage::helper('rewardpoints')->__('points multiplied by %s', $rule_validate->getPoints());
                     }
@@ -289,7 +290,8 @@ class J2t_Rewardpoints_Model_Catalogpointrules extends Mage_Rule_Model_Rule
                     }
                     
                     if ($message){
-                        $rules_message_cart[] = Mage::helper('rewardpoints')->__('points divided by %s, %s (%s points)', $rule_validate->getPoints(), $message, ceil($points_temp));
+                        //$rules_message_cart[] = Mage::helper('rewardpoints')->__('points divided by %s, %s (%s points)', $rule_validate->getPoints(), $message, ceil($points_temp));
+                        $rules_message_cart[] = $message;
                     } else {
                         $rules_message_cart[] = Mage::helper('rewardpoints')->__('points divided by %s', $rule_validate->getPoints());
                     }
@@ -300,13 +302,15 @@ class J2t_Rewardpoints_Model_Catalogpointrules extends Mage_Rule_Model_Rule
                     
                     if ($rule_validate->getPoints() > 0){
                        if ($message){
-                           $rules_message_cart[] = Mage::helper('rewardpoints')->__("%s extra points added, %s", $rule_validate->getPoints(), $message);
+                           //$rules_message_cart[] = Mage::helper('rewardpoints')->__("%s extra points added, %s", $rule_validate->getPoints(), $message);
+                            $rules_message_cart[] = $message;
                        } else {
                            $rules_message_cart[] = Mage::helper('rewardpoints')->__("%s extra points added", $rule_validate->getPoints());
                        }
                    } else {
                        if ($message){
-                           $rules_message_cart[] = Mage::helper('rewardpoints')->__("%s points substracted, %s", $rule_validate->getPoints(), $message);
+                          // $rules_message_cart[] = Mage::helper('rewardpoints')->__("%s points substracted, %s", $rule_validate->getPoints(), $message);
+                            $rules_message_cart[] = $message;
                        } else {
                            $rules_message_cart[] = Mage::helper('rewardpoints')->__("%s points substracted", $rule_validate->getPoints());
                        }
@@ -328,6 +332,11 @@ class J2t_Rewardpoints_Model_Catalogpointrules extends Mage_Rule_Model_Rule
                 Mage::registry('current_product')->setPointDetails(serialize($point_details));
                 Mage::registry('current_product')->setPointRuleTotal($points+$item_default_points);
             } else {
+                Mage::registry('current_product')->setPointDetails(serialize(array($to_validate->getId() => $rules_message_cart)));
+                Mage::registry('current_product')->setPointRuleTotal($points+$item_default_points);
+            }
+        } else {
+            if (Mage::registry('current_product')) {
                 Mage::registry('current_product')->setPointDetails(serialize(array($to_validate->getId() => $rules_message_cart)));
                 Mage::registry('current_product')->setPointRuleTotal($points+$item_default_points);
             }

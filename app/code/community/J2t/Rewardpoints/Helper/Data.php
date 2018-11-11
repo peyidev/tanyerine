@@ -104,7 +104,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
             return false;
         }
 
-        return Mage::getStoreConfig(self::XML_PATH_ACTIVE, $store_id);
+        return true;
     }
 
     public function processReferralInsertion($order, $rewardPoints, $rewardPointsChild, $escape_status_verification = false) {
@@ -424,6 +424,8 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
           $noCeil = true;
           } */
 
+        Mage::unregister('current_product');
+        Mage::register('current_product', $product);
         //$points = $this->getProductPoints($product, $noCeil, $from_list);
         //getProductPoints($product, $noCeil = false, $from_list = false, $money_points = false, $tierprice_incl_tax = null, $tierprice_excl_tax = null, $customer_group_id = null){
         $point_no_ceil = $this->getProductPoints($product, true, $from_list, false, null, null, $customer_group_id);
@@ -489,7 +491,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
                     foreach ($point_details as $point_detail) {
                         if ($point_detail && is_array($point_detail) && sizeof($point_detail)) {
                             foreach ($point_detail as $details) {
-                                $extraPointDetails .= '<span class="inline-catalog-points-details">' . $details . '</span>';
+                                $extraPointDetails .= '<span >' . $details . '</span>';
                             }
                         }
                     }
@@ -501,13 +503,14 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
                 }
             }
             if ($extraPointDetails) {
-                $extraPointDetails = ' <a style="display:none;" class="hide-details-points-url" href="javascript:hidePointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Hide details') . '">' . Mage::helper('rewardpoints')->__('Hide details') . '</a><a class="show-details-points-url" href="javascript:showPointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Show details') . '">' . Mage::helper('rewardpoints')->__('Show details') . '</a><span class="catalog-points-details" style="display:none;">' . $extraPointDetails . '</span>';
+                //$extraPointDetails = ' <a style="display:none;" class="hide-details-points-url" href="javascript:hidePointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Hide details') . '">' . Mage::helper('rewardpoints')->__('Hide details') . '</a><a class="show-details-points-url" href="javascript:showPointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Show details') . '">' . Mage::helper('rewardpoints')->__('Show details') . '</a><span class="catalog-points-details" style="display:none;">' . $extraPointDetails . '</span>';
+                return '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag'>%s <span id='j2t-pts'>%s</span> PUNTOS",$extraPointDetails, $points) . '</div></p>';
             }
 
             if ($cms_page = Mage::getStoreConfig('rewardpoints/product_page/cms_page')) {
                 $extraPointDetails = ' <a class="about-point-scheme" href="' . Mage::getUrl($cms_page) . '" title="' . Mage::helper('rewardpoints')->__('Find more about this!') . '">' . Mage::helper('rewardpoints')->__('Find more about this!') . '</a>' . $extraPointDetails;
             }
-            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("With this product, you earn <span id='j2t-pts'>%s</span> loyalty point(s).", $points) . $this->getEquivalence($points) . $extraPointDetails . '</p>';
+            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag'>1X =  <span id='j2t-pts'>%s</span> PUNTOS", $points) . '</div></p>';
             return $return;
         } else if ($from_list) {
             //try to get from price
