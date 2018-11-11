@@ -141,7 +141,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             $name = $category['category'];
             $url = $this->getUrl($name);
 
-            $categoryId = $this->categoryExist($name, $parentCategoryId);
+            $categoryId = $this->categoryExist($name, $parentCategoryId, true);
 
             if (!$categoryId) {
                 //$this->output .=  "Insertando Categoria {$category['category']} URL {$url}\n";
@@ -163,7 +163,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 $nameSub = $subcategory['subcategory'];
                 $urlSub = $this->getUrl($nameSub);
 
-                $subcategoryId = $this->categoryExist($nameSub, $categoryId);
+                $subcategoryId = $this->categoryExist($nameSub, $categoryId, true);
 
                 if (!$subcategoryId) {
                     //echo "\tInsertando subcategoria {$subcategory['subcategory']} URL -> {$urlSub}\n";
@@ -204,7 +204,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 50000;
+        $limit = 50;
         $limitSql = " LIMIT {$limit}";
 
         $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
@@ -341,6 +341,9 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
         $categories = array();
 
+        if(!empty($product->getCategoryIds())){
+            $categories = $product->getCategoryIds();
+        }
 
         if (!empty($category))
             array_push($categories, $category);
@@ -351,8 +354,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         if (!empty($line))
             array_push($categories, $line);
 
-
-        $product->setCategoryIds($categories);
+        $product->setCategoryIds(array_unique($categories));
 
     }
 
