@@ -380,10 +380,6 @@ body.full-width .product-view .product-img-box:not(.type-) {
 }
 
 @media (min-width: 1180px) and (max-width: 1250px) {
-    .header-search .rightcontainer,
-    .header-search .centercontainer {
-        width: 50%;
-    }
 
     #landing-contenedor-principal #landing-header #landing-logo img {
         height: 25px;
