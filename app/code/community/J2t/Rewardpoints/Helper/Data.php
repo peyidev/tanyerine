@@ -485,6 +485,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
         } else if ($points) {
             //$details_url = "";
             $extraPointDetails = "";
+            $extraPointClasses = "base-points ";
             if (Mage::registry('current_product') && Mage::registry('current_product')->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE && Mage::getStoreConfig('rewardpoints/default/show_details', Mage::app()->getStore()->getId())) {
                 $point_details = unserialize(Mage::registry('current_product')->getPointDetails());
                 if ($point_details && is_array($point_details) && sizeof($point_details)) {
@@ -492,6 +493,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
                         if ($point_detail && is_array($point_detail) && sizeof($point_detail)) {
                             foreach ($point_detail as $details) {
                                 $extraPointDetails .= '<span >' . $details . '</span>';
+                                $extraPointClasses .= $details . ' ';
                             }
                         }
                     }
@@ -502,15 +504,17 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
                     }
                 }
             }
+
+            $extraPointClasses = str_replace('=', '', $extraPointClasses);
             if ($extraPointDetails) {
                 //$extraPointDetails = ' <a style="display:none;" class="hide-details-points-url" href="javascript:hidePointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Hide details') . '">' . Mage::helper('rewardpoints')->__('Hide details') . '</a><a class="show-details-points-url" href="javascript:showPointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Show details') . '">' . Mage::helper('rewardpoints')->__('Show details') . '</a><span class="catalog-points-details" style="display:none;">' . $extraPointDetails . '</span>';
-                return '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag'>%s <span id='j2t-pts'>%s</span> PUNTOS",$extraPointDetails, $points) . '</div></p>';
+                return '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag {$extraPointClasses}'>%s <span id='j2t-pts'>%s</span> PUNTOS",$extraPointDetails, $points) . '</div></p>';
             }
 
             if ($cms_page = Mage::getStoreConfig('rewardpoints/product_page/cms_page')) {
                 $extraPointDetails = ' <a class="about-point-scheme" href="' . Mage::getUrl($cms_page) . '" title="' . Mage::helper('rewardpoints')->__('Find more about this!') . '">' . Mage::helper('rewardpoints')->__('Find more about this!') . '</a>' . $extraPointDetails;
             }
-            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag'>1X =  <span id='j2t-pts'>%s</span> PUNTOS", $points) . '</div></p>';
+            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag {$extraPointClasses}'>1X =  <span id='j2t-pts'>%s</span> PUNTOS", $points) . '</div></p>';
             return $return;
         } else if ($from_list) {
             //try to get from price
