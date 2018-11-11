@@ -137,7 +137,7 @@ body.side-header .top-container,body.side-header .main-container,body.side-heade
 .header-container.type12.header-newskin .menu.side-menu>li .nav-sublist-dropdown:after {border: 9px solid;border-color: transparent #dae2e6 transparent transparent;z-index: 2;left: -18px;top: 12px;right: auto;}
 .header-container.type12.header-newskin .menu.side-menu>li.menu-static-width .nav-sublist-dropdown{padding: 10px 0 10px 15px;}
 .header-container.type12.header-newskin .menu.side-menu>li.menu-full-width .nav-sublist-dropdown .container ul>li>a.level1, .header-container.type12.header-newskin .menu.side-menu>li.menu-static-width .nav-sublist-dropdown .container ul>li>a.level1 {font-size: 13px;font-weight: 700;color: #434d53;letter-spacing: -0.001em;margin-bottom: 9px;}
-.header-container.type12.header-newskin .menu.side-menu >li .nav-sublist-dropdown .container ul >li a {text-transform: uppercase;font-size: 12px;font-weight: 600;color: #696969;line-height: 24px;}
+.header-container.type12.header-newskin .menu.side-menu >li .nav-sublist-dropdown .container ul >li a {text-transform: uppercase;font-size: 12px;font-weight: 600;color: #696969;line-height: 15px;word-break: normal;width: 100%;min-width: 150px;max-width: 100%;}
 .header-container.type12.header-newskin .menu.side-menu >li .nav-sublist-dropdown .container ul .nav-sublist.level1 {margin-bottom: 10px;}
 .header-container.type12.header-newskin .menu.side-menu>li.menu-item-has-children .nav-sublist-dropdown,
 .header-container.type12.header-newskin .menu.side-menu>li.menu-item-has-children .nav-sublist-dropdown .container ul .menu-item-has-children .nav-sublist{background-color: #fff;}
