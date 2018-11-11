@@ -493,7 +493,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
                         if ($point_detail && is_array($point_detail) && sizeof($point_detail)) {
                             foreach ($point_detail as $details) {
                                 $extraPointDetails .= '<span >' . $details . '</span>';
-                                $extraPointClasses .= $details . ' ';
+                                $extraPointClasses .= 'reward-' . $details . ' ';
                             }
                         }
                     }
