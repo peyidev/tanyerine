@@ -87,3 +87,12 @@
     font-weight: normal;
     font-size: 10px;
 }
+
+
+.category-products h2{
+    font-size: 30px;
+    width: 100%;
+    border-bottom: 1px solid #e3e4e4;
+    margin-bottom: 2px;
+    padding-bottom: 30px;
+}
