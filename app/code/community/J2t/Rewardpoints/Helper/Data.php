@@ -507,7 +507,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
             if ($cms_page = Mage::getStoreConfig('rewardpoints/product_page/cms_page')) {
                 $extraPointDetails = ' <a class="about-point-scheme" href="' . Mage::getUrl($cms_page) . '" title="' . Mage::helper('rewardpoints')->__('Find more about this!') . '">' . Mage::helper('rewardpoints')->__('Find more about this!') . '</a>' . $extraPointDetails;
             }
-            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("With this product, you earn <span id='j2t-pts'>%s</span> loyalty point(s).", $points) . $this->getEquivalence($points) . $extraPointDetails . '</p>';
+            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("With this product, you earn <span id='j2t-pts'>%s</span> loyalty point(s).", $points) . '</p>';
             return $return;
         } else if ($from_list) {
             //try to get from price
