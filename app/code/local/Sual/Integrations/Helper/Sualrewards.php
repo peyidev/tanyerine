@@ -56,7 +56,14 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
             if(!empty($hasPoints))
                 return false;
 
-            $this->addRemote($customerId, $orderId, $pointsToExport[0]);
+            $cont = 0;
+
+            foreach($pointsToExport as $points){
+
+                $this->addRemote($customerId, ($orderId . $cont), $points);
+                $cont++;
+
+            }
 
         }
 
