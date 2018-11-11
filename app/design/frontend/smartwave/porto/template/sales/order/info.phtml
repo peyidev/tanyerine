@@ -33,7 +33,7 @@
 </div>
 <?php echo $this->getStatusHistoryRssUrl($_order) ?>
 <?php $status = $_order->getStatus() ?>
-<?php echo $status; ?>
+<?php //echo $status; ?>
 <div class="status-procces">
     <div class="steps step1 <?php if(in_array($status,['pending','processing','complete','closed'])): ?>active<?php endif; ?>">
         <p><?php echo $this->__('Pending'); ?></p>
