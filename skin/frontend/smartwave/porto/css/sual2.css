@@ -32,3 +32,17 @@
 	.status-procces .steps i {font-size: 24px;}
 	.layer-filter-icon.visible-sm{display: none!important;}
 }
+
+#billing-progress-opcheckout,
+#shipping-progress-opcheckout,
+#discountFormPoints2,
+.discount-form,
+.box-account,
+.my-account{
+
+	line-height:1.5;
+}
+
+.rewards_point_cart{
+	margin-botto:15px;
+}
