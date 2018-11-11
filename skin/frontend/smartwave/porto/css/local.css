@@ -470,7 +470,7 @@ body.mobile-nav-shown .mobile-nav.side-block{left:0;}
 .menu.side-menu>li.menu-static-width:hover>a:after,.menu.side-menu>li.menu-item-has-children:hover>a:after,.menu.side-menu>li.menu-item-has-children li.menu-item-has-children:hover>a:after,.menu.side-menu>li.menu-full-width:hover>a:after{color:#fff}
 .menu.side-menu>li.menu-item-has-children li.menu-item-has-children>a:after{color:#fff}
 .menu.side-menu>li .nav-sublist-dropdown{display:none;position:absolute;z-index:10000;width:200px;border:0;background-color:#fff;border-radius:0 5px 5px 7px;padding:10px 0;left:100%;top:0;border-left:5px solid #08c;box-shadow:1px 0 1px rgba(0,0,0,0.5)}
-.menu.side-menu>li.menu-full-width .nav-sublist-dropdown{width:950px;padding:15px 0}
+.menu.side-menu>li.menu-full-width .nav-sublist-dropdown{width:930px;padding:15px 50px 15px 0;}
 .menu.side-menu>li.menu-item-has-children .nav-sublist-dropdown{background-color:#08c;border:0}
 .menu.side-menu .container{padding:0}
 .menu.side-menu img{max-width:100%}
@@ -484,7 +484,7 @@ body.mobile-nav-shown .mobile-nav.side-block{left:0;}
 .menu.side-menu li.menu-item-has-children .nav-sublist-dropdown .container ul>li:hover>a{background-color:#0099e6}
 .menu.side-menu>li.menu-item-has-children .nav-sublist-dropdown .container ul .menu-item-has-children .nav-sublist{border-radius:5px;background-color:#08c;top:-10px;padding:10px 0;position:absolute;left:100%;display:none}
 .menu.side-menu>li .nav-sublist-dropdown .container>ul .menu-item-has-children:hover>.nav-sublist{display:block}
-.menu.side-menu>li .nav-sublist-dropdown .container ul .menu-item-has-children .nav-sublist li{width:200px;background-color:transparent}
+.menu.side-menu>li .nav-sublist-dropdown .container ul .menu-item-has-children .nav-sublist li{width:200px;background-color:transparent; max-width:100%;}
 .menu.side-menu li.menu-item-has-children .nav-sublist li>a{border-top:1px solid rgba(255,255,255,0.2);padding:13px 5px;margin:0 8px;display:block}
 .menu.side-menu li.menu-item-has-children .nav-sublist li:first-child>a{border:0}
 .menu.side-menu >li .nav-sublist-dropdown .container ul >li a{padding:13px 5px;margin:0 8px;display:block}
