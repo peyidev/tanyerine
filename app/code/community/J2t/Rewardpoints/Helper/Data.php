@@ -508,13 +508,13 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
             $extraPointClasses = str_replace('=', '', $extraPointClasses);
             if ($extraPointDetails) {
                 //$extraPointDetails = ' <a style="display:none;" class="hide-details-points-url" href="javascript:hidePointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Hide details') . '">' . Mage::helper('rewardpoints')->__('Hide details') . '</a><a class="show-details-points-url" href="javascript:showPointDetailsViewPage(); void(0);" title="' . Mage::helper('rewardpoints')->__('Show details') . '">' . Mage::helper('rewardpoints')->__('Show details') . '</a><span class="catalog-points-details" style="display:none;">' . $extraPointDetails . '</span>';
-                return '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag {$extraPointClasses}'>%s <span id='j2t-pts'>%s</span> PUNTOS",$extraPointDetails, $points) . '</div></p>';
+                return '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag {$extraPointClasses}'>%s <span id='j2t-pts'>%s</span> <span class='reward-span-puntos'>PUNTOS</span>",$extraPointDetails, $points) . '</div></p>';
             }
 
             if ($cms_page = Mage::getStoreConfig('rewardpoints/product_page/cms_page')) {
                 $extraPointDetails = ' <a class="about-point-scheme" href="' . Mage::getUrl($cms_page) . '" title="' . Mage::helper('rewardpoints')->__('Find more about this!') . '">' . Mage::helper('rewardpoints')->__('Find more about this!') . '</a>' . $extraPointDetails;
             }
-            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag {$extraPointClasses}'>1X =  <span id='j2t-pts'>%s</span> PUNTOS", $points) . '</div></p>';
+            $return = '<p class="j2t-loyalty-points inline-points">' . $img . Mage::helper('rewardpoints')->__("<div class='reward-flag {$extraPointClasses}'>1X =  <span id='j2t-pts'>%s</span> <span class='reward-span-puntos'>PUNTOS</span>", $points) . '</div></p>';
             return $return;
         } else if ($from_list) {
             //try to get from price
