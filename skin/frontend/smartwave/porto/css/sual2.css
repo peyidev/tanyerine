@@ -1,0 +1,25 @@
+.block-main-layer {position: fixed;right: -100%;top: 0;bottom: 0;background-color: #fff;width: 310px;padding: 0;z-index: 998;transition: all 0.3s;-moz-transition: all 0.3s;-webkit-transition: all 0.3s;-o-transition: all 0.3s;}
+.block-main-layer .block {padding: 0 15px;}
+.block-main-layer .block-category-nav {padding-top: 15px;}
+.block-main-layer .block .block-title:before {margin-top: -12px;text-align: center;}
+.block-main-layer .block .block-title, .block-main-layer .block.block-layered-nav dt, .block-main-layer .block-layered-nav .currently .block-subtitle {padding: 10px 20px;}
+.block-main-layer .block-layered-nav .currently li, .block-main-layer .block-layered-nav .currently ol, .block-main-layer .block-layered-nav .actions{padding-left: 10px;padding-right: 20px; }
+.block-main-layer .block.block-category-nav .block-title {padding-bottom: 16px;}
+.block-main-layer .block.block-layered-nav dt:before {text-align: center;margin-top: -12px;}
+.block-main-layer .block.block-layered-nav dd {padding: 10px 20px 26px;}
+.block-main-layer .block-category-nav .category-list a.plus {right: -3px;}
+.col-left .block-main-layer {left: -100%;right: auto;}
+.catalogsearch-result-index .col2-left-layout .col-left.sidebar,
+.catalog-category-view .col2-left-layout .col-left.sidebar{overflow: hidden;width: 0px;height:0px;-webkit-flex: 0 0 0%;-moz-flex: 0 0 0%;-ms-flex: 0 0 0%;flex: 0 0 0%;}
+.catalogsearch-result-index .col2-left-layout .col-main,
+.catalog-category-view .col2-left-layout .col-main{width: 100%;max-width: 100%;-webkit-flex: 0 0 100%;-moz-flex: 0 0 100%;-ms-flex: 0 0 100%;flex: 0 0 100%;}
+.mobile-layer-shown .col-left .block-main-layer{z-index: 9999;}
+.filter-by-desktop label{cursor:pointer;float:left;display: inline-block;margin: 0;vertical-align: middle;color: #777;font-size: 13px;font-weight: 400;line-height: 37px;}
+.layer-filter-icon-i{display: inline-block;line-height: 37px;font-size: 23px;color: #311e50;}
+.sort-by .icon-up {color: #311e50;}
+@media (min-width:1440px){
+	.catalog-category-view .wrapper .col2-left-layout .col-main {width: 100%;max-width: 100%;-webkit-flex: 0 0 100%;-moz-flex: 0 0 100%;-ms-flex: 0 0 100%;flex: 0 0 100%;}
+}
+@media (max-width:990px){
+	.layer-filter-icon.visible-sm{display: none!important;}
+}

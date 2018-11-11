@@ -384,17 +384,6 @@ body.side-header .top-container,body.side-header .main-container,body.side-heade
 #home-content-slider-demo-20 .item > div.content > a{font-size:10px;padding:10px 20px;margin:10px 0}
 .offer-deal .item img {width: 100%;}
 .full-width-image > h3{font-size:60px}
-.block-main-layer {position: fixed;right: -100%;top: 0;bottom: 0;background-color: #fff;width: 310px;padding: 0;z-index: 998;transition: all 0.3s;-moz-transition: all 0.3s;-webkit-transition: all 0.3s;-o-transition: all 0.3s;}
-.block-main-layer .block {padding: 0 15px;}
-.block-main-layer .block-category-nav {padding-top: 15px;}
-.block-main-layer .block .block-title:before {margin-top: -12px;text-align: center;}
-.block-main-layer .block .block-title, .block-main-layer .block.block-layered-nav dt, .block-main-layer .block-layered-nav .currently .block-subtitle {padding: 10px 20px;}
-.block-main-layer .block-layered-nav .currently li, .block-main-layer .block-layered-nav .currently ol, .block-main-layer .block-layered-nav .actions{padding-left: 10px;padding-right: 20px; }
-.block-main-layer .block.block-category-nav .block-title {padding-bottom: 16px;}
-.block-main-layer .block.block-layered-nav dt:before {text-align: center;margin-top: -12px;}
-.block-main-layer .block.block-layered-nav dd {padding: 10px 20px 26px;}
-.block-main-layer .block-category-nav .category-list a.plus {right: -3px;}
-.col-left .block-main-layer {left: -100%;right: auto;}
 }
 @media (min-width:768px) and (max-width:991px) {
 .offer-deal .item .content h3 a{font-size: 30px;line-height: 25px;}
