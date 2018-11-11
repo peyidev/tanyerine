@@ -18,13 +18,21 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $customer->setWebsiteId($websiteId)->setStore($store);
         $current = $customer->loadByEmail($email);
 
+        $bday = !empty($customerData['birth_day']) ? $customerData['birth_day'] : null;
+        $bmonth = !empty($customerData['birth_month']) ? $customerData['birth_month'] : null;
+        $byear = !empty($customerData['birth_year']) ? $customerData['birth_year'] : null;
+
+
         if ($customerData && !$current->entity_id) {
             $customer->setFirstname($customerData['first_name'])
                 ->setLastname($customerData['last_name'])
                 ->setEmail($customerData['email'])
                 ->setPhone($customerData['mobile'])
-                ->setDob($customerData['birth_day'] . "/" . $customerData['birth_month'] . "/" . $customerData['birth_year'])
                 ->setPassword($customerData['decryptedpassword']);
+
+            if(!empty($bday) && !empty($bmonth) && !empty($byear))
+                $customer->setDob($customerData['birth_day'] . "/" . $customerData['birth_month'] . "/" . $customerData['birth_year']);
+
             try {
                 $customer->save();
                 //$this->importOrders($customerData);
