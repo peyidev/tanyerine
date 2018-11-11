@@ -47,6 +47,35 @@
     margin-bottom:15px;
 }
 
-.30X{
+.base-points{
+    width: 100%;
+    background: #795E73;
+    color: white;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 13px;
+}
 
-   }
+.reward-5X{
+    background: #EF417B;
+}
+
+.reward-10X{
+    background: #F16852;
+}
+
+.reward-15X{
+    background: #62B455;
+}
+
+.reward-20X{
+    background: #005490;
+}
+
+.reward-30X{
+    background: #FFBB45;
+}
+
+.reward-40X{
+    background: #BB5D9B;
+}
