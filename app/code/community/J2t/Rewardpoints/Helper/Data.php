@@ -104,7 +104,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
             return false;
         }
 
-        return true;
+        return Mage::getStoreConfig(self::XML_PATH_ACTIVE, $store_id);
     }
 
     public function processReferralInsertion($order, $rewardPoints, $rewardPointsChild, $escape_status_verification = false) {
