@@ -24,10 +24,10 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->addAttributeToFilter('name', 'SUAL')->getFirstItem()->getId();
 
         $executionStartTime = microtime(true);
-        $this->importCategories();
-        $executionEndTime1 = microtime(true);
-        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
-        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+//        $this->importCategories();
+//        $executionEndTime1 = microtime(true);
+//        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
+//        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
         $this->importProducts();
         $executionEndTime2 = microtime(true);
