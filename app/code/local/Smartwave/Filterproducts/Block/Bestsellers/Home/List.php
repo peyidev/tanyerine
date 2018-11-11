@@ -18,7 +18,7 @@ class Smartwave_Filterproducts_Block_Bestsellers_Home_List extends Smartwave_Fil
         
         $storeId = Mage::app()->getStore()->getId();
         $category_id = $this->getCategoryId();
-        
+        die($category_id);
         $products = Mage::getResourceModel('reports/product_collection')
                 ->addAttributeToSelect('*');
                 
