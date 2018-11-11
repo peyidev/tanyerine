@@ -200,7 +200,7 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
             $newsletter = $resquest->getParam('is_subscribed');
 
             $query = "INSERT INTO sb_member ( login_as, name, first_name, last_name, email, password, mobile, birth_day, birth_month, birth_year, newsletter, is_guest, ctrl_status ) " .
-                "VALUES ('','{$name}','{$first_name}','{$last_name}','{$email}',AES_ENCRYPT('{$password}','SualBeauty'),'{$mobile}',{$birth_day},{$birth_month},{$birth_year},'{$newsletter}', 'N', 'P' )";
+                "VALUES ('','{$name}','{$first_name}','{$last_name}','{$email}',AES_ENCRYPT('{$password}','SualBeauty'),'{$mobile}',{$birth_day},{$birth_month},{$birth_year},'{$newsletter}', 'N', 'A' )";
 
             $new_db_resource = Mage::getSingleton('core/resource');
             $connection = $new_db_resource->getConnection('import_db');

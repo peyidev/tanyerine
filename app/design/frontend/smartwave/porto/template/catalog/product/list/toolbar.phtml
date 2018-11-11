@@ -17,7 +17,12 @@
                 <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" title="<?php echo $this->__('Set Descending Direction') ?>"><i class="icon-up"></i></a>
             <?php endif; ?>
         </div>
-
+        <div class="filter-by-desktop layer-filter-icon">
+            <label><?php echo $this->__('Filter by') ?>:</label>
+            <div class="layer-filter-icon-i">
+                <i class="icon-sliders"></i>
+            </div>
+        </div>
         <?php if( $this->isEnabledViewSwitcher() ): ?>
         <p class="view-mode">
             <?php $_modes = $this->getModes(); ?>

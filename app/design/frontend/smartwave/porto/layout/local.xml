@@ -98,7 +98,6 @@
             <action method="addMultipleConditionItem"><type>skin_css</type><name>css/header/type21.css</name><params></params><if>porto_settings/header/type</if><cond>20</cond><sep>and</sep><if_2>porto_settings/general/rtl</if_2><cond_2>0</cond_2></action>
             <action method="addMultipleConditionItem"><type>skin_css</type><name>css/header/type21_rtl.css</name><params></params><if>porto_settings/header/type</if><cond>20</cond><sep>and</sep><if_2>porto_settings/general/rtl</if_2><cond_2>1</cond_2></action>
             <action method="addCss" condition="0"><stylesheet>css/youtubepopup.css</stylesheet></action>
-            <action method="addCss" condition="0"><stylesheet>css/sual.css</stylesheet></action>
             <action method="addCss" ifconfig="porto_settings/general/layout" condition="1024"><stylesheet>css/layout_1024.css</stylesheet></action>
             <action method="addCss" ifconfig="porto_settings/general/layout" condition="1280"><stylesheet>css/layout_1280.css</stylesheet></action>
 			<action method="removeItem" ifconfig="porto_settings/general/disable_responsive" condition="1"><type>skin_css</type><name>css/responsive.css</name></action>
@@ -109,6 +108,8 @@
             <action method="addCss"><stylesheet helper="porto/cssconfig/getSettingsFile"/></action>
             <action method="addCss" ifconfig="porto_settings/general/rtl" condition="0"><stylesheet>css/custom.css</stylesheet></action>
             <action method="addCss" ifconfig="porto_settings/general/rtl" condition="1"><stylesheet>css/rtl-custom.css</stylesheet></action>
+            <action method="addCss" condition="0"><stylesheet>css/sual.css</stylesheet></action>
+            <action method="addCss" condition="0"><stylesheet>css/sual2.css</stylesheet></action>
         </reference>
         <reference name="header">
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="0"><template>page/html/header_type1.phtml</template></action>
@@ -266,7 +267,6 @@
                 <action method="setTemplate" ><template>catalog/product/view/tabs.phtml</template></action>
                 <action method="addTab" translate="title" module="catalog" ><alias>description_tabbed</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
                 <action method="addTab" translate="title" module="catalog" ><alias>additional_tabbed</alias><title>Additional</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
-                <action method="addTab" translate="title" module="tag" ><alias>tags_tabbed</alias><title>Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
                 <action method="addTab" translate="title" module="review" ><alias>review_tabbed</alias><title>Reviews</title><block>review/product_view_list</block><template>review/product_info_review.phtml</template></action>
             </block>
         </reference>
