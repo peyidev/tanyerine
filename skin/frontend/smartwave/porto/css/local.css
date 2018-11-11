@@ -698,6 +698,7 @@ div.star-rating a{transition:initial}
 .product-view .product-essential .ratings .rating-box:before{width:74px;height:15px;font-size:13px;line-height:15px}
 .product-view .product-essential .ratings .rating-box .rating:before{width:74px;height:15px;font-size:13px;line-height:15px}
 .ratings strong{float:left;margin:1px 3px 0 0}
+.ratings .rating-sku{margin:0;display:inline-block;vertical-align:middle;margin-right:13px;border-right:1px solid #dfdfdf;padding-right:15px}
 .ratings .rating-links{margin:0;display:inline-block;vertical-align:middle;margin-left:13px;border-left:1px solid #dfdfdf;padding-left:15px}
 .ratings .rating-links >a,.no-rating a{line-height:20px;font-size:14px;color:#000}
 .ratings .rating-links .separator{margin:0 5px;vertical-align:top;line-height:17px;color:#777}
