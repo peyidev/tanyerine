@@ -498,7 +498,7 @@ class J2t_Rewardpoints_Helper_Data extends Mage_Core_Helper_Abstract {
 
                     $point_diff = $points - ceil(Mage::registry('current_product')->getPointRuleTotal());
                     if ($point_diff != 0) {
-                        $extraPointDetails .= '<span class="inline-catalog-points-details">' . Mage::helper('rewardpoints')->__('%s point(s) calculation adjustment', '<span class="inline-point-items">' . $point_diff . '</span>') . '</span>';
+                        //$extraPointDetails .= '<span class="inline-catalog-points-details">' . Mage::helper('rewardpoints')->__('%s point(s) calculation adjustment', '<span class="inline-point-items">' . $point_diff . '</span>') . '</span>';
                     }
                 }
             }
