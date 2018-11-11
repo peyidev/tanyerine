@@ -18,9 +18,17 @@
 .layer-filter-icon-i{display: inline-block;line-height: 37px;font-size: 23px;color: #311e50;}
 .sort-by .icon-up {color: #311e50;}
 .toolbar-bottom .filter-by-desktop.layer-filter-icon {display: none;}
+.status-procces {background-color: #2F1A49;display: inline-block;width: 100%;padding: 20px;margin-top: 10px;margin-bottom: 10px;}
+.status-procces .steps{width: 33.33%;float: left;color:#969696;text-align: center;font-size: 20px;font-weight: bold;position: relative;}
+.status-procces .steps i {font-size: 30px;}
+.status-procces .steps i {margin-bottom: 5px;}
+.status-procces .steps.active {color: #fff;}
+.status-procces .arrow-next {position: absolute;right: 0px;top: calc(50% - 15px);color: #7E4DC5}
 @media (min-width:1440px){
 	.catalog-category-view .wrapper .col2-left-layout .col-main {width: 100%;max-width: 100%;-webkit-flex: 0 0 100%;-moz-flex: 0 0 100%;-ms-flex: 0 0 100%;flex: 0 0 100%;}
 }
-@media (max-width:990px){
+@media (max-width:640px){
+	.status-procces .steps p{font-size: 12px;margin-bottom: 5px;}
+	.status-procces .steps i {font-size: 24px;}
 	.layer-filter-icon.visible-sm{display: none!important;}
 }
