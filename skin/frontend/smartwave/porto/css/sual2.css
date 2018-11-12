@@ -89,10 +89,14 @@
 }
 
 
-.category-products h2{
-    font-size: 30px;
-    width: 100%;
-    border-bottom: 1px solid #e3e4e4;
-    margin-bottom: 2px;
-    padding-bottom: 30px;
+/*.category-products h2{*/
+    /*font-size: 30px;*/
+    /*width: 100%;*/
+    /*border-bottom: 1px solid #e3e4e4;*/
+    /*margin-bottom: 1px;*/
+    /*padding-bottom: 30px;*/
+/*}*/
+
+.logos-footer{
+    margin-bottom: 25px;
 }
