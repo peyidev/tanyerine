@@ -214,6 +214,11 @@
             </block>
         </reference>
     </default>
+
+    <customer_account_index>
+        <remove name="customer_account_dashboard_top"/>
+    </customer_account_index>
+
     <catalog_category_default>
         <reference name="root">
             <action method="setTemplate" ifconfig="porto_settings/category/page_layout" condition="one_column"><template>page/1column.phtml</template></action>
