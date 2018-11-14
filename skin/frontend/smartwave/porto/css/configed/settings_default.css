@@ -821,9 +821,6 @@ a.addtowishlist:hover, .link-wishlist:hover, a.comparelink:hover, .link-compare:
     color:#7a7d82;
     margin: 5px 0 0;
 }
-.block.block-related .product-name a{
-    color:#7a7d82;
-}
 .block.block-related .col-6 {
     width: 40%;
 }

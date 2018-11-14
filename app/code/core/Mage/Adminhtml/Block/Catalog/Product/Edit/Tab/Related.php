@@ -195,6 +195,20 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Related extends Mage_Adminht
             'index'     => 'sku'
         ));
 
+        $this->addColumn('brand',
+            array(
+                'header' => Mage::helper('catalog')->__('Brand'),
+                'width' => '70px',
+                'index' => 'brand',
+                'type' => 'options',
+                'options' => Mage::getModel('catalog/product_brand')->getBrands(),
+            ));
+
+        $this->addColumn('line_sap', array(
+            'header'    => Mage::helper('catalog')->__('Línea'),
+            'index'     => 'line_sap'
+        ));
+
         $this->addColumn('price', array(
             'header'        => Mage::helper('catalog')->__('Price'),
             'type'          => 'currency',
