@@ -120,6 +120,9 @@ $add_upsell_background = Mage::getStoreConfig("porto_settings/product_view/add_u
                             <?php if(Mage::getStoreConfig("porto_settings/category/product_price", $code)):?>
                             <?php echo $this->getPriceHtml($_product, true) ?>
                             <?php endif; ?>
+                            <?php $extraHtml = Mage::helper('rewardpoints/data')->getProductPointsText($product, false, true);
+                              echo $extraHtml; 
+                            ?>
                             <?php if(Mage::getStoreConfig("porto_settings/category/actions", $code)):?>
                             <div class="actions">
                                 <?php if(Mage::getStoreConfig("porto_settings/category/qty_field", $code)):?>
