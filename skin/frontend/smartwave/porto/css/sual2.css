@@ -99,3 +99,12 @@
 .logos-footer{
     margin-bottom: 25px;
 }
+
+.security-tags{
+    text-align: center;
+}
+
+.security-tags a{
+    height: 40px;
+    margin: 5px;
+}
