@@ -108,3 +108,22 @@
     height: 40px;
     margin: 5px;
 }
+
+#dt_method_oxxo label, #dt_method_card label{
+    color: transparent !important;
+}
+#dt_method_oxxo, #dt_method_card{
+    padding: 11px 0;
+    background-repeat: no-repeat;
+    background-position-x: 19px;
+    color: white;
+    background-size: contain;
+}
+
+#dt_method_oxxo{
+    background-image: url(/skin/frontend/smartwave/porto/images/security/img_check-out-oxxo.svg);
+}
+
+#dt_method_card{
+    background-image: url(/skin/frontend/smartwave/porto/images/security/visa-mastercard-logo.png);
+}
