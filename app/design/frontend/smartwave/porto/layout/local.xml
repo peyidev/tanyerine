@@ -215,9 +215,11 @@
         </reference>
     </default>
 
-    <customer_account_index>
-        <remove name="customer_account_dashboard_top"/>
-    </customer_account_index>
+    <customer_logged_in>
+        <reference name="right">
+            <remove name="sale.reorder.sidebar"/>
+        </reference>
+    </customer_logged_in>
 
     <catalog_category_default>
         <reference name="root">
