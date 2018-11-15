@@ -40,11 +40,9 @@ class Mage_Shell_Related_Mkt extends Mage_Shell_Abstract
 
             $howmany++;
 
-            if($howmany >= $limit)
-                break;
+//            if($howmany >= $limit)
+//                break;
         }
-        //
-
     }
 
     public function getNewUpsaleProducts($brandArray, $actualProduct){
