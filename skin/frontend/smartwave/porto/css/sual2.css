@@ -349,6 +349,6 @@
 
 
 
-.side-menu [data-id='77']{
-    margin-top: -120px;
+.side-menu [data-id="77"]{
+    margin-top: -120px !important;
 }
