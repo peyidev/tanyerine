@@ -272,8 +272,7 @@
 }
 
 .visit-x img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
     display: block;
     margin: 0 auto;
 }
@@ -313,7 +312,7 @@
 .reward-item-stickers{
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
