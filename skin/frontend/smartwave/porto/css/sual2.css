@@ -351,6 +351,9 @@
     margin-bottom: -10px;
 }
 
+.header-container.type12.header-newskin .header > .logo{
+    margin: 12px 0;
+}
 
 /*LABIOS sube*/
 .side-menu [data-id="77"]{
@@ -368,4 +371,5 @@
 .side-menu [data-id="144"]{
     margin-top: -100px !important;
 }
+
 
