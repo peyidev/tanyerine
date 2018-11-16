@@ -348,7 +348,13 @@
 }
 
 
-
+/*LABIOS sube*/
 .side-menu [data-id="77"]{
     margin-top: -120px !important;
+}
+
+
+/*ACCESORIOS sube*/
+.side-menu [data-id="23"]{
+    margin-top: -70px !important;
 }
