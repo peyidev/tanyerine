@@ -268,6 +268,7 @@
     text-align: center;
     font-size: 20px;
     margin-top: 40px;
+    min-width: 125px;
 }
 
 .visit-x img {
@@ -305,6 +306,14 @@
     text-align: center;
 }
 
+.more-rewards{
+    margin-top: 30px;
+}
+
+.reward-item-stickers{
+
+}
+
 
 @media only screen and (max-width: 1125px) {
 
@@ -331,4 +340,8 @@
         height: auto !important;
         float: left;
     }
+    .more-rewards{
+        margin-top: -40px;
+    }
+
 }
