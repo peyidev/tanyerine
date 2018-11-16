@@ -131,3 +131,7 @@
 .banner-descripcion .fas{
     font-style: normal !important;
 }
+
+.banner-descripcion .element-banner{
+    margin-top: 40px;
+}
