@@ -347,6 +347,10 @@
     }
 }
 
+.menu.side-menu > li{
+    margin-bottom: -10px;
+}
+
 
 /*LABIOS sube*/
 .side-menu [data-id="77"]{
@@ -358,3 +362,10 @@
 .side-menu [data-id="23"]{
     margin-top: -70px !important;
 }
+
+
+/*Tratamiento Corporal sube*/
+.side-menu [data-id="144"]{
+    margin-top: -100px !important;
+}
+
