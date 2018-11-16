@@ -152,4 +152,14 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .nivel-sual{
+        width: calc(100% - 50px) !important;
+        height: auto !important;
+    }
+
+    .nivel-sual .nivel-detail{
+        height: auto !important;
+        float: left;
+    }
 }
