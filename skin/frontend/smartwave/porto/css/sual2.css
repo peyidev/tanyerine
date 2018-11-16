@@ -140,7 +140,7 @@
 @media only screen and (max-width: 1125px) {
 
     .element-banner p{
-        font-size: 1em;
+        font-size: 1em !important;
     }
 
     .element-banner .fas{
