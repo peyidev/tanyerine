@@ -127,3 +127,7 @@
 #dt_method_card{
     background-image: url(/skin/frontend/smartwave/porto/images/security/visa-mastercard-logo.png);
 }
+
+.element-banner .fas{
+    font-style: normal !important;
+}
