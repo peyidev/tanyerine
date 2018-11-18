@@ -61,7 +61,7 @@ class Mage_CatalogSearch_Block_Autocomplete extends Mage_Core_Block_Abstract
 
             $html .=  '<li title="' . $this->escapeHtml($item['title']) . '" class="' . $item['row_class'] . '">';
             if ($isAjaxSuggestionCountResultsEnabled) {
-                $html .= '<span class="amount">' . $item['num_of_results'] . '</span>';
+                $html .= '<span class="amount">' . $item['num_of_results'] .' '.__('Productos encontrados'). '</span> - ';
             }
             $html .= $this->escapeHtml($item['title']) . '</li>';
         }
