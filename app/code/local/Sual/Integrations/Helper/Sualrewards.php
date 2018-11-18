@@ -94,12 +94,16 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
         $new_db_resource = Mage::getSingleton('core/resource');
         $connection = $new_db_resource->getConnection('import_db');
         $customerPhone = $this->getCustomer($customerId)->getData('phone');
-        $detailPoints = $connection->query('SELECT * FROM sb_member_track_points WHERE id_unique_member = "' . $customerPhone . '"');
-        $result = array();
-        foreach ($detailPoints as $detail) {
-            $result[] = $detail;
-        }
 
+        if(!empty($customerPhone)){
+            $detailPoints = $connection->query('SELECT * FROM sb_member_track_points WHERE id_unique_member = "' . $customerPhone . '"');
+            $result = array();
+            foreach ($detailPoints as $detail) {
+                $result[] = $detail;
+            }
+        }else{
+            $result = array();
+        }
         return $result;
     }
 
@@ -109,13 +113,17 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
         $new_db_resource = Mage::getSingleton('core/resource');
         $connection = $new_db_resource->getConnection('import_db');
         $customerPhone = $this->getCustomer($customerId)->getData('phone');
-        $totalPoints = $connection->query('SELECT * FROM sb_member_points WHERE id_unique_member = "' . $customerPhone . '"');
-        $total = 0;
-        foreach ($totalPoints as $point) {
-            $total = $point['points'];
-            break;
-        }
+        if(!empty($customerPhone)){
+            $totalPoints = $connection->query('SELECT * FROM sb_member_points WHERE id_unique_member = "' . $customerPhone . '"');
+            $total = 0;
+            foreach ($totalPoints as $point) {
+                $total = $point['points'];
+                break;
+            }
 
+        }else{
+            $total = 0;
+        }
         return intval($total);
     }
 
