@@ -99,3 +99,296 @@
 .logos-footer{
     margin-bottom: 25px;
 }
+
+.security-tags{
+    text-align: center;
+}
+
+.security-tags img{
+    height: 40px;
+    margin: 5px;
+}
+
+#dt_method_oxxo label, #dt_method_card label{
+    color: transparent !important;
+}
+#dt_method_oxxo, #dt_method_card{
+    padding: 8px 0;
+    background-repeat: no-repeat;
+    background-position-x: 19px;
+    color: white;
+    background-size: contain;
+}
+
+#dt_method_oxxo{
+    background-image: url(/skin/frontend/smartwave/porto/images/security/img_check-out-oxxo.svg);
+}
+
+#dt_method_card{
+    background-image: url(/skin/frontend/smartwave/porto/images/security/visa-mastercard-logo.png);
+}
+
+.banner-descripcion .fas{
+    font-style: normal !important;
+}
+
+.banner-descripcion .element-banner{
+    margin-top: 40px;
+}
+
+
+
+.banner-descripcion {
+    width: 100%;
+    height: 220px;
+    background: #2F1A49;
+}
+
+.big-ico {
+    color: white;
+    font-size: 7em;
+}
+
+.element-banner {
+    width: calc(33% - 27px);
+    text-align: center;
+    float: left;
+}
+
+.element-banner p {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.arrow {
+    float: left;
+    padding-top: 100px;
+    font-size: 40px;
+    color: #7E4DC5;
+}
+
+#niveles-sual {
+    width: 100%;
+    float: left;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.nivel-sual {
+    float: left;
+    width: calc(33% - 50px);
+    margin: 0 25px;
+    height: 650px;
+}
+
+.nivel-sual .nivel-title, .nivel-sual .nivel-description {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.nivel-sual .nivel-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.nivel-sual .nivel-detail {
+    margin-top: 20px;
+    width: 100%;
+    height: 600px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ecebe9;
+    background: rgba(181, 181, 181, 0.4);
+    background: -moz-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(181, 181, 181, 0.4)), color-stop(99%, rgba(181, 181, 181, 0.1)), color-stop(100%, rgba(181, 181, 181, 0.1)));
+    background: -webkit-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: -o-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: -ms-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b5b5b5', endColorstr='#b5b5b5', GradientType=0);
+}
+
+.nivel-sual ul {
+    margin-left: 0;
+    float: left;
+    width: 100%;
+    padding-left: 0;
+}
+
+.nivel-sual ul li {
+    list-style: none;
+}
+
+#niveles-sual .fas {
+    float: left;
+    margin-right: 10px;
+    padding-top: 5px;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    color: #2F1A49;
+}
+
+.nivel3 .nivel-title {
+    color: #420A3F;
+}
+
+.nivel2 .nivel-title {
+    color: #72286F;
+}
+
+.nivel2 .nivel-detail {
+}
+
+.nivel1 .nivel-title {
+    color: #846FAA;
+}
+
+.nivel1 .nivel-detail {
+}
+
+.h2-rew, .more-rewards h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.h3-rew {
+    width: 100%;
+    text-align: center;
+}
+
+.visit-x {
+    float: left;
+    width: 16.5%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+    min-width: 125px;
+}
+
+.visit-x img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.visit-x aa {
+    border: 4px solid #2F1A49;
+    border-radius: 90%;
+    color: #2F1A49;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    display: block;
+    line-height: 94px;
+    margin: 0 auto;
+    font-weight: bold;
+    background: rgba(181, 181, 181, 0.4);
+    background: -moz-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(181, 181, 181, 0.4)), color-stop(99%, rgba(181, 181, 181, 0.1)), color-stop(100%, rgba(181, 181, 181, 0.1)));
+    background: -webkit-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: -o-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: -ms-linear-gradient(top, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(181, 181, 181, 0.4) 0%, rgba(181, 181, 181, 0.1) 99%, rgba(181, 181, 181, 0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b5b5b5', endColorstr='#b5b5b5', GradientType=0);
+}
+
+.more-rewards .extra-text {
+    max-width: 650px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.more-rewards{
+    margin-top: 30px;
+}
+
+.reward-item-stickers{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+@media only screen and (max-width: 1125px) {
+
+    .element-banner p{
+        font-size: 1em !important;
+    }
+
+    .element-banner .fas{
+        font-size: 68px;
+    }
+
+    .banner-descripcion .arrow{
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nivel-sual{
+        width: calc(100% - 50px) !important;
+        height: auto !important;
+    }
+
+    .nivel-sual .nivel-detail{
+        height: auto !important;
+        float: left;
+    }
+    .more-rewards{
+        margin-top: -40px;
+    }
+}
+
+.menu.side-menu > li{
+    margin-bottom: -10px;
+}
+
+.header-container.type12.header-newskin .header > .logo{
+    margin: 12px 0;
+}
+
+/*LABIOS sube*/
+.side-menu [data-id="77"]{
+    margin-top: -120px !important;
+}
+
+
+/*ACCESORIOS sube*/
+.side-menu [data-id="23"]{
+    margin-top: -70px !important;
+}
+
+
+/*Tratamiento Corporal sube*/
+.side-menu [data-id="144"]{
+    margin-top: -100px !important;
+}
+
+
+
+/*HIDRATANTE FACIAL sube*/
+.side-menu [data-id="292"]{
+    margin-top: -6px !important;
+}
+
+/*REGALOS Y SETS sube*/
+.side-menu [data-id="55"]{
+    margin-top: -18px !important;
+}
+
+/*BEBES sube*/
+.side-menu [data-id="43"]{
+    margin-top: -77px !important;
+}
+
+
+
+
