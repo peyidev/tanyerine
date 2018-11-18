@@ -64,7 +64,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
             Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->_getHelperInstance('core')
                 ->urlEncode($this->getCurrentUrl()),
             'product' => $product->getEntityId(),
-            Mage_Core_Model_Url::FORM_KEY => $this->_getSingletonModel('core/session')->getFormKey()
+            //Mage_Core_Model_Url::FORM_KEY => $this->_getSingletonModel('core/session')->getFormKey()
         );
 
         if (!empty($additional)) {
