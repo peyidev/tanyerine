@@ -109,8 +109,12 @@
     margin: 5px;
 }
 
-#dt_method_oxxo label, #dt_method_card label{
-    color: transparent !important;
+#dt_method_oxxo label{
+    padding-left: 70px;
+}
+
+#dt_method_card label{
+    padding-left: 142px;
 }
 #dt_method_oxxo, #dt_method_card{
     padding: 8px 0;
