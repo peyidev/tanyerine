@@ -117,7 +117,6 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
 
         $parentCategory = Mage::getModel('catalog/category')->load($parentCategoryId);
 
-
         $childCategory = Mage::getModel('catalog/category')->getCollection()
             ->addIdFilter(
                 !$inactive ? $parentCategory->getChildren() : $parentCategory->getResource()->getChildrenIds($parentCategory)
@@ -431,13 +430,16 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
 
                 $this->insertProductBaseAttributes($product, $productSual, $urlImage, $attributeSet);
                 $this->insertProductSapAttributes($product, $productSual, false, $attributeSet);
-                $this->categorizeProduct($product, $productSual);
+
+                if($attributeSet == 9)
+                   $this->categorizeProduct($product, $productSual);
+
                 $product->save();
                 $this->insertados++;
                 return $product;
             } else {
                 $this->insertProductSapAttributes($productExists, $productSual, true, $attributeSet);
-                $this->categorizeProduct($productExists, $productSual);
+                //$this->categorizeProduct($productExists, $productSual);
                 $productExists->save();
                 $this->actualizados++;
                 return $productExists;
