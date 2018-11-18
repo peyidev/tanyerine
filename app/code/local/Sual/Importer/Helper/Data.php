@@ -7,7 +7,8 @@
  */
 ini_set("memory_limit", -1);
 
-class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
+class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
+{
 
     public $parentCategoryId = "";
     public $insertados = 0;
@@ -29,16 +30,23 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 //        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
 //        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
-        $this->importProducts();
+//        $this->importProducts();
+//        $executionEndTime2 = microtime(true);
+//        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
+//        $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+
+
+        $this->importServices();
         $executionEndTime2 = microtime(true);
         $minutes = ($executionEndTime2 - $executionStartTime) / 60;
-        $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
         $this->closeExecution($executionId);
 
     }
 
-    public function closeExecution($executionId){
+    public function closeExecution($executionId)
+    {
 
         $model = Mage::getModel('sual_importer/execute');
         $model->load($executionId);
@@ -74,10 +82,10 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
         $urlPieces = explode(".", $url);
         $extension = end($urlPieces);
-        $img = $sku . '-' .  strtoupper($this->getUrl($brand)) . '-' . $name . "." . $extension;
+        $img = $sku . '-' . strtoupper($this->getUrl($brand)) . '-' . $name . "." . $extension;
         $whereToSave = $base_path . '/media/imports/' . $img;
 
-        if(!file_exists($whereToSave))
+        if (!file_exists($whereToSave))
             file_put_contents($whereToSave, file_get_contents($url));
 
         return $whereToSave;
@@ -112,7 +120,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
         $childCategory = Mage::getModel('catalog/category')->getCollection()
             ->addIdFilter(
-                !$inactive ? $parentCategory->getChildren() :  $parentCategory->getResource()->getChildrenIds($parentCategory)
+                !$inactive ? $parentCategory->getChildren() : $parentCategory->getResource()->getChildrenIds($parentCategory)
             )
             ->addAttributeToFilter('name_sap', $childCategoryName)
             ->getFirstItem()->getId();
@@ -223,27 +231,60 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             $product = $this->utf8_converter($product);
             $this->insertProduct($product);
 
-           // if(!empty($product))
-           //     //echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+            // if(!empty($product))
+            //     //echo "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
 
         }
 
-        if($limit > 0)
+        if ($limit > 0)
             $totalProducts = $limit;
 
-        $this->output .=  "Se procesaron {$totalProducts['howmany']} productos.\n";
-        $this->output .=  "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+        $this->output .= "Se procesaron {$totalProducts['howmany']} productos.\n";
+        $this->output .= "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
     }
 
 
-    public function insertProductBaseAttributes(&$product, $productSual, $urlImage)
+    public function importServices()
+    {
+        //$this->output .=  "Iniciando";
+
+        $limit = 50000;
+        $limitSql = " LIMIT {$limit}";
+
+        $where = ' WHERE type = "SERVICIOS"' . $limitSql;
+        $new_db_resource = Mage::getSingleton('core/resource');
+        $connection = $new_db_resource->getConnection('import_db');
+        $howmanyProducts = $connection->query('SELECT count(*) as howmany FROM sb_product' . $where);
+        $totalProducts = 0;
+
+        foreach ($howmanyProducts as $many) {
+            $totalProducts = $many;
+        }
+
+        $products = $connection->query('SELECT *  FROM sb_product' . $where);
+
+        foreach ($products as $product) {
+            $product = $this->utf8_converter($product);
+            $this->insertProduct($product, 10);
+
+        }
+
+        if ($limit > 0)
+            $totalProducts = $limit;
+
+        $this->output .= "Se procesaron {$totalProducts['howmany']} productos.\n";
+        $this->output .= "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+    }
+
+
+    public function insertProductBaseAttributes(&$product, $productSual, $urlImage, $attributeSet = 9)
     {
 
         $idAttribute = $this->addAttributeValue('brand', $productSual['brand']);
 
         $product
             ->setWebsiteIds(array(1))//website ID the product is assigned to, as an array
-            ->setAttributeSetId(9)//ID of a attribute set named 'default'
+            ->setAttributeSetId($attributeSet)//ID of a attribute set named 'default'
             ->setTypeId('simple')//product type
             ->setCreatedAt(strtotime('now'))//product creation time
             ->setSku($productSual['sku'])//SKU
@@ -262,15 +303,6 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setUrlKey($productSual['seo_url'])
             ->setMediaGallery(array('images' => array(), 'values' => array()))//media gallery initialization
             ->addImageToMediaGallery($this->getImage($urlImage, $productSual), array('image', 'thumbnail', 'small_image'), false, false)//assigning image, thumb and small image to media gallery
-
-            ->setStockData(array(
-                    'use_config_manage_stock' => 0, //'Use config settings' checkbox
-                    'manage_stock' => 1, //manage stock
-                    'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
-                    'is_in_stock' => ($productSual['available'] > 0) ? 1 : 0, //Stock Availability
-                    'qty' => $productSual['available'] //qty
-                )
-            )
             /* Sual eCom */
             ->setBrand($idAttribute)
             ->setAtribute($productSual['attribute'])
@@ -286,11 +318,31 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             ->setProductImageSize("6");
 
 
+        //Producto Normal
+        if ($attributeSet == 9) {
+            $product->setStockData(array(
+                    'use_config_manage_stock' => 0, //'Use config settings' checkbox
+                    'manage_stock' => 1, //manage stock
+                    'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
+                    'is_in_stock' => ($productSual['available'] > 0) ? 1 : 0, //Stock Availability
+                    'qty' => $productSual['available'] //qty
+                )
+            );
+        } else {
+            //Servicio
+            $product->setStockData(array(
+                    'use_config_manage_stock' => 0, //'Use config settings' checkbox
+                    'manage_stock' => 0, //manage stock
+                    'min_sale_qty' => 1, //Minimum Qty Allowed in Shopping Cart
+                    'is_in_stock' => 1, //Stock Availability
+                )
+            );
+        }
 
         //$this->output .=  "Insertando Atributos base";
     }
 
-    public function insertProductSapAttributes(&$product, $productSual, $isUpdate = false)
+    public function insertProductSapAttributes(&$product, $productSual, $isUpdate = false, $attributeSet = 9)
     {
 
         $product->setBrandSap($productSual['brand'])
@@ -319,7 +371,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             //hay que quitar este
             ->setHowtouse($productSual['howtouse']);
 
-            if($isUpdate){
+        if ($isUpdate) {
+            if ($attributeSet == 9) {
                 $stockItem = Mage::getModel('cataloginventory/stock_item');
                 $stockItem->assignProduct($product);
                 $stockItem->setData('is_in_stock', ($productSual['available'] > 0) ? 1 : 0);
@@ -328,6 +381,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 $stockItem->setData('qty', $productSual['available']);
                 $stockItem->save();
             }
+        }
     }
 
     public function categorizeProduct(&$product, $productSual)
@@ -341,7 +395,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
         $categories = array();
 
-        if(!empty($product->getCategoryIds())){
+        if (!empty($product->getCategoryIds())) {
             $categories = $product->getCategoryIds();
         }
 
@@ -358,9 +412,9 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
     }
 
-    public function insertProduct($productSual)
+    public function insertProduct($productSual, $attributeSet = 9)
     {
-        
+
         Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
         $product = Mage::getModel('catalog/product');
 
@@ -375,14 +429,14 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
                 if (!$imageExists)
                     return;
 
-                $this->insertProductBaseAttributes($product, $productSual, $urlImage);
-                $this->insertProductSapAttributes($product, $productSual);
+                $this->insertProductBaseAttributes($product, $productSual, $urlImage, $attributeSet);
+                $this->insertProductSapAttributes($product, $productSual, false, $attributeSet);
                 $this->categorizeProduct($product, $productSual);
                 $product->save();
                 $this->insertados++;
                 return $product;
             } else {
-                $this->insertProductSapAttributes($productExists, $productSual, true);
+                $this->insertProductSapAttributes($productExists, $productSual, true, $attributeSet);
                 $this->categorizeProduct($productExists, $productSual);
                 $productExists->save();
                 $this->actualizados++;
@@ -411,7 +465,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
         return $categoryId;
     }
 
-    function addAttributeValue($attributeCode, $attValue) {
+    function addAttributeValue($attributeCode, $attValue)
+    {
 
         $idAttribute = $this->attributeValueExists($attributeCode, $attValue);
         if (!$idAttribute && (!empty(trim($attValue) && !empty(trim($attributeCode))))) {
@@ -424,12 +479,13 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
             $setup->addAttributeOption($option);
 
             $this->addAttributeValue($attributeCode, $attValue);
-        }else{
+        } else {
             return $idAttribute;
         }
     }
 
-    function attributeValueExists($attribute, $value) {
+    function attributeValueExists($attribute, $value)
+    {
         $attribute_model = Mage::getModel('eav/entity_attribute');
         $attribute_options_model = Mage::getModel('eav/entity_attribute_source_table');
         $attribute_code = $attribute_model->getIdByCode('catalog_product', $attribute);
@@ -447,8 +503,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract {
 
     function utf8_converter($array)
     {
-        array_walk_recursive($array, function(&$item, $key){
-            if(!mb_detect_encoding($item, 'utf-8', true)){
+        array_walk_recursive($array, function (&$item, $key) {
+            if (!mb_detect_encoding($item, 'utf-8', true)) {
                 $item = utf8_encode($item);
             }
         });
