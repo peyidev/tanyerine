@@ -388,7 +388,27 @@
 .side-menu [data-id="43"]{
     margin-top: -77px !important;
 }
+.subcategory-block li {
+    display: inline-block;
+    float: left;
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+}
+.subcategory-block .subcategory img {
+    border-radius: 50%;
+    height: auto;
+    width: 100%;
+}
 
-
-
+@media only screen and (max-width: 768px) {
+    .subcategory-block li {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1125px) {
+    .subcategory-block li {
+        width: 33.33%;
+    }
+}
 

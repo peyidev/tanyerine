@@ -15,10 +15,10 @@ class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Ma
         foreach ($subcategories as $sub) {
           $subcategory = Mage::getModel('catalog/category')->load($sub->getId());
           if ($imgUrl = $this->getImageUrl($subcategory->getThumnail())) {
-            $html .= '<li>';
+            $html .= '<li><div class="subcategory">';
             $html .= '<img src="'.$imgUrl.'" alt="'.$this->escapeHtml($subcategory->getName()).'" title="'.$this->escapeHtml($subcategory->getName()).'" />';
             $html .= '<h2>'.$subcategory->getName().'</h2>';
-            $html .= '</li>';
+            $html .= '</div></li>';
           }
         }
         $html .= '</ul>';
