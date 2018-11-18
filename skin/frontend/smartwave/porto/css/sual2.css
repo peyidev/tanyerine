@@ -388,9 +388,16 @@
 .side-menu [data-id="43"]{
     margin-top: -77px !important;
 }
+.subcategory-block ul{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
 .subcategory-block li {
     display: inline-block;
-    float: left;
     padding: 20px;
     text-align: center;
     width: 25%;
