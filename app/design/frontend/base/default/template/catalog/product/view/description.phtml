@@ -30,7 +30,8 @@
  * @see Mage_Catalog_Block_Product_View_Description
  */
 ?>
-<?php $_description = $this->getProduct()->getDescription(); ?>
+<?php //$_description = $this->getProduct()->getDescription(); ?>
+<?php $_description = $this->getProduct()->getBenefits(); ?>
 <?php if ($_description): ?>
     <h2><?php echo $this->__('Details') ?></h2>
     <div class="std">
