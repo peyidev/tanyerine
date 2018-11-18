@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<widgets>
+  <widgetlinks_links type="sual_forms/categories" translate="Category links" module="sual_forms">
+    <name>Category thumbnails</name>
+    <description>Allows to subscategires</description>
+  </widgetlinks_links>
+</widgets>
