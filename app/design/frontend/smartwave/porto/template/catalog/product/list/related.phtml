@@ -39,7 +39,7 @@
                             <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php if($aspect_ratio):?><?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize($ratio_width,$ratio_height); ?><?php endif; ?>" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
                         </div>
                         <div class="product-details col-7">
-                            <h2 class="product-name product-brand"><?php echo $product->getAttributeText('brand'); ?></h2> 
+                            <h2 class="product-name product-brand"><?php echo $_item->getAttributeText('brand'); ?></h2> 
                             <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>
                             <?php if(Mage::getStoreConfig("porto_settings/category/rating_star", $code)):?>
                             <?php if (Mage::helper('catalog')->isModuleEnabled('Mage_Review')): ?>
