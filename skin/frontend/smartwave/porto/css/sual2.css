@@ -411,7 +411,21 @@
     height: auto;
     width: 100%;
 }
-
+#search_autocomplete {
+    background-color: #fff;
+}
+#search_autocomplete ul {
+    border-left: 1px solid #f6f6f6;
+    border-right: 1px solid #f6f6f6;
+    border-bottom: 1px solid #f6f6f6;
+    padding: 6px;
+}
+#search_autocomplete ul li {
+    display: inline-block;
+    line-height: 20px;
+    width: 100%;
+    text-align: left;
+}
 @media only screen and (max-width: 768px) {
     .subcategory-block li {
         width: 50%;
