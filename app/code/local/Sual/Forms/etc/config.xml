@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Sual_Forms>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Sual_Forms>
     </modules>
     <global>
@@ -11,6 +11,11 @@
                 <class>Sual_Forms_Helper</class>
             </sual_forms>
         </helpers>
+        <blocks>
+            <sual_forms>
+                <class>Sual_Forms_Block</class>
+            </sual_forms>
+        </blocks>
         <resources>
             <sual_forms_setup>
                 <setup>
