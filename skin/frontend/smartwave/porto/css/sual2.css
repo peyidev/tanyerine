@@ -422,9 +422,10 @@
 }
 #search_autocomplete ul li {
     display: inline-block;
+    cursor: pointer;
     line-height: 20px;
-    width: 100%;
     text-align: left;
+    width: 100%;
 }
 @media only screen and (max-width: 768px) {
     .subcategory-block li {
