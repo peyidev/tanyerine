@@ -496,3 +496,8 @@
     }
 }
 
+
+.item:hover .details-area .actions a.addtocart {
+    border-color: #2f1a49;
+    background-color: #2f1a49 !important;
+}
