@@ -1,5 +1,6 @@
 <?php
 class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Mage_Widget_Block_Interface {
+
 /**
   * Produce links list rendered as html
   *
@@ -41,4 +42,5 @@ class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Ma
       }
       return $url;
     }
+
 }

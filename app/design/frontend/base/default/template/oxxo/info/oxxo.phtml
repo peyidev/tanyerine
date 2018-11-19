@@ -35,27 +35,26 @@ $expiry = $this->getInfo()->getOxxoExpiryDate();
 ?>
 
 <dl class="oxxo">
-  <dt><?php echo "Purchase Info:"; ?></dt>
+  <dt><?php echo "Información de pedido:"; ?></dt>
   <dd class="offset">
     <table class="info-table">
       <tbody>
         <tr>
           <?php if (empty($reference) != true) {?>
-          <th><?php echo $this->__('Reference Number: %s', $reference) ?></th>
-          <th><?php echo $this->__('Expiry Date: %s', $expiry) ?></th>
+          <th><?php echo $this->__('Número de referencia: %s', $reference) ?></th>
+          <th><?php echo $this->__('Fecha de expiración: %s', $expiry) ?></th>
           <th>
           <ol>
-            <li><?php echo $this->__('Instructions1') ?><a href="https://www.google.com.mx/maps/search/oxxo/" target="_blank"><?php echo $this->__('Instructions2') ?></a>.</li>
-            <li><?php echo $this->__('Instructions3') ?><strong>OXXOPay</strong>.</li>
-            <li><?php echo $this->__('Instructions4') ?></li>
-            <li><?php echo $this->__('Instructions5') ?></li>
-            <li><?php echo $this->__('Instructions6') ?><strong><?php echo $this->__('Instructions7') ?></strong><?php echo $this->__('Instructions8') ?></li>
+            <li><?php echo $this->__('1. Acude a la tienda OXXO de tu preferencia.') ?> <a href="https://www.google.com.mx/maps/search/oxxo/" target="_blank"><?php echo $this->__('(Encontrar OXXO más cercano)') ?></a>.</li>
+            <li><?php echo $this->__('2. Proporciona al cajero tu número de referencia.') ?></li>
+            <li><?php echo $this->__('3. Paga el importe exacto.') ?></li>
+            <li><?php echo $this->__('4. Conserva tu ticket y espera nuestro correo de confirmación de tu pago, en un máximo de 8 horas.') ?></li>
+            <li><?php echo $this->__('Recuerda: Tienes máximo 72 horas para completar tu pago, de lo contrario tu pedido será cancelado. ') ?><br />
+                Si tienes dudas comunícate con nosotros a través de <a href="mailto:contacto@sualbeauty.com">contacto@sualbeauty.com</a> o llamando al <a href="tel:01 800 060 5392">01 800 060 5392</a></li>
           </ol>
-          <div class="opps-footnote"><?php echo $this->__('Instructions9') ?></div>
           </th>
           <?php } else if (get_class($this) == "Conekta_Oxxo_Block_Info_Oxxo") { ?>
-          <th><?php echo $this->__('You will receive an invoice via email.') ?></th>
-          
+          <th><?php echo $this->__('Recibirás un comprobante por correo electrónico.') ?></th>
           <?php } ?>
         </tr>
       </tbody>
