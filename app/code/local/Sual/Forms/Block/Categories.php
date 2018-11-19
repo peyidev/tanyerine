@@ -5,7 +5,7 @@ class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Ma
     protected function _construct()
     {
         $this->addData(array(
-            'cache_lifetime' => 3600,
+            'cache_lifetime' => 0,
             'cache_key'      => Mage::registry('current_category')->getId() . "-widget-cache",
         ));
 
