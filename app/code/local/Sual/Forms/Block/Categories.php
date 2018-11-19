@@ -43,9 +43,4 @@ class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Ma
       return $url;
     }
 
-
-    protected function _loadCache(){
-        return false;
-    }
-
 }
