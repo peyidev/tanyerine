@@ -6,10 +6,10 @@ class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Ma
     {
         $this->addData(array(
             'cache_lifetime' => 3600,
-            'cache_key'      => Mage::registry('current_category') . "-widget-cache",
+            'cache_key'      => Mage::registry('current_category')->getId() . "-widget-cache",
         ));
 
-        Mage::log(Mage::registry('current_category') . "-widget-cache");
+        Mage::log(Mage::registry('current_category')->getId() . "-widget-cache");
     }
 
 
