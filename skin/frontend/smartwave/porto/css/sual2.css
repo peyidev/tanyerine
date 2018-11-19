@@ -427,9 +427,53 @@
     text-align: left;
     width: 100%;
 }
+.subcategory-brands .section {
+    display: inline-block;
+    border-top: 1px solid rgba(0,0,0,0.0625);
+    margin-top: 24px;
+    padding-top: 24px;
+    width: 100%;
+}
+.subcategory-brands .section-title {
+    width: 20%;
+    float: left;
+}
+.subcategory-brands .section-list {
+    width: 80%;
+    float: left;
+}
+.subcategory-brands .index {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.subcategory-brands .section-list ul {
+    display: block;
+    -webkit-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 24px;
+    column-gap: 24px;
+    line-height: 30px;
+}
 @media only screen and (max-width: 768px) {
+    .subcategory-brands .section-list,
+    .subcategory-brands .section-title {
+        width: 100%;
+    }
+    .subcategory-brands .section-title {
+        margin-bottom: 10px;
+    }
+    .subcategory-brands .section-list ul {
+        display: block;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+    .subcategory-brands .index {
+        display: none;
+    }
     .subcategory-block li {
         width: 50%;
+        line-height: 20px;
     }
 }
 @media only screen and (max-width: 1125px) {

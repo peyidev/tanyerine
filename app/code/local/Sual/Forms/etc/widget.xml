@@ -4,4 +4,8 @@
     <name>Category thumbnails</name>
     <description>Allows to subscategires</description>
   </widgetlinks_links>
+  <categories_tree type="sual_forms/tree" translate="Category Tree" module="sual_forms">
+    <name>Category tree</name>
+    <description>Allows to print subscategires tree</description>
+  </categories_tree>
 </widgets>
