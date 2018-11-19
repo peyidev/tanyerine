@@ -57,6 +57,7 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
     protected function _prepareCollection()
     {
         $collection = Mage::getResourceModel($this->_getCollectionClass());
+        $collection->getSelect()->join('sales_flat_order', 'main_table.entity_id = sales_flat_order.entity_id' ,array('id_warehouse'=> 'id_warehouse' ));
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -99,12 +100,21 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
             'index' => 'shipping_name',
         ));
 
+
+        $this->addColumn('id_warehouse', array(
+            'header'    => Mage::helper('catalog')->__('Almacén'),
+            'index'     => 'id_warehouse',
+            'type' => 'text'
+        ));
+
+
         $this->addColumn('base_grand_total', array(
             'header' => Mage::helper('sales')->__('G.T. (Base)'),
             'index' => 'base_grand_total',
             'type'  => 'currency',
             'currency' => 'base_currency_code',
         ));
+
 
         $this->addColumn('grand_total', array(
             'header' => Mage::helper('sales')->__('G.T. (Purchased)'),
