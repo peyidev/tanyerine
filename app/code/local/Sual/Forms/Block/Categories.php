@@ -9,6 +9,8 @@ class Sual_Forms_Block_Categories extends Mage_Core_Block_Abstract implements Ma
             'cache_key'      => Mage::registry('current_category')->getId() . "-widget-cache",
         ));
 
+
+        Mage::log($this->getData());
         Mage::log(Mage::registry('current_category')->getId() . "-widget-cache");
     }
 
