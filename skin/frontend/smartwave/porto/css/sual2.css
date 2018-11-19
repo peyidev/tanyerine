@@ -447,6 +447,9 @@
     justify-content: space-between;
     text-align: center;
 }
+.subcategory-brands .index a {
+    padding: 5px;
+}
 .subcategory-brands .section-list ul {
     display: block;
     -webkit-column-count: 4;
