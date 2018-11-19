@@ -16,6 +16,11 @@
                 <class>Sual_Forms_Block</class>
             </sual_forms>
         </blocks>
+        <models>
+            <sual_forms>
+                <class>Sual_Forms_Model</class>
+            </sual_forms>
+        </models>
         <resources>
             <sual_forms_setup>
                 <setup>
@@ -25,6 +30,7 @@
             </sual_forms_setup>
         </resources>
     </global>
+    
     <frontend>
         <layout>
             <updates>
