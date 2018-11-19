@@ -36,6 +36,9 @@
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 
 <?php if($this->isContentMode()): ?>
+
+    <?php $html = $this->getChildHtml('subcategory_product_cms'); ?>
+    <?php $this->setData('cms_block_html', $html) ?>
     <?php echo $this->getCmsBlockHtml() ?>
 
 <?php elseif($this->isMixedMode()): ?>
