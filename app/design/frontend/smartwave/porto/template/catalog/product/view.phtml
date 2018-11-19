@@ -481,6 +481,7 @@ if($enable_addtocart_sticky){
                                     alert(data.message.replace("<br/>",""));
                             }else{
                                 if(is_quickview){
+                                    window.top.location.href =  "<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>";
                                     if(window.parent.jQuery('.header-container .mini-cart')){
                                         window.parent.jQuery('.header-container .mini-cart').replaceWith(data.toplink);
                                     }
