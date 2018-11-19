@@ -21,6 +21,21 @@ class Plumrocket_SocialLogin_Block_Page_Html_Header extends Mage_Page_Block_Html
     const RWD_LARGE_LOGO_SRC_CONFIG_PATH = 'design/rwd/logo_src_rwd';
     const RWD_SMALL_LOGO_SRC_CONFIG_PATH = 'design/rwd/logo_src_rwd_small';
 
+    public function getStateTitle(){
+
+        $loggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
+        $header = '';
+
+        if(!$loggedIn){
+            $header .= '<span>' . $this->__("Mi") . '</span>';
+            $header .= '<span>' . $this->__("cuenta") . '</span>';
+        }else{
+            $header .= '<span>' .  $this->__("Hello"). '</span>';
+        }
+
+        return $header;
+
+    }
     /**
      * Get RWD large/desktop logo
      *
