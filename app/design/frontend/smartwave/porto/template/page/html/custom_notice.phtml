@@ -6,4 +6,5 @@
     if($show_notice && $notice_static_block) {
         echo $this->getLayout()->createBlock("cms/block")->setBlockId($notice_static_block)->toHtml();
     }
+    echo $this->getLayout()->createBlock("sual_forms/message")->setTemplate('page/html/messages.phtml')->toHtml();
 ?>

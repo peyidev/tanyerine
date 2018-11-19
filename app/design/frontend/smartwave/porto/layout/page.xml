@@ -81,6 +81,7 @@ Default layout, loads most of the pages
                 <block type="core/template" name="pageHeader" template="page/html/topcontainer.phtml">
                     <block type="core/template" name="page.header" template="page/html/page_header.phtml"/>
                     <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+                    <!--<block type="sual_forms/message" name="sual_global_message" before="-" template="page/html/messages.phtml"/>-->
                 </block>
             </block>
             <block type="page/html_wrapper" name="bottom_container" as="bottomContainer" translate="label">
