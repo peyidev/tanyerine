@@ -442,6 +442,7 @@
 }
 .subcategory-brands .section-title {
     width: 20%;
+    text-align: center;
     float: left;
 }
 .subcategory-brands .section-list {
