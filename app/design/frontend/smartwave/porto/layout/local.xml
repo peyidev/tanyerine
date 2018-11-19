@@ -213,9 +213,6 @@
                 <action method="setTemplate"><template>smartwave/sidebar_sticky.phtml</template></action>
             </block>
         </reference>
-        <reference name="top.container">
-              <block type="sual_forms/message" name="sual_global_message" output="toHtml" before="-" template="page/html/messages.phtml"/>
-        </reference>
     </default>
 
     <customer_logged_in>
