@@ -39,23 +39,3 @@
     </div>
     <?php endif; ?>
 </div>
-<script type="text/javascript">
-    jQuery(function($){   
-        $('.layer-filter-icon, .close-mobile-layer, .close-layer').click(function(event) { 
-            if(!$('body').hasClass('mobile-layer-shown')) {
-                $('body').addClass('mobile-layer-shown', function() { 
-                    setTimeout(function(){
-                        $(document).one("click",function(e) {
-                            var target = e.target;
-                            if (!$(target).is('.block-main-layer .block') && !$(target).parents().is('.block-main-layer .block')) {
-                                        $('body').removeClass('mobile-layer-shown');
-                            }
-                        });  
-                    }, 111);
-                });
-            } else{
-                $('body').removeClass('mobile-layer-shown');
-            }
-        }); 
-    });
-</script>
