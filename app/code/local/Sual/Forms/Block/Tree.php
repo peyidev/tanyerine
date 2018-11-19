@@ -19,7 +19,7 @@ class Sual_Forms_Block_Tree extends Mage_Core_Block_Abstract implements Mage_Wid
           $marcas .= '<div class="section" id="'.$sub->getId().'">';
           $marcas .= '<div class="section-title"><strong>'.$subcategory->getName().'</strong></div>';
           $marcas .= '<div class="section-list"><ul>';
-          $index .= '<a href="#'.$sub->getId().'">'.$subcategory->getName().'</a>';
+          $index .= '<a href="#'.$sub->getId().'"><strong>'.$subcategory->getName().'</strong></a>';
           foreach ($level3 as $link) {
             $linkcate = Mage::getModel('catalog/category')->load($link->getId());
             $url = $linkcate->getUrl($linkcate);
