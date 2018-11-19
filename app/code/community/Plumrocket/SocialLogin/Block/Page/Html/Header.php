@@ -30,7 +30,10 @@ class Plumrocket_SocialLogin_Block_Page_Html_Header extends Mage_Page_Block_Html
             $header .= '<span>' . $this->__("Mi") . '</span>';
             $header .= '<span>' . $this->__("cuenta") . '</span>';
         }else{
-            $header .= '<span>' .  $this->__("Hello"). '</span>';
+            $customer = Mage::getSingleton('customer/session')->getCustomer();
+
+            $header .= '<span>' .  $this->__("Hola,") . '</span>';
+            $header .= '<span>' .  $customer->getFirstname() . '</span>';
         }
 
         return $header;
