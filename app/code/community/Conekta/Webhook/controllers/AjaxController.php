@@ -7,7 +7,7 @@ class Conekta_Webhook_AjaxController extends Mage_Core_Controller_Front_Action {
     //self::authenticateEvent($body, $_SERVER['HTTP_USER_AGENT']);
     $event = json_decode($body);
     if (empty($event->data)) {
-      throw new Exception("Empty data");
+    return;
     }
     $charge = $event->data->object;
     sleep(2);
