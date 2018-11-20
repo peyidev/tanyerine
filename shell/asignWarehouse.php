@@ -36,7 +36,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
         if(!empty($response->data->warehouse))
             return $response->data->warehouse;
         else
-            Mage::throwException('Hubo un error al crear tu pedido, por favor intenta nuevamente (EWHS).');
+           print_r($response);
     }
 
     public function getUserIdFromOrigin($email)
