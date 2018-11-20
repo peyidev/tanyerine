@@ -489,6 +489,9 @@
         width: 50%;
         line-height: 20px;
     }
+    .account-create .form-list .field {
+        margin-left: 0%;
+    }
 }
 @media only screen and (max-width: 1125px) {
     .subcategory-block li {
