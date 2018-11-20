@@ -16,8 +16,6 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             $incrementId = $order->getIncrementId();
             $warehouse = $this->setWarehouse($this->getUserIdFromOrigin($email), $incrementId);
             echo $email . "->" . $incrementId . "->" . $warehouse . "\n";
-            $order->setIdWarehouse($warehouse);
-            $order->save();
         }
 
 
