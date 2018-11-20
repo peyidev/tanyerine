@@ -8,7 +8,7 @@
     <div class="rightcontainer">
         <?php echo $this->getChildHtml('minicart'); ?>
         <div class="myaccount">
-            <span class="text-mini-cart"><?php echo $this->__("My account"); ?></span>
+            <span class="text-mini-cart"><a href="<?php echo Mage::getUrl('customer/account'); ?>"><?php echo $this->__("My account"); ?></a></span>
             <div class="myaccountlink">
                 <i class="icon-user"></i>
                 <span class="account-info">
