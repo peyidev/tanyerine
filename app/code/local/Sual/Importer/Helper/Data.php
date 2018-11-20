@@ -358,7 +358,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setDescriptionSap($productSual['description'])
             ->setGenderSapTypeSap($productSual['gender'])
             ->setHowtouseSap($productSual['howtouse'])
-            ->setIdSap($productSual['id_sap'])
+            ->setIdSap($productSual['id'])
             ->setIngredientsSap($productSual['ingredients'])
             ->setLineSap($productSual['line'])
             ->setPointsSap($productSual['points'])
