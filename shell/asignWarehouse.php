@@ -43,9 +43,10 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
     {
 
         $query = "SELECT id_member FROM sb_member WHERE email = '{$email}'";
+        $new_db_resource = Mage::getSingleton('core/resource');
+        $connection = $new_db_resource->getConnection('import_db');
 
-        $customerData = $this->connection->raw_fetchRow($query);
-
+        $customerData = $connection->raw_fetchRow($query);
 
         if (!empty($customerData['id_member']))
             return $customerData['id_member'];
