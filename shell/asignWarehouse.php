@@ -12,12 +12,12 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             ->addAttributeToFilter('id_warehouse', array('null' => true));
 
         foreach ($orders as $order){
-
             $email = $order->getCustomerEmail();
             $incrementId = $order->getIncrementId();
-
-            echo $email . "->" . $incrementId . "\n";
-
+            $warehouse = $this->setWarehouse($this->getUserIdFromOrigin($email), $incrementId);
+            echo $email . "->" . $incrementId . "->" . $warehouse . "\n";
+            $order->setIdWarehouse($warehouse);
+            $order->save();
         }
 
 
