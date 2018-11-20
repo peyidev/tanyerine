@@ -15,7 +15,8 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             $email = $order->getCustomerEmail();
             $incrementId = $order->getIncrementId();
             $warehouse = $this->setWarehouse($this->getUserIdFromOrigin($email), $incrementId);
-            echo $email . "->" . $incrementId . "->" . $warehouse . "\n";
+            echo $email . "->" . $incrementId . "->" . "\n";
+            print_r($warehouse);
         }
 
 
@@ -34,7 +35,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
         if(!empty($response->data->warehouse))
             return $response->data->warehouse;
         else
-           print_r($response);
+           return $response;
     }
 
     public function getUserIdFromOrigin($email)
