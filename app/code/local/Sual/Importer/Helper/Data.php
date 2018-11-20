@@ -366,7 +366,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setSeoUrlSap($productSual['seo_url'])
             ->setSizesSap($productSual['sizes'])
             ->setSizeNameSap($productSual['size_name'])
-            ->setTypeSap($productSual['type']);
+            ->setTypeSap($productSual['type'])
+            ->setPrice($productSual['price']);
 
         if ($isUpdate) {
             if ($attributeSet == 9) {
