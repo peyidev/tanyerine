@@ -30,10 +30,10 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
 //        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
 //        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
-//        $this->importProducts();
-//        $executionEndTime2 = microtime(true);
-//        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
-//        $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+        $this->importProducts();
+        $executionEndTime2 = microtime(true);
+        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
+        $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
 
         $this->importServices();
@@ -367,8 +367,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setSizesSap($productSual['sizes'])
             ->setSizeNameSap($productSual['size_name'])
             ->setTypeSap($productSual['type'])
-            //hay que quitar este
-            ->setHowtouse($productSual['howtouse']);
+            ->setPrice($productSual['price']);
 
         if ($isUpdate) {
             if ($attributeSet == 9) {
