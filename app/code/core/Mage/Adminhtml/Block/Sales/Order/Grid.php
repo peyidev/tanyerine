@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
 
         $this->addColumn('status', array(
             'header' => Mage::helper('sales')->__('Status'),
-            'index' => 'main_table.status',
+            'index' => 'status',
             'type'  => 'options',
             'width' => '70px',
             'options' => Mage::getSingleton('sales/order_config')->getStatuses(),
