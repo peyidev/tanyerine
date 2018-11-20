@@ -103,17 +103,22 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     public function getMail()
     {
         if (is_null($this->_mail)) {
-            $smtp_host = "smtp.gmail.com";
-            $smtp_port = 587;
-            $config = array(
-                      'port' => $smtp_port,
-                      'auth' => 'login',
-                      'ssl' => 'tls',
-                      'username' => 'contacto@sualbeauty.com',
-                      'password' => '20platica18S'
-                      );
-             $transport = new Zend_Mail_Transport_Smtp($smtp_host,$config);
-             Zend_Mail::setDefaultTransport($transport);         
+            try {
+                $smtp_host = "smtp.gmail.com";
+                $smtp_port = 587;
+                $config = array(
+                          'port' => $smtp_port,
+                          'auth' => 'login',
+                          'ssl' => 'tls',
+                          'username' => 'contacto@sualbeauty.com',
+                          'password' => '20platica18S'
+                          );
+                 $transport = new Zend_Mail_Transport_Smtp($smtp_host,$config);
+                 Zend_Mail::setDefaultTransport($transport);         
+                
+            } catch (Exception $e) {
+                $this->_mail = new Zend_Mail('utf-8');
+            }
 
             $this->_mail = new Zend_Mail('utf-8');
         }
