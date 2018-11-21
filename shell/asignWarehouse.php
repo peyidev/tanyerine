@@ -169,12 +169,10 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
     public function getOrderFromOrigin($orderId){
 
-        $query = " SELECT id_warehouse
+        $query = " SELECT id_warehouse, id_shopping
                      FROM sb_shoppingcart as sb
                                 JOIN sb_shoppingcart_items AS sbi ON sb.id_shopping = sbi.id_shopping
                      WHERE sb.id_shopping = '{$orderId}';";
-
-        Mage::log($query, null,  'balanceo.log');
 
         $new_db_resource = Mage::getSingleton('core/resource');
         $connection = $new_db_resource->getConnection('import_db');
