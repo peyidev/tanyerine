@@ -50,7 +50,7 @@
                     </sual_integrations_controller_action_predispatch_checkout_cart_add>
                 </observers>
             </controller_action_predispatch_checkout_cart_add>
-
+            
             <controller_action_predispatch_ajaxcart_index_add>
                 <observers>
                     <sual_integrations_controller_action_predispatch_checkout_cart_add>
@@ -59,7 +59,6 @@
                     </sual_integrations_controller_action_predispatch_checkout_cart_add>
                 </observers>
             </controller_action_predispatch_ajaxcart_index_add>
-            
             
             <customer_login>
                 <observers>
