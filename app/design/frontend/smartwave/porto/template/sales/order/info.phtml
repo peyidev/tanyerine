@@ -36,15 +36,24 @@
 <?php //echo $status; ?>
 <div class="status-procces">
     <div class="steps step1 <?php if(in_array($status,['pending','processing','complete','closed'])): ?>active<?php endif; ?>">
-        <p><?php echo $this->__('Pending'); ?></p>
+        <p><?php echo $this->__('Pendiente <br/>de pago'); ?></p>
         <i class="icon-money"></i>
+        <div class="advancing-line"></div>
     </div>
+
+    <div class="steps step1 <?php if(in_array($status,['processing','closed','complete'])): ?>active<?php endif; ?>">
+        <p><?php echo $this->__('Pago <br />confirmado'); ?></p>
+        <i class="icon-check"></i>
+        <div class="advancing-line"></div>
+    </div>
+
     <div class="steps step2 <?php if(in_array($status,['processing','closed','complete'])): ?>active<?php endif; ?>">
-        <p><?php echo $this->__('Processing'); ?></p>
+        <p><?php echo $this->__('Preparando <br/>&nbsp;'); ?></p>
         <i class="icon-shopping-bag"></i>
+        <div class="advancing-line"></div>
     </div>
     <div class="steps step3 <?php if(in_array($status,['closed','complete'])): ?>active<?php endif; ?>">
-        <p><?php echo $this->__('Shipped'); ?></p>
+        <p><?php echo $this->__('Enviado <br />&nbsp;'); ?></p>
         <i class="icon-shipping"></i>
     </div>
 </div>
