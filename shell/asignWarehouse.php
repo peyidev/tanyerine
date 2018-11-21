@@ -12,14 +12,6 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             ->addAttributeToFilter('id_warehouse', array('null' => true));
 
         foreach ($orders as $order){
-
-            echo $order->getIncrementId() . "\n";
-        }
-        die();
-        $orders = Mage::getModel('sales/order')->getCollection()
-            ->addAttributeToFilter('id_warehouse', array('null' => true));
-
-        foreach ($orders as $order){
             $email = $order->getCustomerEmail();
             $incrementId = $order->getIncrementId();
 
