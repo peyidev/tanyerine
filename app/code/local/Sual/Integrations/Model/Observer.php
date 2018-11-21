@@ -8,8 +8,8 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $product = Mage::getModel('catalog/product')->load(Mage::app()->getRequest()->getParam('product', 0));
         if ($product) {
             $stock = Mage::helper('sual_integrations/data')->getStock($product->getSku());
-            if ($stock != 'error') {
-                $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
+            $stockItem = $product->getStockItem();
+            if ($stock != 'error' && $stockItem->getQty() != $stock) {
                 $stockItem->setQty($stock);
                 $stockItem->save();
             }
