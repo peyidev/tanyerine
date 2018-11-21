@@ -60,7 +60,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
     protected function getDob($dob){
         $dob = explode(' ',$dob)[0];
-        $dob = explod('-',$dob);
+        $dob = explode('-',$dob);
 
         return array(
             "year" => $dob[0],
