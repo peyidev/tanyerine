@@ -44,7 +44,7 @@ class Sual_Integrations_Helper_Data extends Mage_Core_Helper_Abstract {
 
         @$json = json_decode( $result );
 
-        return !empty($json->data) ? $json->data : 0;
+        return !empty($json->data) ? $json->data : 'error';
     }
 
 }
