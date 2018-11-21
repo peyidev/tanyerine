@@ -7,12 +7,10 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
     public function updateProduct($observer) {
         $product = Mage::getModel('catalog/product')->load(Mage::app()->getRequest()->getParam('product', 0));
         if ($product) {
-            //$stock = Mage::helper('sual_integrations/data')->getStock($product->getSku());
-            //if ($stock) {
-                $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
-                $stockItem->setQty(100);
-                $stockItem->save();
-            //}
+            $stock = Mage::helper('sual_integrations/data')->getStock($product->getSku());
+            $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
+            $stockItem->setQty($stock);
+            $stockItem->save();
         }
     }
 
