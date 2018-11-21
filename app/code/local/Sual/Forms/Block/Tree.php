@@ -8,6 +8,9 @@ class Sual_Forms_Block_Tree extends Mage_Core_Block_Abstract implements Mage_Wid
   protected function _toHtml() {
     $html = '<div class="subcategory-brands">';
     $category = Mage::registry('current_category');
+
+    $marcas = '';
+
     if ($category) {
         $html .= '<h1>'.__('Todas las marcas').'</h1>';
         $subcategories = $category->getChildrenCategories();
