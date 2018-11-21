@@ -169,7 +169,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
     public function getOrderFromOrigin($orderId){
 
-        $query = " SELECT id_warehouse, id_shopping
+        $query = " SELECT id_warehouse, sb.id_shopping AS id_shopping
                      FROM sb_shoppingcart as sb
                                 JOIN sb_shoppingcart_items AS sbi ON sb.id_shopping = sbi.id_shopping
                      WHERE sb.id_shopping = '{$orderId}';";
