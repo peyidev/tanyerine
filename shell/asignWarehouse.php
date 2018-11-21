@@ -197,6 +197,20 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             return null;
     }
 
+    public function getProductIdFromOrigin($sku)
+    {
+
+        $query = "SELECT id FROM sb_product WHERE sku = '{$sku}'";
+
+        $customerData = $this->connection->raw_fetchRow($query);
+
+
+        if (!empty($customerData['id']))
+            return $customerData['id'];
+        else
+            return null;
+    }
+
 }
 
 $shell = new Mage_Shell_AsignWarehouse();
