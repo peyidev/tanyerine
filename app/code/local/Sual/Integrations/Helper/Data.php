@@ -8,7 +8,7 @@
 class Sual_Integrations_Helper_Data extends Mage_Core_Helper_Abstract {
 
 
-    public $url = "https://www.sualbeauty.mx/";
+    public $url = "https://www.sualbeauty.com/sualbeauty/";
 
     public function callService($type, $params){
 
