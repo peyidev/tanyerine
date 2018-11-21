@@ -179,6 +179,8 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
         $orderData = $connection->raw_fetchRow($query);
 
+        print_r($orderData);
+
         if (!empty($orderData['id_shopping']))
             return array('id' => $orderData['id_shopping'], 'id_warehouse' => $orderData['id_warehouse']);
         else
