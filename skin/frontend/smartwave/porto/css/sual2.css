@@ -114,7 +114,7 @@
 }
 
 #dt_method_card label{
-    padding-left: 142px;
+    padding-left: 159px;
 }
 #dt_method_oxxo, #dt_method_card{
     padding: 8px 0;
@@ -129,7 +129,7 @@
 }
 
 #dt_method_card{
-    background-image: url(/skin/frontend/smartwave/porto/images/security/visa-mastercard-logo.png);
+    background-image: url(/skin/frontend/smartwave/porto/images/security/visa-mastercard-logo.png?id=v2);
 }
 
 .banner-descripcion .fas{
