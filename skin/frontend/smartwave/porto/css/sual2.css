@@ -565,8 +565,3 @@
         margin-top: calc(-10% + -10px);
     }
 }
-
-
-.item-area .details-area ~ .base-points:last-child{
-    display: none;
-}
