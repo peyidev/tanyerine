@@ -4,6 +4,16 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
 {
     public $connection = null;
 
+    public function updateProduct($observer) {
+        $product = Mage::getModel('catalog/product')->load(Mage::app()->getRequest()->getParam('product', 0));
+        if ($product) {
+            $stock = Mage::helper('sual_integrations/data')->getStock($product->getSku());
+            $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
+            $stockItem->setQty($stock);
+            $stockItem->save();
+        }
+    }
+
     public function importCustomer($observer)
     {
         $post = Mage::app()->getRequest()->getParam('login');
