@@ -26,11 +26,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
             $originOrderId = $this->getOrderFromOrigin($order->getIncrementId());
 
-            print_r($originOrderId);
-            print_r($originOrderId);
-            print_r($originOrderId);
-
-            if(!empty($originOrderId['id_shopping']) && !empty($originOrderId['id_warehouse'])){
+            if(!empty($originOrderId['id']) && !empty($originOrderId['id_warehouse'])){
 
                 $order->setIdWarehouse($originOrderId['id_warehouse']);
                 $order->save();
