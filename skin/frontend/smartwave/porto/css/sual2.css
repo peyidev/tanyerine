@@ -509,3 +509,11 @@
     margin-left: -22px;
     margin-bottom: 14px;
 }
+
+
+@media only screen and (max-width: 566px) {
+    .banner_checkout_mp {
+        width: 296px;
+    }
+}
+
