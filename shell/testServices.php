@@ -19,8 +19,8 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
     public function run()
     {
 
-        $helper = Mage::helper('sual_integrations/sualrewards');
-        $helper->balancePoints(2,100000004);
+//        $helper = Mage::helper('sual_integrations/sualrewards');
+//        $helper->balancePoints(2,100000004);
         //$helper = Mage::helper('sual_integrations/data');
 //        $response = $helper->callService("mensajeria/cotizar",'{"carrier":"dhlexpress","calle":"Cerrada de la Talavera","colonia":"El Cobano","codigoPostal":"53040","municipio":"San antonio de ayala","ciudad":"Irapuato","estado":"guanajuato","pais":"Mexico"}');
 //        $response = $helper->callService("mensajeria/cotizar",'{"carrier":"estafeta","calle":"Cerrada de la Talavera","colonia":"El Cobano","codigoPostal":"53040","municipio":"San antonio de ayala","ciudad":"Irapuato","estado":"guanajuato","pais":"Mexico"}');
@@ -65,6 +65,9 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
 //        print_r($response->data->warehouse);
 
         //$helper->testRewards();
+
+       echo  Mage::helper('sual_integrations/data')->getStock('773602504596');
+
 
     }
 
