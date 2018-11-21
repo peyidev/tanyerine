@@ -42,6 +42,25 @@
                 </observers>
             </controller_action_predispatch_customer_account_loginPost>
 
+            <controller_action_predispatch_checkout_cart_add>
+                <observers>
+                    <sual_integrations_controller_action_predispatch_checkout_cart_add>
+                        <class>Sual_Integrations_Model_Observer</class>
+                        <method>updateProduct</method>
+                    </sual_integrations_controller_action_predispatch_checkout_cart_add>
+                </observers>
+            </controller_action_predispatch_checkout_cart_add>
+
+            <controller_action_predispatch_ajaxcart_index_add>
+                <observers>
+                    <sual_integrations_controller_action_predispatch_checkout_cart_add>
+                        <class>Sual_Integrations_Model_Observer</class>
+                        <method>updateProduct</method>
+                    </sual_integrations_controller_action_predispatch_checkout_cart_add>
+                </observers>
+            </controller_action_predispatch_ajaxcart_index_add>
+            
+            
             <customer_login>
                 <observers>
                     <sual_integrations_customer_customer_login>
