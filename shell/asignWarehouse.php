@@ -18,8 +18,6 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             echo $email . "->" . $incrementId . "->" . "\n";
             print_r($warehouse);
         }
-
-
     }
 
     protected function setWarehouse($exportIdMember,$exportIdShopping){

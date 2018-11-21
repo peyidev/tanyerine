@@ -30,4 +30,21 @@ class Sual_Integrations_Helper_Data extends Mage_Core_Helper_Abstract {
 
     }
 
+    public function getStock($sku){
+
+        $url = "http://login.sualbeauty.com/webhook/getStock";
+        $ch = curl_init( $url );
+
+        $params = array("sku" => $sku);
+
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode( $params ) );
+        curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:text/json'));
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        $result = curl_exec($ch);
+
+        @$json = json_decode( $result );
+
+        return !empty($json->data) ? $json->data : 0;
+    }
+
 }
