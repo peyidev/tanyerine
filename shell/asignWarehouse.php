@@ -12,6 +12,9 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             ->addAttributeToFilter('id_warehouse', array('null' => true));
 
         foreach ($orders as $order){
+
+            Mage::log($order->getIncrementId() . " Procesando", null, 'balanceo.log');
+
             $email = $order->getCustomerEmail();
             $incrementId = $order->getIncrementId();
 
@@ -27,7 +30,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
                 $order->setIdWarehouse($originOrderId['id_warehouse']);
                 $order->save();
-                Mage::log("Caso 1, balanceando tiene shopping, tiene warehouse el origen, se inserta en magento", null, 'balanceo.log');
+                Mage::log("Caso 1, balanceando tiene shopping, tiene warehouse el origen, se inserta en magento" . $order->getIncrementId(), null, 'balanceo.log');
                 continue;
 
             }else if(!empty($originOrderId['id_shopping']) && empty($originOrderId['id_warehouse'])){
@@ -38,7 +41,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
                 );
                 $order->setIdWarehouse($warehouse);
                 $order->save();
-                Mage::log("Caso 2, balanceando tiene shopping, no tiene warehouse el origen, se inserta en magento y se manda a sistema central", null, 'balanceo.log');
+                Mage::log("Caso 2, balanceando tiene shopping, no tiene warehouse el origen, se inserta en magento y se manda a sistema central" . $order->getIncrementId(), null, 'balanceo.log');
                 continue;
 
             }else{
@@ -50,7 +53,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
                 );
                 $order->setIdWarehouse($warehouse);
                 $order->save();
-                Mage::log("Caso 3, no hay orden, ni sistema central, se exporta la orden a ecom, se manda a sistema central",null,'balanceo.log');
+                Mage::log("Caso 3, no hay orden, ni sistema central, se exporta la orden a ecom, se manda a sistema central" . $order->getIncrementId(),null,'balanceo.log');
 
                 continue;
             }
