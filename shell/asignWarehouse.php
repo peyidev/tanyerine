@@ -127,7 +127,7 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
             $first_name = $customer->getData('firstname');
             $last_name = $customer->getData('lastname');
             $email = $customer->getData('email');
-            $password = Magento::helper('core')->decrypt($customer->getData('password'));
+            $password = Mage::helper('core')->decrypt($customer->getData('password'));
             $mobile = $customer->getData('phone');
 
             $dob = $this->getDob($customer->getData('dob'));
