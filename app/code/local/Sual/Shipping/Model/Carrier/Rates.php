@@ -52,6 +52,7 @@ class Sual_Shipping_Model_Carrier_Rates
     {
         $helper =  Mage::helper('sual_integrations/data');
         $response = $helper->callService("mensajeria/cotizar",$this->getShippingAddress('dhlexpress',$request));
+        Mage::log($response,null,'carriers.log');
         if($response->result->status) {
             $method = Mage::getModel('shipping/rate_result_method');
             $method->setCarrier('sual_rates');
