@@ -23,10 +23,13 @@ class Smartwave_Filterproducts_Block_Latest_Home_List extends Smartwave_Filterpr
             $category = Mage::getModel('catalog/category')->load($category_id);    
             
             $products = $this->_addProductAttributesAndPrices($products)
-            ->addAttributeToSort('created_at', 'desc')
+            ->addAttributeToSort()
             ->addCategoryFilter($category)
             ->setStoreId($storeId)
             ->addStoreFilter($storeId);
+
+            $products->getSelect()->order(new Zend_Db_Expr('RAND()'));
+
         }
         else {
             $products = $this->_addProductAttributesAndPrices($products)
