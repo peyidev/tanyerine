@@ -8,9 +8,19 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $product = Mage::getModel('catalog/product')->load(Mage::app()->getRequest()->getParam('product', 0));
         if ($product) {
             $stock = Mage::helper('sual_integrations/data')->getStock($product->getSku());
-            $stockItem = $product->getStockItem();
+            //$stockItem = $product->getStockItem();
             Mage::log("Producto" . $product->getSku() . " StockReal -> " . $stock . " ActualMagento -> " . $stockItem->getQty(), null, 'stock.log');
             if ($stock != 'error' && $stockItem->getQty() != $stock) {
+
+
+                $stockItem = Mage::getModel('cataloginventory/stock_item');
+                $stockItem->assignProduct($product);
+                $stockItem->setData('is_in_stock', ($stock > 0) ? 1 : 0);
+                $stockItem->setData('stock_id', 1);
+                $stockItem->setData('store_id', 1);
+                $stockItem->setData('qty', $stock);
+                $stockItem->save();
+
                 $stockItem->setQty($stock);
                 $stockItem->save();
             }
