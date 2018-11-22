@@ -27,10 +27,20 @@
 <?php /** @var $this Mage_Sales_Block_Order_Info */ ?>
 <?php $_order = $this->getOrder() ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php
+    $rewards = Mage::helper('sual_integrations/sualrewards')->getPointsFromOrder($_order->getIncrementId());
+    $youEarned = '';
+    if(!empty($rewards[0])){
+        if($rewards[0] > 0){
+            $youEarned = '<p class="you-earned">Con esta compra acumulaste <span>' . $rewards[0] . ' Sual Rewards.</span></p>';
+        }
+    }
+?>
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h1>
     <?php echo $this->getChildHtml('buttons') ?>
 </div>
+<?php echo $youEarned;?>
 <?php echo $this->getStatusHistoryRssUrl($_order) ?>
 <?php $status = $_order->getStatus() ?>
 <?php //echo $status; ?>
