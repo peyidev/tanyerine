@@ -19,9 +19,9 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
     public function run()
     {
 
-        $customer = Mage::getModel('customer/customer')->load(6);
-
-        print_r($customer->getData());
+//        $customer = Mage::getModel('customer/customer')->load(6);
+//
+//        print_r($customer->getData());
 
 //        $helper = Mage::helper('sual_integrations/sualrewards');
 //        $helper->balancePoints(2,100000004);
@@ -70,7 +70,7 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
 
         //$helper->testRewards();
 
-       //echo  Mage::helper('sual_integrations/data')->getStock('773602504596');
+       echo  Mage::helper('sual_integrations/data')->getStock('651986906901');
 
 
     }
