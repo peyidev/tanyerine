@@ -565,3 +565,15 @@
         margin-top: calc(-10% + -10px);
     }
 }
+
+.you-earned span{
+    font-weight: bold;
+}
+.you-earned{
+    font-size: 20px;
+    width: 100%;
+    background: #2f1a49;
+    color:white;
+    padding:10px 5px;
+    text-align: center;
+}
