@@ -20,9 +20,6 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
                 $stockItem->setData('store_id', 1);
                 $stockItem->setData('qty', $stock);
                 $stockItem->save();
-
-                $stockItem->setQty($stock);
-                $stockItem->save();
             }
         }
     }
