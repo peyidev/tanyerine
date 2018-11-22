@@ -121,9 +121,6 @@
 ## path relative to web root
 
     RewriteBase /
-    # Redirect non-www to www (I have tried to move this lines but still resulting the same)
-    RewriteCond %{HTTP_HOST} ^sualbeauty.com$
-    RewriteRule (.*) https://www.sualbeauty.com$1 [R=301]
 
 ############################################
 ## uncomment next line to enable light API calls processing
