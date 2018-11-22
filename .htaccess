@@ -122,7 +122,7 @@
 
     RewriteBase /
     # Redirect non-www to www (I have tried to move this lines but still resulting the same)
-    RewriteCond %{HTTP_HOST} ^localhost.sualbeauty.com$
+    RewriteCond %{HTTP_HOST} ^sualbeauty.com$
     RewriteRule (.*) https://www.sualbeauty.com$1 [R=301]
 
 ############################################
