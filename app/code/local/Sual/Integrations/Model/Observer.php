@@ -13,7 +13,9 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
             $stockItem->assignProduct($product);
 
             Mage::log("Producto" . $product->getSku() . " StockReal -> " . $stock . " ActualMagento -> " . $stockItem->getQty(), null, 'stock.log');
-            if ($stock != 'error') {
+            Mage::log("cambiando stock pre",null, 'stock.log');
+
+            if ($stock != "error") {
                 Mage::log("cambiando stock",null, 'stock.log');
                 $stockItem->setData('is_in_stock', ($stock > 0) ? 1 : 0);
                 $stockItem->setData('stock_id', 1);
