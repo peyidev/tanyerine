@@ -76,7 +76,7 @@
         <?php echo $login_extra_box;?>
     </div>
     <?php endif; ?>
-<?php if ($this->getCustomerId()): ?>
+<?php if ($this->getCustomerId() && Mage::getSingleton('customer/session')->isLoggedIn()): ?>
     <?php $point_details = $this->getPointsInfo();?>
 
 <?php if ($this->canUseCouponCode() && ($couponCode == "" || $couponCode == null) || !$this->canUseCouponCode()):?>
