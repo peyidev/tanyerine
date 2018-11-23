@@ -201,6 +201,8 @@ class J2t_Rewardpoints_Block_Coupon extends Mage_Checkout_Block_Cart_Abstract
         $customerId = Mage::getModel('customer/session')->getCustomerId();
         $reward_model = Mage::getModel('rewardpoints/stats');
         $store_id = Mage::app()->getStore()->getId();
+
+        Mage::log($customerId,null,'rewards.log');
         
         $customerPoints = $this->getCustomerPoints();
         
