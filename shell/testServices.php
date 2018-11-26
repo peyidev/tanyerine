@@ -73,8 +73,7 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
       // echo  Mage::helper('sual_integrations/data')->getStock('651986906901');
 
 
-        $orders = Mage::getModel('sales/order')->getCollection()
-            ->addAttributeToFilter('id_warehouse', array('null' => true));
+        $orders = Mage::getModel('sales/order')->getCollection();
 
 
         foreach($orders as $order){
