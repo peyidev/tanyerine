@@ -70,7 +70,20 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
 
         //$helper->testRewards();
 
-       echo  Mage::helper('sual_integrations/data')->getStock('651986906901');
+      // echo  Mage::helper('sual_integrations/data')->getStock('651986906901');
+
+
+        $orders = Mage::getModel('sales/order')->getCollection()
+            ->addAttributeToFilter('id_warehouse', array('null' => true));
+
+
+        foreach($orders as $order){
+            $shipping_method = $order->getShippingMethod();
+            $shipping_amount = $order->getShippingAmount();
+            $payment_method_code = $order->getPayment()->getMethodInstance()->getCode();
+            echo $shipping_method . "->" . $shipping_amount . " -> " . $payment_method_code . "\n";
+
+        }
 
 
     }
