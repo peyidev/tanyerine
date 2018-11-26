@@ -4,7 +4,8 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
 {
     public $connection = null;
 
-    public function updateProduct($observer) {
+    public function updateProduct($observer)
+    {
         $product = Mage::getModel('catalog/product')->load(Mage::app()->getRequest()->getParam('product', 0));
         if ($product) {
             $stock = Mage::helper('sual_integrations/data')->getStock($product->getSku());
@@ -13,10 +14,10 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
             $stockItem->assignProduct($product);
 
             Mage::log("Producto" . $product->getSku() . " StockReal -> " . $stock . " ActualMagento -> " . $stockItem->getQty(), null, 'stock.log');
-            Mage::log("cambiando stock pre",null, 'stock.log');
+            Mage::log("cambiando stock pre", null, 'stock.log');
 
 
-            Mage::log("cambiando stock",null, 'stock.log');
+            Mage::log("cambiando stock", null, 'stock.log');
             $stockItem->setData('is_in_stock', ($stock > 0) ? 1 : 0);
             $stockItem->setData('stock_id', 1);
             $stockItem->setData('store_id', 1);
@@ -52,7 +53,7 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
                 ->setPhone($customerData['mobile'])
                 ->setPassword($customerData['decryptedpassword']);
 
-            if(!empty($bday) && !empty($bmonth) && !empty($byear))
+            if (!empty($bday) && !empty($bmonth) && !empty($byear))
                 $customer->setDob($customerData['birth_day'] . "/" . $customerData['birth_month'] . "/" . $customerData['birth_year']);
 
             try {
@@ -65,7 +66,8 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         return $this;
     }
 
-    public function exportRewards($observer){
+    public function exportRewards($observer)
+    {
 
         $invoice = $observer->getEvent()->getInvoice();
         $order = $invoice->getOrder();
@@ -143,14 +145,19 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
                               VALUES ('{$exportIdShopping}', '{$exportIdMember}','{$exportIdProduct}','{$exportQuantity}',0,'{$exportPrice}');";
         }
 
-        $orderQuery = "INSERT INTO sb_shoppingcart(id_shopping, id_member, quantity, subtotal, payment_status) 
-                          VALUES('{$exportIdShopping}',{$exportIdMember},{$exportTotalQty},{$exportSubtotal},'MAGENTO');";
+        $exportShipping = $order->getShippingAmount();
+        $payment_method_code = $order->getPayment()->getMethodInstance()->getCode();
+        $exportPaymentType = $this->getPaymentMethod($payment_method_code);
+        $exportCoupon = '0.00';
 
-        try{
+        $orderQuery = "INSERT INTO sb_shoppingcart(id_shopping, id_member, quantity, subtotal, payment_status, payment_type, shipping, coupon) 
+                          VALUES('{$exportIdShopping}',{$exportIdMember},{$exportTotalQty},{$exportSubtotal},'MAGENTO','{$exportPaymentType}',{$exportShipping},{$exportCoupon});";
+
+        try {
             $this->connection->query($orderQuery);
             $this->connection->query($itemsQuery);
             $order->setIdWarehouse($this->setWarehouse($exportIdMember, $exportIdShopping));
-        }catch(Exception $e){
+        } catch (Exception $e) {
             //La orden ya fue insertada en origen o no pudo ser obtenido el warehouse
             Mage::log($e->getMessage());
         }
@@ -158,7 +165,34 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         return $observer;
     }
 
-    protected function setWarehouse($exportIdMember,$exportIdShopping){
+    public function getPaymentMethod($method)
+    {
+
+        $methodReturn = "";
+
+        switch ($method) {
+            case "mercadopago_standard":
+                $methodReturn = "MercadoPago";
+                break;
+
+            case "paypal_express":
+                $methodReturn = "Paypal";
+                break;
+
+            case "oxxo":
+                $methodReturn = "OxxoPay";
+                break;
+
+            case "card":
+                $methodReturn = "Conekta";
+                break;
+        }
+
+        return $methodReturn;
+    }
+
+    protected function setWarehouse($exportIdMember, $exportIdShopping)
+    {
 
         $params = array(
             "member" => $exportIdMember,
@@ -168,13 +202,14 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $helper = Mage::helper('sual_integrations/data');
         $response = $helper->callService("magento/confirm_shoppingcart_all_warehouse", $params);
 
-        if(!empty($response->data->warehouse))
+        if (!empty($response->data->warehouse))
             return $response->data->warehouse;
         else
             Mage::throwException('Hubo un error al crear tu pedido, por favor intenta nuevamente (EWHS).');
     }
 
-    public function verifyStock($observer){
+    public function verifyStock($observer)
+    {
 
         $new_db_resource = Mage::getSingleton('core/resource');
         $this->connection = $new_db_resource->getConnection('import_db');
@@ -184,24 +219,24 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $itemsArray = array();
         $qtyOrder = array();
 
-        foreach($items as $item){
+        foreach ($items as $item) {
             $itemsArray[] = $item->getSku();
             $qtyOrder[$item->getSku()]['stock'] = $item->getQtyOrdered();
             $qtyOrder[$item->getSku()]['name'] = $item->getName();
         }
 
-        $itemsString = implode(',',$itemsArray);
+        $itemsString = implode(',', $itemsArray);
 
         $stockQuery = "SELECT sku, available FROM sb_product WHERE sku IN({$itemsString})";
         $stockData = $this->connection->fetchAll($stockQuery);
         $errorProducts = array();
 
-        foreach($stockData as $stock){
-            if($qtyOrder[$stock['sku']]['stock'] > $stock['available']){
+        foreach ($stockData as $stock) {
+            if ($qtyOrder[$stock['sku']]['stock'] > $stock['available']) {
                 $errorProducts[] = $qtyOrder[$stock['sku']]['name'];
             }
         }
-        if(!empty($errorProducts)){
+        if (!empty($errorProducts)) {
             Mage::throwException('Algunos productos ya no se encuentran en inventario. (' . implode(',', $errorProducts) . ')');
         }
     }
