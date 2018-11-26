@@ -429,7 +429,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         try {
 
             if (!$productExists) {
-                $urlImage = "https://www.sualbeauty.com/img/" . $productSual['image'];
+                $urlImage = "https://www.sualbeauty.mx/img/" . $productSual['image'];
                 $imageExists = $this->imageExists($urlImage);
 
                 if (!$imageExists)
