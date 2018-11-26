@@ -109,8 +109,13 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
                               VALUES ('{$exportIdShopping}', '{$exportIdMember}','{$exportIdProduct}','{$exportQuantity}',0,'{$exportPrice}');";
         }
 
-        $orderQuery = "INSERT INTO sb_shoppingcart(id_shopping, id_member, quantity, subtotal, payment_status) 
-                          VALUES('{$exportIdShopping}',{$exportIdMember},{$exportTotalQty},{$exportSubtotal},'MAGENTO');";
+        $exportShipping = $order->getShippingAmount();
+        $payment_method_code = $order->getPayment()->getMethodInstance()->getCode();
+        $exportPaymentType = $this->getPaymentMethod($payment_method_code);
+        $exportCoupon = '0.00';
+
+        $orderQuery = "INSERT INTO sb_shoppingcart(id_shopping, id_member, quantity, subtotal, payment_status, payment_type, shipping, coupon) 
+                          VALUES('{$exportIdShopping}',{$exportIdMember},{$exportTotalQty},{$exportSubtotal},'MAGENTO','{$exportPaymentType}',{$exportShipping},{$exportCoupon});";
 
         try{
             $this->connection->query($orderQuery);
@@ -122,6 +127,33 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
         }
 
         return true;
+    }
+
+
+    public function getPaymentMethod($method){
+
+        $methodReturn = "";
+
+        switch($method){
+            case "mercadopago_standard":
+                $methodReturn = "MercadoPago";
+                break;
+
+            case "paypal_express":
+                $methodReturn = "Paypal";
+                break;
+
+            case "oxxo":
+                $methodReturn = "OxxoPay";
+                break;
+
+            case "card":
+                $methodReturn = "Conekta";
+                break;
+        }
+
+        return $methodReturn;
+
     }
 
 
