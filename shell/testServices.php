@@ -80,15 +80,41 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
             $shipping_method = $order->getShippingMethod();
             $shipping_amount = $order->getShippingAmount();
             $payment_method_code = $order->getPayment()->getMethodInstance()->getCode();
-            echo $order->getId() . "->" . $shipping_method . "->" . $shipping_amount . " -> " . $payment_method_code . "\n";
+            echo $order->getId() . "->" . $shipping_method . "->" . $shipping_amount . " -> " . $this->getPaymentMethod($payment_method_code) . "\n";
 
         }
 
 
     }
 
+    public function getPaymentMethod($method){
+
+        $methodReturn = "";
+
+        switch($method){
+            case "mercadopago_standard":
+                $methodReturn = "MercadoPago";
+                break;
+
+            case "paypal_express":
+                $methodReturn = "Paypal";
+                break;
+
+            case "oxxo":
+                $methodReturn = "OxxoPay";
+                break;
+
+            case "card":
+                $methodReturn = "Conekta";
+                break;
+        }
+
+        return $methodReturn;
+
+    }
 
 }
+
 
 
 $shell = new Mage_Shell_Test_Services();
