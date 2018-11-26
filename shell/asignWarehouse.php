@@ -13,6 +13,11 @@ class Mage_Shell_AsignWarehouse extends Mage_Shell_Abstract
 
         foreach ($orders as $order){
 
+            if($order->getStatus() != 'processing'){
+                Mage::log($order->getIncrementId() . " No puede ser balanceada ya que no  esta en procesado", null, 'balanceo.log');
+                continue;
+            }
+
             Mage::log($order->getIncrementId() . " Procesando", null, 'balanceo.log');
 
             $email = $order->getCustomerEmail();
