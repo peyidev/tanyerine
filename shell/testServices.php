@@ -80,7 +80,7 @@ class Mage_Shell_Test_Services extends Mage_Shell_Abstract
             $shipping_method = $order->getShippingMethod();
             $shipping_amount = $order->getShippingAmount();
             $payment_method_code = $order->getPayment()->getMethodInstance()->getCode();
-            echo $shipping_method . "->" . $shipping_amount . " -> " . $payment_method_code . "\n";
+            echo $order->getId() . "->" . $shipping_method . "->" . $shipping_amount . " -> " . $payment_method_code . "\n";
 
         }
 
