@@ -378,15 +378,16 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setPrice($productSual['price']);
 
         if ($isUpdate) {
-            if ($attributeSet == 9) {
-                $stockItem = Mage::getModel('cataloginventory/stock_item');
-                $stockItem->assignProduct($product);
-                $stockItem->setData('is_in_stock', ($productSual['available'] > 0) ? 1 : 0);
-                $stockItem->setData('stock_id', 1);
-                $stockItem->setData('store_id', 1);
-                $stockItem->setData('qty', $productSual['available']);
-                $stockItem->save();
-            }
+            //ahora viene de otro lado
+//            if ($attributeSet == 9) {
+//                $stockItem = Mage::getModel('cataloginventory/stock_item');
+//                $stockItem->assignProduct($product);
+//                $stockItem->setData('is_in_stock', ($productSual['available'] > 0) ? 1 : 0);
+//                $stockItem->setData('stock_id', 1);
+//                $stockItem->setData('store_id', 1);
+//                $stockItem->setData('qty', $productSual['available']);
+//                $stockItem->save();
+//            }
         }
     }
 
