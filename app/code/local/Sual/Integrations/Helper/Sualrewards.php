@@ -41,7 +41,8 @@ class Sual_Integrations_Helper_Sualrewards extends Mage_Core_Helper_Abstract
 
                 foreach($originRewards as $oReward){
 
-                    if(!in_array(substr($oReward['ctrl_entry'],0,-1), $magentoControlKeys) && !in_array(substr($oReward['ctrl_entry'],0,-1), $magentoControlOrders)){
+                    if(!in_array(substr($oReward['ctrl_entry'],0,-1), $magentoControlKeys) && !in_array(substr($oReward['ctrl_entry'],0,-1), $magentoControlOrders)
+                    && !in_array($oReward['ctrl_entry'], $magentoControlKeys) && !in_array($oReward['ctrl_entry'], $magentoControlOrders)){
                         $this->add($customerId,$oReward['points'],1, $oReward['ctrl_entry']);
                     }
 
