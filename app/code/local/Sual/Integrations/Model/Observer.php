@@ -120,6 +120,10 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
         $this->connection = $new_db_resource->getConnection('import_db');
 
         $order = $observer->getEvent()->getOrder();
+
+        if(empty($order->getIncrementId()))
+            return false;
+
         $incrementId = $order->getIncrementId();
         $items = $order->getAllVisibleItems();
 
