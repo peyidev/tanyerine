@@ -121,10 +121,14 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
 
         $order = $observer->getEvent()->getOrder();
 
-        if(empty($order->getIncrementId()))
+        if(empty($order))
             return false;
 
-        $incrementId = $order->getIncrementId();
+        @$incrementId = $order->getIncrementId();
+
+        if(empty($incrementId))
+            return false;
+
         $items = $order->getAllVisibleItems();
 
         $customerSualId = $this->getUserIdFromOrigin($order->getCustomerEmail());
