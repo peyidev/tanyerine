@@ -219,6 +219,7 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
     public function verifyStock($observer)
     {
 
+        return true;
         $new_db_resource = Mage::getSingleton('core/resource');
         $this->connection = $new_db_resource->getConnection('import_db');
 
