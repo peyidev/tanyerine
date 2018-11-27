@@ -40,14 +40,14 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         $minutes = ($executionEndTime2 - $executionStartTime) / 60;
         $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
-        $this->importServices();
-        $executionEndTime2 = microtime(true);
-        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
-        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+//        $this->importServices();
+//        $executionEndTime2 = microtime(true);
+//        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
+//        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
-        $executionEndTime2 = microtime(true);
-        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
-        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+//        $executionEndTime2 = microtime(true);
+//        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
+//        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
         $this->closeExecution($executionId);
 
@@ -219,10 +219,10 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
     {
         //$this->output .=  "Iniciando";
 
-        $limit = 50000;
+        $limit = 5;
         $limitSql = " LIMIT {$limit}";
 
-        $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
+        $where = ' WHERE sku = "3337872419959" AND type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
         $new_db_resource = Mage::getSingleton('core/resource');
         $connection = $new_db_resource->getConnection('import_db');
         $howmanyProducts = $connection->query('SELECT count(*) as howmany FROM sb_product' . $where);
