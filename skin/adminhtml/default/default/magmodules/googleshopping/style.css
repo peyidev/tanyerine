@@ -1,0 +1,100 @@
+/*
+ * Magmodules.eu - http://www.magmodules.eu.
+ *
+ * NOTICE OF LICENSE
+ * This source file is subject to the EULA 
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.magmodules.eu/MM-LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@magmodules.eu so we can send you a copy immediately.
+ *
+ * @category      Magmodules
+ * @package       Magmodules_Googleshopping
+ * @author        Magmodules <info@magmodules.eu>
+ * @copyright     Copyright (c) 2018 (http://www.magmodules.eu)
+ * @license       https://www.magmodules.eu/terms.html  Single Service License
+ */
+
+.googleshopping-success {
+    display: block;
+    border: 2px solid #79A22E;
+    background-color: white;
+    padding: 7px;
+    width: 95%;
+}
+
+.googleshopping-success:before {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 10px;
+    color: #79A22E;
+    content: '\2713';
+}
+
+.googleshopping-success .more {
+    float: right;
+    margin-right: 10px;
+}
+
+.googleshopping-error {
+    display: block;
+    background-color: white;
+    border: 2px solid #EB5202;
+    padding: 7px;
+    width: 95%;
+}
+
+.googleshopping-error i {
+    display:block;
+}
+
+.googleshopping-error:before {
+    color: #EB5202;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 10px;
+    content: '\00D7';
+}
+
+.googleshopping-error .more {
+    float: right;
+    margin-right: 10px;
+}
+
+.googleshopping-notice {
+    display: block;
+    border: 2px solid #6f8892;
+    background-color: white;
+    padding: 7px;
+    width: 95%;
+}
+
+.googleshopping-notice:before {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 10px;
+    color: #6f8892;
+    content: '\0021'
+}
+
+.googleshopping-notice .more {
+    float: right;
+    margin-right: 10px;
+}
+
+.googleshopping-flat {
+    margin-left: 40px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 200;
+    border: 1px solid #a6986b;
+    padding: 5px 10px 5px 10px;
+    color: #ef773b;
+    background: #fefab1;
+    text-decoration: underline;
+}

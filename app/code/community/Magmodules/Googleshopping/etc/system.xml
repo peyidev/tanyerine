@@ -1,0 +1,1384 @@
+<?xml version="1.0"?>
+<!--
+  ~ Magmodules.eu - http://www.magmodules.eu.
+  ~
+  ~ NOTICE OF LICENSE
+  ~ This source file is subject to the EULA
+  ~ that is bundled with this package in the file LICENSE.txt.
+  ~ It is also available through the world-wide-web at this URL:
+  ~ https://www.magmodules.eu/MM-LICENSE.txt
+  ~ If you did not receive a copy of the license and are unable to
+  ~ obtain it through the world-wide-web, please send an email
+  ~ to info@magmodules.eu so we can send you a copy immediately.
+  ~
+  ~ @category      Magmodules
+  ~ @package       Magmodules_Googleshopping
+  ~ @author        Magmodules <info@magmodules.eu>
+  ~ @copyright     Copyright (c) 2018 (http://www.magmodules.eu)
+  ~ @license       https://www.magmodules.eu/terms.html  Single Service License
+  -->
+<config>
+    <tabs>
+        <magmodules translate="label" module="googleshopping">
+            <label>Magmodules</label>
+            <sort_order>200</sort_order>
+        </magmodules>
+    </tabs>
+    <sections>
+        <googleshopping translate="label" module="googleshopping">
+            <label>Google Shopping Feed</label>
+            <tab>magmodules</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>107</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <info>
+                    <frontend_model>googleshopping/adminhtml_widget_info_info</frontend_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+                <general translate="label" module="googleshopping">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <version translate="label">
+                            <label>Extension Version</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_version</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </version>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                    </fields>
+                </general>
+                <data translate="label" module="googleshopping">
+                    <label>Google Shopping - Data</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <note translate="label">
+                            <label><![CDATA[This section lists all the available attributes for the Google Shopping feed. Some attributes are required for all products and some are required for certain product types such as apparel. To avoid errors in your Google Merchant account please make sure that you provide all the required attributes.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </note>
+                        <heading_description translate="label">
+                            <label>Data: ID, Name &amp; Description</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_description>
+                        <id translate="label">
+                            <label>ID Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attribute</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Select the attribute for the product ID. Use a unique value for each product.<br>Suggested field: SKU.]]></comment>
+                        </id>
+                        <name translate="label">
+                            <label>Name Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip>You can use the -custom attribute option from the dropdown to create a custom name using active attributes.</tooltip>
+                            <comment><![CDATA[Select the attribute for the product name. This need to match the title of your landing page.<br>Suggested field: Product Name.]]></comment>
+                        </name>
+                        <name_custom translate="label">
+                            <label>Name - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <name>mm-actions-custom</name>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </name_custom>
+                        <name_conditional translate="label">
+                            <label>Name - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <name>mm-actions-conditional</name>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </name_conditional>
+                        <description translate="label">
+                            <label>Description Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Select the attribute for the description. As required by Google the description will be truncated to a maximum of 5000 characters and stripped of html.<br>Suggested field: Description.]]></comment>
+                        </description>
+                        <description_custom translate="label">
+                            <label>Description - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <description>mm-actions-custom</description>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </description_custom>
+                        <description_conditional translate="label">
+                            <label>Description - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <description>mm-actions-conditional</description>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </description_conditional>
+                        <heading_images translate="label">
+                            <label>Images</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_images>
+                        <images translate="label">
+                            <label>Images</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_images</source_model>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Select the right image source. Accurately display the product you're selling. It's recommended to select all the images as source to export the additional images.]]></comment>
+                        </images>
+                        <image1 translate="label">
+                            <label>Default first image</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_mainimage</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <images>all</images>
+                            </depends>
+                            <comment><![CDATA[Select the source for the main image, other images will be exported as additional image(s).]]></comment>
+                        </image1>
+                        <condition_heading translate="label">
+                            <label>Data: Condition</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </condition_heading>
+                        <condition_note translate="label">
+                            <label><![CDATA[The condition is an required field for the feed. Only three options are available: New, Refurbished & Used. Please select the default condition of your products, when you change the condition on product-level in the Google Shopping Tab the product-condition will be overwritten.<br><br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </condition_note>
+                        <condition_type translate="label">
+                            <label>Config</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_typesmall</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </condition_type>
+                        <condition_default translate="label">
+                            <label>Default Condition</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_condition</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <condition_type>fixed</condition_type>
+                            </depends>
+                        </condition_default>
+                        <condition translate="label">
+                            <label>Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attribute</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <condition_type>attribute</condition_type>
+                            </depends>
+                        </condition>
+                        <gtin_heading translate="label">
+                            <label>Data: GTIN</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gtin_heading>
+                        <gtin_note translate="label">
+                            <label><![CDATA[<strong>Required</strong> for all products with a GTIN assigned by the manufacturer. A GTIN is the numerical version of the bar code and identifies your product and needs to be unique for each product ID. Submit a GTIN as defined in the official GS1 validation guide.<br> <a class="mm-link" target="_blank" href="https://www.magmodules.eu/help/google-shopping/about-the-google-shopping-product-identifiers-requirements">More Information.</a>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gtin_note>
+                        <gtin translate="label">
+                            <label>Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gtin>
+                        <gtin_custom translate="label">
+                            <label>GTIN - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>29</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <gtin>mm-actions-custom</gtin>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </gtin_custom>
+                        <gtin_conditional translate="label">
+                            <label>GTIN - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>29</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <gtin>mm-actions-conditional</gtin>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </gtin_conditional>
+                        <brand_heading translate="label">
+                            <label>Data: Brand</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </brand_heading>
+                        <brand_note translate="label">
+                            <label><![CDATA[<strong>Required</strong> for each product with a clearly associated brand or manufacturer.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </brand_note>
+                        <brand translate="label">
+                            <label>Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </brand>
+                        <brand_custom translate="label">
+                            <label>Brand - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <brand>mm-actions-custom</brand>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </brand_custom>
+                        <brand_conditional translate="label">
+                            <label>Brand - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <brand>mm-actions-conditional</brand>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </brand_conditional>
+                        <mpn_heading translate="label">
+                            <label>Data: MPN</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mpn_heading>
+                        <mpn_note translate="label">
+                            <label><![CDATA[<strong>Required</strong> MPN is a unique identifier issued by the manufacturer. If you have the GTIN in your feed the MPN is not mandatory.<br>Without a GTIN Google requires the MPN and Brand attribute.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mpn_note>
+                        <mpn translate="label">
+                            <label>Attribute</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>37</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mpn>
+                        <mpn_custom translate="label">
+                            <label>MPN - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>38</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <mpn>mm-actions-custom</mpn>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </mpn_custom>
+                        <mpn_conditional translate="label">
+                            <label>MPN - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>38</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <mpn>mm-actions-conditional</mpn>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </mpn_conditional>
+                        <category_heading translate="label">
+                            <label>Data: Category</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>39</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_heading>
+                        <category_note translate="label">
+                            <label><![CDATA[Products are categorized in Google Shopping according to the Google product taxonomy. Use the most specific product category to meet the Google requirements. Click <a href="https://support.google.com/merchants/answer/160081" target="_blank">here</a> to read more about the Google product Taxonomy. For more information how to configure the category see our <a href="https://www.magmodules.eu/help/google-shopping/google-shopping-categorie/">Knowledge Base.</a><br><br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_note>
+                        <category_fixed translate="label">
+                            <label>Default Category</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>41</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Overwrite this value to specify the category.<br><strong>To specify on Category Level<br></strong>Navigate to: Catalog » Manage Categories » Select Category » Feeds » Google Product Category<br><strong>To specify on Product Level<br></strong>Navigate to: Catalog » Manage Products » Select Product » Google Shopping Tab » Google Shopping Product Category.]]></comment>
+                        </category_fixed>
+                        <extra_heading translate="label">
+                            <label>Non Required Product Fields</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>42</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extra_heading>
+                        <extra_note translate="label">
+                            <label><![CDATA[Although not required, it is recommended that you provide the following product information if the attribute exists, or there are relevant values which match these product attributes:]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>43</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extra_note>
+                        <color translate="label">
+                            <label>Color</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>44</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color>
+                        <color_custom translate="label">
+                            <label>Color - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <color>mm-actions-custom</color>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </color_custom>
+                        <color_conditional translate="label">
+                            <label>Color - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>46</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <color>mm-actions-conditional</color>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </color_conditional>
+                        <material translate="label">
+                            <label>Material</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>47</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </material>
+                        <material_custom translate="label">
+                            <label>Material - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>48</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <material>mm-actions-custom</material>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </material_custom>
+                        <material_conditional translate="label">
+                            <label>Material - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>49</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <material>mm-actions-conditional</material>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </material_conditional>
+                        <pattern translate="label">
+                            <label>Pattern</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pattern>
+                        <pattern_custom translate="label">
+                            <label>Pattern - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pattern>mm-actions-custom</pattern>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </pattern_custom>
+                        <pattern_conditional translate="label">
+                            <label>Pattern - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>52</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <pattern>mm-actions-conditional</pattern>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </pattern_conditional>
+                        <size translate="label">
+                            <label>Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>53</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </size>
+                        <size_custom translate="label">
+                            <label>Size - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>54</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <size>mm-actions-custom</size>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </size_custom>
+                        <size_conditional translate="label">
+                            <label>Size - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <size>mm-actions-conditional</size>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </size_conditional>
+                        <size_type translate="label">
+                            <label>Size Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>56</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </size_type>
+                        <size_type_custom translate="label">
+                            <label>Size Type - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>57</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <size_type>mm-actions-custom</size_type>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </size_type_custom>
+                        <size_type_conditional translate="label">
+                            <label>Size Type - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>58</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <size_type>mm-actions-conditional</size_type>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </size_type_conditional>
+                        <size_system translate="label">
+                            <label>Size System</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>59</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </size_system>
+                        <size_system_custom translate="label">
+                            <label>Size System - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <size_system>mm-actions-custom</size_system>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </size_system_custom>
+                        <size_system_conditional translate="label">
+                            <label>Size System - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <size_system>mm-actions-conditional</size_system>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </size_system_conditional>
+                        <gender translate="label">
+                            <label>Gender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>62</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gender>
+                        <gender_custom translate="label">
+                            <label>Gender - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>63</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <gender>mm-actions-custom</gender>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </gender_custom>
+                        <gender_conditional translate="label">
+                            <label>Gender - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>64</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <gender>mm-actions-conditional</gender>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </gender_conditional>
+                        <agegroup translate="label">
+                            <label>Age Group</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_attributeplus</source_model>
+                            <sort_order>62</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </agegroup>
+                        <agegroup_custom translate="label">
+                            <label>Age Group - Custom</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>63</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <agegroup>mm-actions-custom</agegroup>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Custom Attributes</h3><p>Use attribute codes or static text to create a custom value. Example; Demostore {{name}} {{color}} </p>]]></tooltip>
+                        </agegroup_custom>
+                        <agegroup_conditional translate="label">
+                            <label>Age Group - Conditional</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>64</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <agegroup>mm-actions-conditional</agegroup>
+                            </depends>
+                            <tooltip><![CDATA[<h3>Use Conditional Attributes</h3><p>Use conditional attributes to generate a value with a if then construction.<br>You can generate a if then else construction using the question mark ? and the colon :</p><p>For example if you use the following value;</p><p>If short description exists, then show short description or else description:<br><strong>{{short_description}} ? {{short_description}} : {{description}}</strong></p><p><br>Another example;</p><p>If description exists, then show description, else show name + sku + shortdescription<br><strong>{{description}} ? {{description}} : {{name}} {{sku}} {{short_description}}</strong></p>]]></tooltip>
+                        </agegroup_conditional>
+                    </fields>
+                </data>
+                <advanced translate="label" module="googleshopping">
+                    <label>Google Shopping - Advanced Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <tax_heading translate="label">
+                            <label>Tax Customization</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tax_heading>
+                        <tax_note translate="label">
+                            <label><![CDATA[By default prices are shown incl. Tax so only change this option if necessary.<br>If the feed export is without tax it's possible to add it with this option.<br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tax_note>
+                        <force_tax translate="label">
+                            <label>Force Tax Usage</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_tax</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </force_tax>
+                        <add_tax translate="label">
+                            <label>Manually Add Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </add_tax>
+                        <tax_percentage translate="label">
+                            <label>Percentage</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[When the tax percentage is 21% use 21.]]></comment>
+                            <depends>
+                                <add_tax>1</add_tax>
+                            </depends>
+                        </tax_percentage>
+                        <identifier_heading translate="label">
+                            <label>Identifier Exists</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </identifier_heading>
+                        <identifier_note translate="label">
+                            <label><![CDATA[The Identifier Exists value informs Google if the products have valid product identifiers as a GTIN or MPN, this could be custom goods as hand made products. With the Identifier Exists attribute on False it tells Google that there aren't any product identifier available for the product. The True value isn't shown in the feed as this is default. We recommend using correct product identifiers if possible. <a href="https://www.magmodules.eu/help/google-shopping/google-identifier-exists-attribute/" target="_blank">More information</a><br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </identifier_note>
+                        <identifier translate="label">
+                            <label>Use Identifier</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_identifier</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<strong>Activate</strong><br>Identifier exists = FALSE<br>Now you inform Google that you don't have product identifiers on the products.<br><strong>Activate when less than two</strong><br>Identifier exists = FALSE<br>Now you inform Google that you don't have product identifiers on the products but only on products with less then 2 product identifiers in your feed.<br><strong>Deactivate</strong><br>Identifier exists = TRUE<br>Now you inform Google that you do have product identifiers on the products.<br>]]></comment>
+                        </identifier>
+                        <producttype_heading translate="label">
+                            <label>Product Type</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </producttype_heading>
+                        <producttype_note translate="label">
+                            <label><![CDATA[The ‘product type’ attribute can indicates the category of the product being sold. Other then the Google Category Taxonomy gives the Product Types uses your Magento Category structure.<br><br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </producttype_note>
+                        <producttype translate="label">
+                            <label>Use Product Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </producttype>
+                        <extra_heading translate="label">
+                            <label>Additional Fields</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extra_heading>
+                        <extra_note translate="label">
+                            <label><![CDATA[You can add custom fields to your feed when needed. Please make sure that your using the latest custom fields standards to prevent error messages in the feed. The guidelines for the custom fields can be found right in our knowledgebase.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extra_note>
+                        <extra>
+                            <label>Additional Fields</label>
+                            <frontend_model>googleshopping/adminhtml_config_form_field_extra</frontend_model>
+                            <backend_model>googleshopping/adminhtml_system_config_backend_design_extra</backend_model>
+                            <sort_order>52</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extra>
+                        <shipping_heading translate="label">
+                            <label>Shipping</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>53</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping_heading>
+                        <shipping_note translate="label">
+                            <label><![CDATA[Add the Shipping rates directly into the feed to meet the Google Merchant requirements. You can set the price range of the products with a From and To price with the right shipping price for that specific product price range as the last column.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>54</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping_note>
+                        <shipping>
+                            <label>Shipping Prices</label>
+                            <frontend_model>googleshopping/adminhtml_config_form_field_shipping</frontend_model>
+                            <backend_model>googleshopping/adminhtml_system_config_backend_design_shipping</backend_model>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping>
+                        <weight_heading translate="label">
+                            <label>Weight</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </weight_heading>
+                        <weight_note translate="label">
+                            <label><![CDATA[This is the weight of the product used to calculate the shipping cost of the item. If you have specified a global shipping method that is dependent on shipping weight (Merchant Dashboard), this attribute will be used to calculate the shipping cost of the item automatically.<br><br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This calculation table is based on the product price, if you want to create more advanced rules as calculations based on country, category or weight you can configure this directly into your Google Merchant account.</comment>
+                        </weight_note>
+                        <weight translate="label">
+                            <label>Include Weight Field</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>62</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </weight>
+                        <weight_units translate="label">
+                            <label>Weight Units</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_weight</source_model>
+                            <sort_order>63</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <weight>1</weight>
+                            </depends>
+                        </weight_units>
+                        <configurable_heading translate="label">
+                            <label>Configurable &amp; Grouped</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </configurable_heading>
+                        <configurable_note translate="label">
+                            <label><![CDATA[For configurable products we recommend to only add the simple products inside the configurable as the configurable product by itself can't be bought.<br> Choose the attribute(s) that you want to use from the parent relation configurable product.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>71</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </configurable_note>
+                        <conf_enabled translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>72</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </conf_enabled>
+                        <conf_fields translate="label">
+                            <label>Use Parent Data for Simple</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_configurable</source_model>
+                            <sort_order>73</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <conf_enabled>1</conf_enabled>
+                            </depends>
+                            <comment>Select the attributes that you want to use from the parent configurable product, it's not recommended to select the attributes that needs to be unique for the Simples as GTIN/Color.</comment>
+                        </conf_fields>
+                        <simple_price translate="label">
+                            <label>Use Simple Product Pricing</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>74</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <conf_enabled>1</conf_enabled>
+                            </depends>
+                            <comment><![CDATA[<strong>Recommended: No</strong><br>Only enable this option when you have enabled an extension that is using the simple prices in your store.]]></comment>
+                        </simple_price>
+                        <configurable_parents translate="label">
+                            <label>Export Configurable Parent</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <conf_enabled>1</conf_enabled>
+                            </depends>
+                            <comment><![CDATA[<strong>Recommended: No</strong><br>We don't recommend to export the Configurable Parent product as the parent product can't be bought by itself.]]></comment>
+                        </configurable_parents>
+                        <conf_switch_urls translate="label">
+                            <label>Configurable Switch Urls</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>76</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <conf_enabled>1</conf_enabled>
+                            </depends>
+                            <comment><![CDATA[<strong>Recommended: Yes</strong><br>In this way the URL will be automatically link to the correct simple product on the configurable product landing page.]]></comment>
+                        </conf_switch_urls>
+                        <grouped_price translate="label">
+                            <label>Grouped Price</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_pricemodel</source_model>
+                            <sort_order>77</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<strong>Recommended: Use default price</strong>]]></comment>
+                        </grouped_price>
+                        <heading_url translate="label">
+                            <label>Google Analytics Tracking</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_url>
+                        <note_url translate="label">
+                            <label><![CDATA[When your using Google Analytics you can add your UTM tags right here, eg. utm_source=googleshopping&utm_medium=cpc&utm_campaign=googleshopping<br><br>]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>81</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </note_url>
+                        <url_utm translate="label">
+                            <label>UTM Code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>82</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_utm>
+                    </fields>
+                </advanced>
+                <filter translate="label" module="googleshopping">
+                    <label>Google Shopping - Filter Conditions</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>7</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <note translate="label">
+                            <label><![CDATA[This option allows you to include/exclude products from the Google Shopping feed based on the include/exclude attribute on the product, visibility, category and/or stock information.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </note>
+                        <visibility_heading translate="label">
+                            <label>Only add products with the following visibility</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </visibility_heading>
+                        <visibility_inc translate="label">
+                            <label>Visibility</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_visibility</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Include products with this visibility</comment>
+                        </visibility_inc>
+                        <category_heading translate="label">
+                            <label>Filter by Category</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_heading>
+                        <category_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_enabled>
+                        <category_type translate="label">
+                            <label>Type of filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_categorytype</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_enabled>1</category_enabled>
+                            </depends>
+                        </category_type>
+                        <categories translate="label">
+                            <label>Category</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_category</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Include or Exclude products based on the category.<br><strong><br>Note for Include:</strong><br>Simple products within a bundled, configurable or grouped product are treated as own entities, so these should also be present in the included categories.<br><br><strong>Note for Exclude: </strong><br>Exclude the products from these categories. Products that are available within different categories need to be excluded from all of the categories they are assigned to.]]></comment>
+                            <depends>
+                                <category_enabled>1</category_enabled>
+                            </depends>
+                        </categories>
+                        <stock_heading translate="label">
+                            <label>Exclude Products on Stock level</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </stock_heading>
+                        <stock translate="label">
+                            <label>Exclude out of stock products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </stock>
+                        <advanced_heading translate="label">
+                            <label>Advanced</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </advanced_heading>
+                        <advanced>
+                            <label>Advanced Filter</label>
+                            <frontend_model>googleshopping/adminhtml_config_form_field_filter</frontend_model>
+                            <backend_model>googleshopping/adminhtml_system_config_backend_design_filter</backend_model>
+                            <sort_order>42</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </advanced>
+                    </fields>
+                </filter>
+                <generate translate="label" module="googleshopping">
+                    <label>Google Shopping - Generation Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>8</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <note translate="label">
+                            <label><![CDATA[Each store view will have it's own Google Shopping feed, you can easily enable or disable the Google Shopping feed generation on store level or automatically generate the Google Shopping feed. In case your not using the cron job functionality it's possible to generate the Google Shopping feed manually.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </note>
+                        <exclude_heading translate="label">
+                            <label>Feed Generation</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </exclude_heading>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable or disable the feed generation for this store view or change the filename.]]></comment>
+                        </enabled>
+                        <filename translate="label">
+                            <label>Filename</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[google-shopping.xml]]></comment>
+                        </filename>
+                        <log_generation translate="label">
+                            <label>Log Feed Generation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Write and save a log file with a summary of each feed generation. The logfile will be written to: var/log/googleshopping.log</comment>
+                        </log_generation>
+                        <advanced_heading translate="label">
+                            <label>Advanced</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </advanced_heading>
+                        <paging translate="label">
+                            <label>Paging</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Recommend for big catalogs, e.g. catalogs of 50.000 SKU, use 5.000 per page.]]></comment>
+                        </paging>
+                        <limit translate="label">
+                            <label>Limit per Page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <paging>1</paging>
+                            </depends>
+                            <comment><![CDATA[Use the paging function on big catalogs, for example, if your catalog contains 50.000 SKU, use 5.000 per page to split the feed run and lower the load, the products will be combined in one feed after the generation is complete.]]></comment>
+                        </limit>
+                        <debug_memory translate="label">
+                            <label>Debug Memory Usage</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <paging>1</paging>
+                            </depends>
+                            <comment>Write the memory usage to the var/log/googleshopping.log file</comment>
+                        </debug_memory>
+                        <bypass_flat translate="label">
+                            <label>Bypass Flat Product Tables</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Bypass Flat catalog tables. Will result in higher resource usage as this will bypass the flat catalog and product index tables.]]></comment>
+                        </bypass_flat>
+                        <overwrite translate="label">
+                            <label>Overwrite Server Settings</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <tooltip>Only use this option if it's necessary to overwrite this setting because of your server memory limit or execution time.</tooltip>
+                        </overwrite>
+                        <memory_limit translate="label">
+                            <label>Memory Limit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <overwrite>1</overwrite>
+                            </depends>
+                            <comment><![CDATA[This overwrites the maximum amount of memory in bytes that a script is allowed to allocate, eg: 1024M.]]></comment>
+                        </memory_limit>
+                        <max_execution_time translate="label">
+                            <label>Max Execution Time</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <overwrite>1</overwrite>
+                            </depends>
+                            <comment><![CDATA[This overwrites the maximum time in seconds a script is allowed to run before it is terminated by the parser, eg: 300 (for 5 minutes).]]></comment>
+                        </max_execution_time>
+                        <cron_heading translate="label">
+                            <label>Cron</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_heading>
+                        <cron translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[The cronjob is a periodic script which runs automatically at a certain interval to generate the Google Shopping feed. Please make sure that your default Magento Cronjob is working. If not, contact your hosting company for help.]]></comment>
+                        </cron>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>googleshopping/adminhtml_system_config_source_frequency</source_model>
+                            <backend_model>googleshopping/adminhtml_system_config_backend_googleshopping_cron</backend_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <cron>1</cron>
+                            </depends>
+                        </frequency>
+                        <time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <tooltip>When using multiple feeds, the cron will run several times during this hour. For example when set to 12:00 with 3 feeds it will run at 12:00, 12:20, 12:40</tooltip>
+                            <depends>
+                                <cron>1</cron>
+                                <frequency separator=",">D,W,M</frequency>
+                            </depends>
+                        </time>
+                        <frequency_custom translate="label">
+                            <label>Custom Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[<b>Disclaimer:</b> Please make sure you enter a valid cron expression otherwise the feed will not be generated automatically. One feed will be generated per run, so keep this in mind for setting the expression.]]></comment>
+                            <depends>
+                                <cron>1</cron>
+                                <frequency>C</frequency>
+                            </depends>
+                        </frequency_custom>
+                        <selftest_heading translate="label">
+                            <label>Selftest</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </selftest_heading>
+                        <test_button translate="label">
+                            <label>Perform a self test to check your setup on errors.</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_button</frontend_model>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_button>
+                        <test_result translate="label">
+                            <label></label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_result</frontend_model>
+                            <sort_order>52</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_result>
+                        <feeds_heading translate="label">
+                            <label>Your Generated Feeds</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_heading</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </feeds_heading>
+                        <feeds_note translate="label">
+                            <label><![CDATA[All active feeds are shown in the overview below. <br> The .XML URL is the URL which can be provided into your Google Merchant Account. Regarding some cache settings in the browser it's also possible to download the Feed to make sure that you are viewing the latest version. There is a small note at the end of the XML file where you can find the time of generation and the number of products.<br><br><strong>Note:</strong> Make sure that you save the configuration after the settings are changed and before you generate the feed.]]></label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_note</frontend_model>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </feeds_note>
+                        <feeds_text translate="label">
+                            <label>Text</label>
+                            <frontend_model>googleshopping/adminhtml_system_config_form_field_feeds</frontend_model>
+                            <sort_order>62</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </feeds_text>
+                    </fields>
+                </generate>
+            </groups>
+        </googleshopping>
+    </sections>
+</config>
