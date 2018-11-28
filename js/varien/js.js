@@ -248,13 +248,17 @@ function formatCurrency(price, format, showPlus){
     while (pad) { i = '0' + i; pad--; }
     j = (j = i.length) > groupLength ? j % groupLength : 0;
     re = new RegExp("(\\d{" + groupLength + "})(?=\\d)", "g");
-
+    i = parseInt(i).toString();
     /**
      * replace(/-/, 0) is only for fixing Safari bug which appears
      * when Math.abs(0).toFixed() executed on "0" number.
      * Result is "0.-0" :(
      */
     var r = (j ? i.substr(0, j) + groupSymbol : "") + i.substr(j).replace(re, "$1" + groupSymbol) + (precision ? decimalSymbol + Math.abs(price - i).toFixed(precision).replace(/-/, 0).slice(2) : "");
+
+    if(i.length <= 3)
+        r = i;
+
     var pattern = '';
     if (format.pattern.indexOf('{sign}') == -1) {
         pattern = s + format.pattern;

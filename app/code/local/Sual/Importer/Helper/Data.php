@@ -30,20 +30,22 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->addAttributeToFilter('name', 'SUAL')->getFirstItem()->getId();
 
         $executionStartTime = microtime(true);
+
+        $this->importRGBs();
 //        $this->importCategories();
 //        $executionEndTime1 = microtime(true);
 //        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
 //        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
-        $this->importProducts();
-        $executionEndTime2 = microtime(true);
-        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
-        $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
-
-        $this->importServices();
-        $executionEndTime2 = microtime(true);
-        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
-        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+//        $this->importProducts();
+//        $executionEndTime2 = microtime(true);
+//        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
+//        $this->output .=  "<strong>importProducts</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+//
+//        $this->importServices();
+//        $executionEndTime2 = microtime(true);
+//        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
+//        $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
 //        $executionEndTime2 = microtime(true);
 //        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
@@ -284,10 +286,146 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
 
+    public function importRGBs(){
+        $limit = 50000;
+        $limitSql = " LIMIT {$limit}";
+
+        $where = ' WHERE color_json IS NOT NULL AND color_json <> "{}"' . $limitSql;
+        $new_db_resource = Mage::getSingleton('core/resource');
+        $connection = $new_db_resource->getConnection('import_db');
+        //$howmanyProducts = $connection->query('SELECT count(*) as howmany FROM sb_product' . $where);
+
+        $products = $connection->query('SELECT *  FROM sb_product' . $where);
+
+        $configurable = array();
+        $grouped = array();
+
+        foreach($products as $product){
+
+//            $product = $this->utf8_converter($product);
+//            $this->insertProduct($product);
+//            $this->createImage($product);
+
+            if(in_array($product['id'],$grouped))
+                continue;
+
+            //echo $this->hex2rgb($product['color_hex']) . ' -> ' . $product['color_hex'] . "\n";
+
+            $tmpGrouped = json_decode($product['color_json']);
+            $configurable[] = $tmpGrouped;
+
+            foreach ($tmpGrouped as $jsonItem){
+                $grouped[$jsonItem->id] = $jsonItem->id;
+            }
+        }
+
+        //print_r($configurable);
+
+        foreach($configurable as $key => $productConfig){
+
+            $ids = array_column($productConfig,'id');
+            $new_db_resource = Mage::getSingleton('core/resource');
+            $connection = $new_db_resource->getConnection('import_db');
+            //$howmanyProducts = $connection->query('SELECT count(*) as howmany FROM sb_product' . $where);
+
+            $idsString = implode(',', $ids);
+            $productsFromConfig = $connection->query("SELECT id, sku, name, price FROM sb_product WHERE id IN({$idsString})");
+            $productConfigNameArray = array();
+            $tmpProductsNames = array();
+            $tmpPrice = 0;
+
+            foreach($productsFromConfig as $singleProduct){
+
+                if(empty($productConfigNameArray)){
+                    $tmpPrice = $singleProduct['price'];
+                    $productConfigNameArray = explode(' ', $singleProduct['name']);
+                    continue;
+                }
+
+                if($singleProduct['price'] != $tmpPrice){
+//                    $removeKey = array_search($singleProduct['id'],$configurable[$key]);
+//                    unset($configurable[$key][$removeKey]);
+//                    continue;
+                }
+
+                $tmpProductsNames[] = $singleProduct['sku'] . "->" . $singleProduct['name'] . "->" . $singleProduct['price'];
+
+
+                $productConfigNameArray = array_intersect($productConfigNameArray, explode(' ', $singleProduct['name']));
+
+            }
+
+            $productConfigName = implode(' ', $productConfigNameArray);
+            echo $productConfigName . "\n";
+            print_r($tmpProductsNames);
+
+        }
+
+        if ($limit > 0)
+            $totalProducts = $limit;
+
+        $this->output .= "Se procesaron {$totalProducts['howmany']} productos.\n";
+        $this->output .= "Productos insertados {$this->insertados} / actualizados {$this->actualizados}.\n";
+    }
+
+    function hex2rgb($hex) {
+        // Copied
+        $hex = str_replace("#", "", $hex);
+
+        switch (strlen($hex)) {
+            case 1:
+                $hex = $hex.$hex;
+            case 2:
+                $r = hexdec($hex);
+                $g = hexdec($hex);
+                $b = hexdec($hex);
+                break;
+
+            case 3:
+                $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+                $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+                $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+                break;
+
+            default:
+                $r = hexdec(substr($hex,0,2));
+                $g = hexdec(substr($hex,2,2));
+                $b = hexdec(substr($hex,4,2));
+                break;
+        }
+
+        $rgb = array($r, $g, $b);
+        return $rgb;
+    }
+
+    public function createImage($product){
+
+        $RBG_array = $this->hex2rgb($product['color_hex']);
+        $red = $RBG_array [0];
+        $green = $RBG_array [1];
+        $blue = $RBG_array [2];
+
+        $img = imagecreatetruecolor(470,470); // 10 x 10 px
+        imagesavealpha($img, true);
+
+        $color = imagecolorallocatealpha($img,$red,$green,$blue,0); // 50 is the opacity
+        imagefill($img, 0, 0, $color);
+
+        $name = str_replace('#','',$product['color_hex']);
+        imagepng($img, 'media/wysiwyg/swatches/' . $name . '.png');
+    }
+
     public function insertProductBaseAttributes(&$product, $productSual, $urlImage, $attributeSet = 9)
     {
 
         $idAttribute = $this->addAttributeValue('brand', $productSual['brand']);
+
+        $idAttributeColor = '';
+
+        if(!empty($productSual['color_hex'])){
+            $nameColor = str_replace('#','',$productSual['color_hex']);
+            $idAttributeColor = $this->addAttributeValue('color', $nameColor);
+        }
 
         $product
             ->setWebsiteIds(array(1))//website ID the product is assigned to, as an array
@@ -314,7 +452,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setBrand($idAttribute)
             ->setAtribute($productSual['attribute'])
             ->setContainerType($productSual['container_type'])
-            ->setColor($productSual['colors'])
+            ->setColor($idAttributeColor)
             ->setGender($productSual['gender'])
             ->setBenefits($productSual['benefits'])
             ->setHowtouse($productSual['howtouse'])
@@ -352,6 +490,15 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
     public function insertProductSapAttributes(&$product, $productSual, $isUpdate = false, $attributeSet = 9)
     {
 
+        $idAttributeColor = '';
+
+        if(!empty($productSual['color_hex'])){
+            $nameColor = str_replace('#','',$productSual['color_hex']);
+            $idAttributeColor = $this->addAttributeValue('color', $nameColor);
+        }
+
+        echo $product->getSku() . "->" . $idAttributeColor . "->" . $nameColor . "\n";
+
         $product->setBrandSap($productSual['brand'])
             ->setSubbrandSap($productSual['subbrand'])
             ->setNameSap($productSual['name'])
@@ -375,6 +522,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setSizesSap($productSual['sizes'])
             ->setSizeNameSap($productSual['size_name'])
             ->setTypeSap($productSual['type'])
+            //quitar post importacion de colores
+            ->setColor($idAttributeColor)
             ->setPrice($productSual['price']);
 
         if ($isUpdate) {
@@ -488,7 +637,6 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             $option['value']['option_name'][0] = $attValue;
             $setup = new Mage_Eav_Model_Entity_Setup('core_setup');
             $setup->addAttributeOption($option);
-
             $this->addAttributeValue($attributeCode, $attValue);
         } else {
             return $idAttribute;
