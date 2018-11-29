@@ -425,6 +425,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             $actualPrice = $product->getPrice();
             $newPrice = $productSual['price'];
 
+            Mage::log($productSual['sku'] . " -> {$actualPrice} -> {$newPrice}",null,'prices.log');
+
             if($newPrice < $actualPrice){
 
                 $this->promos++;
