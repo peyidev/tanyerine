@@ -18,7 +18,47 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
     public $parentCategoryId = "";
     public $insertados = 0;
     public $actualizados = 0;
+    public $promos = 0;
     public $output = "";
+
+    public $promotionsParentCategory = array(
+        'name' => 'Promociones descuento directo',
+        'url' => 'promociones-descuento-directo '
+    );
+
+    public $promotionsArray = array(
+        array(
+            'name' => '10 porciento',
+            'url' => '10-porciento',
+            'id' => 0,
+            'value' => 10
+        ),
+        array(
+            'name' => '20 porciento',
+            'url' => '20-porciento',
+            'id' => 0,
+            'value' => 20
+        ),
+        array(
+            'name' => '30 porciento',
+            'url' => '30-porciento',
+            'id' => 0,
+            'value' => 30
+        ),
+        array(
+            'name' => '40 porciento',
+            'url' => '40-porciento',
+            'id' => 0,
+            'value' => 40
+        ),
+        array(
+            'name' => '50 porciento',
+            'url' => '50-porciento',
+            'id' => 0,
+            'value' => 50
+        )
+    );
+
 
 
     public function execute($executionId, $source)
@@ -35,6 +75,8 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
 //        $minutes = ($executionEndTime1 - $executionStartTime) / 60;
 //        $this->output .=  "<strong>importCategories</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
 
+        $this->setupPromoCategories();
+
         $this->importProducts();
         $executionEndTime2 = microtime(true);
         $minutes = ($executionEndTime2 - $executionStartTime) / 60;
@@ -44,6 +86,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         $executionEndTime2 = microtime(true);
         $minutes = ($executionEndTime2 - $executionStartTime) / 60;
         $this->output .= "<strong>importServices</strong> tardó <span style='color:#F77812;'>$minutes</span> minutos en ejecutar.\n";
+        $this->output .= "<strong>setupPromoCategories</strong> importó <span style='color:#F77812;'>{$this->promos}</span> promociones.\n";
 
 //        $executionEndTime2 = microtime(true);
 //        $minutes = ($executionEndTime2 - $executionStartTime) / 60;
@@ -352,6 +395,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
     public function insertProductSapAttributes(&$product, $productSual, $isUpdate = false, $attributeSet = 9)
     {
 
+
         $product->setBrandSap($productSual['brand'])
             ->setSubbrandSap($productSual['subbrand'])
             ->setNameSap($productSual['name'])
@@ -374,21 +418,99 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
             ->setSeoUrlSap($productSual['seo_url'])
             ->setSizesSap($productSual['sizes'])
             ->setSizeNameSap($productSual['size_name'])
-            ->setTypeSap($productSual['type'])
-            ->setPrice($productSual['price']);
+            ->setTypeSap($productSual['type']);
 
         if ($isUpdate) {
-            //ahora viene de otro lado
-//            if ($attributeSet == 9) {
-//                $stockItem = Mage::getModel('cataloginventory/stock_item');
-//                $stockItem->assignProduct($product);
-//                $stockItem->setData('is_in_stock', ($productSual['available'] > 0) ? 1 : 0);
-//                $stockItem->setData('stock_id', 1);
-//                $stockItem->setData('store_id', 1);
-//                $stockItem->setData('qty', $productSual['available']);
-//                $stockItem->save();
-//            }
+
+            $actualPrice = $product->getPrice();
+            $newPrice = $productSual['price'];
+
+            if($newPrice < $actualPrice){
+
+                $this->promos++;
+                $percentage = 100 - intval(($newPrice * 100) / $actualPrice);
+                $categories = array();
+
+                Mage::log($productSual['sku'] . " has {$percentage}% disccount. Original Price {$actualPrice}, Special Price {$newPrice}",null,'promos.log');
+
+                $categoryPercentage = $this->getPercentageCategory($percentage);
+
+                $date = new Zend_Date(Mage::getModel('core/date')->timestamp());
+                $today = $date->toString('YYYY-MM-dd');
+
+                $date->addDay('1');
+                $tomorrow = $date->toString('YYYY-MM-dd');
+
+                $product->setSpecialPrice( $newPrice );
+
+                $product->setSpecialFromDate($today);
+                $product->setSpecialFromDateIsFormated(true);
+
+                $product->setSpecialToDate($tomorrow);
+                $product->setSpecialToDateIsFormated(true);
+
+
+                if (!empty($product->getCategoryIds())) {
+                    $categories = $product->getCategoryIds();
+                }
+
+                array_push($categories, $categoryPercentage);
+
+                $product->setCategoryIds(array_unique($categories));
+
+            }else{
+                $product->setPrice($productSual['price']);
+            }
+
         }
+    }
+
+    public function getPercentageCategory($percentage){
+        foreach($this->promotionsArray as $promos){
+            if($percentage >= ($promos['value'] - 5) && $percentage <= ($promos['value'] + 4)){
+                return $promos['id'];
+            }
+        }
+    }
+
+    public function setupPromoCategories(){
+
+        $parentPromoCategoryId = $this->categoryExist($this->promotionsParentCategory, $this->parentCategoryId);
+
+        if (!empty($parentPromoCategoryId)) {
+
+            $parentPromoCategory = Mage::getModel('catalog/category')->load($parentPromoCategoryId);
+            $promoCategoryIds = $parentPromoCategory->getChildren();
+
+            foreach(explode(',',$promoCategoryIds) as $subCatid)
+            {
+                Mage::getModel('catalog/category')->load($subCatid)->delete();
+            }
+
+            $parentPromoCategory->delete();
+        }
+
+        $parentPromoCategoryId = $this->insertCategory(
+            $this->promotionsParentCategory['name'],
+            $this->promotionsParentCategory['url'],
+            $this->parentCategoryId,
+            1,0
+        );
+
+        foreach($this->promotionsArray as $key => $singlePromo){
+
+            if(empty($singlePromo['id'])){
+                $singlePromoId = $this->insertCategory(
+                    $singlePromo['name'],
+                    $singlePromo['url'],
+                    $parentPromoCategoryId,1,0
+                );
+
+                $this->promotionsArray[$key]['id'] =  $singlePromoId;
+            }
+
+        }
+
     }
 
     public function categorizeProduct(&$product, $productSual)
@@ -431,7 +553,6 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
 
             if (!$productExists) {
                 $urlImage = "https://www.sualbeauty.mx/img/" . $productSual['image'];
-                echo $urlImage . "\n";
                 $imageExists = $this->imageExists($urlImage);
 
                 if (!$imageExists)
@@ -459,7 +580,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
 
-    public function insertCategory($name, $url, $parentCategoryId, $isActive = 1)
+    public function insertCategory($name, $url, $parentCategoryId, $isActive = 1, $includedInMenu = 1)
     {
         $categoryMagento = Mage::getModel('catalog/category');
         $categoryMagento->setName($name);
@@ -469,6 +590,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         $categoryMagento->setDisplayMode(Mage_Catalog_Model_Category::DM_PRODUCT);
         $categoryMagento->setIsAnchor(1); //for active achor
         $categoryMagento->setStoreId(Mage::app()->getStore()->getId());
+        $categoryMagento->setIncludeInMenu($includedInMenu);
         $parentCategory = Mage::getModel('catalog/category')->load($parentCategoryId);
         $categoryMagento->setPath($parentCategory->getPath());
         $categoryMagento->save();
