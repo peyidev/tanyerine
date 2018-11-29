@@ -6,11 +6,9 @@
  * Time: 4:48 PM
  */
 ini_set("memory_limit", -1);
-
-
-class Mage_Sual_Categoryimporter_Helper_Data extends  Mage_Core_Helper_Abstract{
-
-}
+//class Mage_Sual_Categoryimporter_Helper_Data extends  Mage_Core_Helper_Abstract{
+//
+//}
 
 class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
 {
