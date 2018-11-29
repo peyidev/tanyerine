@@ -263,7 +263,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         $limit = 50000;
         $limitSql = " LIMIT {$limit}";
 
-        $where = ' WHERE type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
+        $where = ' WHERE last_updated >= "2018-11-29 10:10:00" AND type = "PRODUCTO" OR type = "OBSEQUIO"' . $limitSql;
         $new_db_resource = Mage::getSingleton('core/resource');
         $connection = $new_db_resource->getConnection('import_db');
         $howmanyProducts = $connection->query('SELECT count(*) as howmany FROM sb_product' . $where);
@@ -299,7 +299,7 @@ class Sual_Importer_Helper_Data extends Mage_Core_Helper_Abstract
         $limit = 50000;
         $limitSql = " LIMIT {$limit}";
 
-        $where = ' WHERE type = "SERVICIOS"' . $limitSql;
+        $where = ' WHERE last_updated >= "2018-11-29 10:10:00" AND  type = "SERVICIOS"' . $limitSql;
         $new_db_resource = Mage::getSingleton('core/resource');
         $connection = $new_db_resource->getConnection('import_db');
         $howmanyProducts = $connection->query('SELECT count(*) as howmany FROM sb_product' . $where);
