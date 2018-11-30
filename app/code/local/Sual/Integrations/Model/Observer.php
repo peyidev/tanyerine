@@ -4,6 +4,30 @@ class Sual_Integrations_Model_Observer extends Varien_Event_Observer
 {
     public $connection = null;
 
+    public function uniquePhone($observer){
+
+        $customer = $observer->getCustomer();
+        $phone = $customer->getPhone();
+        $email = $customer->getEmail();
+
+
+        if(empty($phone))
+            return;
+
+        $new_db_resource = Mage::getSingleton('core/resource');
+        $this->connection = $new_db_resource->getConnection('import_db');
+
+        $query = "SELECT * FROM sb_member WHERE mobile = '{$phone}' AND email <> '{$email}'";
+        $unique = $this->connection->raw_fetchRow($query);
+
+        if(!empty($unique)){
+            Mage::getSingleton('adminhtml/session')->addError("Por favor registra otro número de teléfono.");
+            Mage::throwException('Por favor registra otro número de teléfono.');
+        }
+
+
+    }
+
     public function updateProduct($observer)
     {
         $product = Mage::getModel('catalog/product')->load(Mage::app()->getRequest()->getParam('product', 0));

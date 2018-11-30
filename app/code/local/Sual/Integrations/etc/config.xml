@@ -111,6 +111,14 @@
                 </observers>
             </sales_order_invoice_pay>
 
+            <customer_save_before>
+                <observers>
+                    <sual_integrations_customer_save_before>
+                        <class>Sual_Integrations_Model_Observer</class>
+                        <method>uniquePhone</method>
+                    </sual_integrations_customer_save_before>
+                </observers>
+            </customer_save_before>
 
         </events>
     </global>
