@@ -65,11 +65,11 @@
             <li><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
         <?php endif ?>
             <li>
-                <label for="current_password" class="required"><em>*</em><?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?></label>
+                <label for="current_password"><?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?></label>
                 <div class="input-box">
                     <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
                     <input type="text" class="input-text no-display" name="dummy" id="dummy" />
-                    <input type="password" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?>" class="input-text required-entry" name="current_password" id="current_password" />
+                    <input type="password" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?>" class="input-text" name="current_password" id="current_password" />
                 </div>
             </li>
             <li class="control">
