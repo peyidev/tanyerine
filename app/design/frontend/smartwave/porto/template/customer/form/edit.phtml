@@ -64,14 +64,7 @@
         <?php if ($_gender->isEnabled()): ?>
             <li><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
         <?php endif ?>
-            <li>
-                <label for="current_password"><?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?></label>
-                <div class="input-box">
-                    <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
-                    <input type="text" class="input-text no-display" name="dummy" id="dummy" />
-                    <input type="password" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?>" class="input-text" name="current_password" id="current_password" />
-                </div>
-            </li>
+
             <li class="control">
                 <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Change Password')) ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /><label for="change_password"><?php echo $this->__('Change Password') ?></label>
             </li>
@@ -81,7 +74,21 @@
     <div class="fieldset" style="display:none;">
         <h2 class="legend"><?php echo $this->__('Change Password') ?></h2>
         <ul class="form-list">
+
             <li class="fields">
+                <div class="field">
+                    <label for="current_password" class="required"><em>*</em><?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?></label>
+                    <div class="input-box">
+                        <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
+                        <input type="text" class="input-text no-display" name="dummy" id="dummy" />
+                        <input type="password" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?>" class="required-entry input-text" name="current_password" id="current_password" />
+                    </div>
+                </div>
+
+            </li>
+
+            <li class="fields">
+
                 <div class="field">
                     <label for="password" class="required"><em>*</em><?php echo $this->__('New Password') ?></label>
                     <div class="input-box">
