@@ -893,7 +893,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
         $entityType = Mage::getSingleton('eav/config')->getEntityType('customer');
         $attribute = Mage::getModel('customer/attribute')->loadByCode($entityType, 'dob');
         if ($attribute->getIsRequired() && '' == trim($this->getDob())) {
-            $errors[] = Mage::helper('customer')->__('The Date of Birth is required.');
+            $errors[] = Mage::helper('customer')->__('La fecha de nacimiento es requerida para poder continuar.');
         }
         $attribute = Mage::getModel('customer/attribute')->loadByCode($entityType, 'taxvat');
         if ($attribute->getIsRequired() && '' == trim($this->getTaxvat())) {
