@@ -11,9 +11,11 @@
             <span class="text-mini-cart"><a href="<?php echo Mage::getUrl('customer/account'); ?>"><?php echo $this->__("My account"); ?></a></span>
             <div class="myaccountlink">
                 <i class="icon-user"></i>
-                <span class="account-info">
+                <a href="/customer/account/">
+                    <span class="account-info">
                     <?php echo $this->getStateTitle();?>
                 </span>
+                </a>
             </div>
             <div class="options">
                 <?php echo $this->getChildHtml('topLinks'); ?>

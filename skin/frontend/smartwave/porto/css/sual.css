@@ -120,6 +120,20 @@ body.full-width .product-view .product-img-box:not(.type-) {
     text-decoration: none;
 }
 
+.myaccountlink a{
+    color: #9A9A9B;
+    font-weight: normal;
+}
+
+.header-search .myaccount .options:after {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+    display: block;
+    right: 15px;
+    top: -25px;
+    padding-left: 100px;
+}
 .header-search .myaccount .options:before {
     content: "";
     position: absolute;
