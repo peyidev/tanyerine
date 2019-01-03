@@ -27,7 +27,7 @@
 .header-container.type19 .mini-cart .mini-products-list {padding: 10px 20px 0;}
 .header-container.type19 .mini-cart {right:0;height: 45px;}
 .header-container.type19 .mybag-link{position:relative;padding:0;line-height: 37px;max-width: 100%;min-width: 95px;}
-.header-container.type19 .mybag-link .cart-info{position:relative;width:auto;margin:0;top:auto;display:inline-block;font-family: 'Oswald';padding: 2px 0 0;}
+.header-container.type19 .mybag-link .cart-info{position:relative;width:auto;margin:0;top:auto;display:inline-block;font-family: 'Open Sans';padding: 2px 0 0;}
 .header-container.type19.sticky-header .menu-wrapper .mybag-link .cart-info{position:relative;display:inline-block;width:auto;top:auto;padding:0;margin:0;color:#111;}
 .header-container.type19 .mybag-link span,.header-container.type19.sticky-header .menu-wrapper .mybag-link span{display:inline-block;font-size: 13px;font-weight: 400;}
 .header-container.type19 .mybag-link .cart-qty,.header-container.type19.sticky-header .menu-wrapper .mybag-link .cart-qty{position:relative;background:none;top:auto;right:auto;width:auto;color:inherit;display:inline-block;font-size: 13px;font-weight: 600;margin-right: 5px !important;}
@@ -48,7 +48,7 @@
 .header-container.type19 .main-nav .menu{padding-right: 100px;}
 .header-container.type19.sticky-header .main-nav{padding-right: 0;}
 .header-container.type19 .main-nav .menu-wrapper{background-color:transparent}
-.header-container.type19 .main-nav ul.menu>li>a{font-size:13px;font-family:'Oswald';font-weight:400;padding:16.5px 15px 18.5px 0;margin-right:10px;}
+.header-container.type19 .main-nav ul.menu>li>a{font-size:13px;font-family:'Open Sans';font-weight:400;padding:16.5px 15px 18.5px 0;margin-right:10px;}
 .header-container.type19 .main-nav ul.menu >li.menu-full-width >a:after, .header-container.type19 .main-nav ul.menu >li.menu-item-has-children >a:after, .header-container.type19 .main-nav ul.menu >li.menu-static-width >a:after {right: 10px;margin-top: -7px !important}
 .header-container.type19 .main-nav ul.menu>li.fl-right.last>a{margin:0;padding-right:15px!important}
 .header-container.type19 .main-nav ul.menu>li.fl-right.last>a:after{right:0}

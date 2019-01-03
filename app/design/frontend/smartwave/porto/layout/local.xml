@@ -108,7 +108,7 @@
             <action method="addCss"><stylesheet helper="porto/cssconfig/getSettingsFile"/></action>
             <action method="addCss" ifconfig="porto_settings/general/rtl" condition="0"><stylesheet>css/custom.css</stylesheet></action>
             <action method="addCss" ifconfig="porto_settings/general/rtl" condition="1"><stylesheet>css/rtl-custom.css</stylesheet></action>
-            <action method="addCss" condition="0"><stylesheet>css/sual.css</stylesheet></action>
+            <!--<action method="addCss" condition="0"><stylesheet>css/sual.css</stylesheet></action>-->
             <action method="addCss" condition="0"><stylesheet>css/sual2.css</stylesheet></action>
         </reference>
         <reference name="header">

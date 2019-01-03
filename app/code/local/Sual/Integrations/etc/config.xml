@@ -33,59 +33,59 @@
             </sual_integrations_setup>
         </resources>
         <events>
-            <controller_action_predispatch_customer_account_loginPost>
-                <observers>
-                    <sual_integrations_controller_action_predispatch_customer_account_loginPost>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>importCustomer</method>
-                    </sual_integrations_controller_action_predispatch_customer_account_loginPost>
-                </observers>
-            </controller_action_predispatch_customer_account_loginPost>
+            <!--<controller_action_predispatch_customer_account_loginPost>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_controller_action_predispatch_customer_account_loginPost>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>importCustomer</method>-->
+                    <!--</sual_integrations_controller_action_predispatch_customer_account_loginPost>-->
+                <!--</observers>-->
+            <!--</controller_action_predispatch_customer_account_loginPost>-->
 
-            <controller_action_predispatch_checkout_cart_add>
-                <observers>
-                    <sual_integrations_controller_action_predispatch_checkout_cart_add>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>updateProduct</method>
-                    </sual_integrations_controller_action_predispatch_checkout_cart_add>
-                </observers>
-            </controller_action_predispatch_checkout_cart_add>
-            
-            <controller_action_predispatch_ajaxcart_index_add>
-                <observers>
-                    <sual_integrations_controller_action_predispatch_checkout_cart_add>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>updateProduct</method>
-                    </sual_integrations_controller_action_predispatch_checkout_cart_add>
-                </observers>
-            </controller_action_predispatch_ajaxcart_index_add>
-            
-            <customer_login>
-                <observers>
-                    <sual_integrations_customer_customer_login>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>importRewards</method>
-                    </sual_integrations_customer_customer_login>
-                </observers>
-            </customer_login>
+            <!--<controller_action_predispatch_checkout_cart_add>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_controller_action_predispatch_checkout_cart_add>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>updateProduct</method>-->
+                    <!--</sual_integrations_controller_action_predispatch_checkout_cart_add>-->
+                <!--</observers>-->
+            <!--</controller_action_predispatch_checkout_cart_add>-->
+            <!---->
+            <!--<controller_action_predispatch_ajaxcart_index_add>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_controller_action_predispatch_checkout_cart_add>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>updateProduct</method>-->
+                    <!--</sual_integrations_controller_action_predispatch_checkout_cart_add>-->
+                <!--</observers>-->
+            <!--</controller_action_predispatch_ajaxcart_index_add>-->
+            <!---->
+            <!--<customer_login>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_customer_customer_login>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>importRewards</method>-->
+                    <!--</sual_integrations_customer_customer_login>-->
+                <!--</observers>-->
+            <!--</customer_login>-->
 
-            <customer_register_success>
-                <observers>
-                    <sual_integrations_customer_register_success>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>exportCustomer</method>
-                    </sual_integrations_customer_register_success>
-                </observers>
-            </customer_register_success>
+            <!--<customer_register_success>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_customer_register_success>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>exportCustomer</method>-->
+                    <!--</sual_integrations_customer_register_success>-->
+                <!--</observers>-->
+            <!--</customer_register_success>-->
 
-            <sales_order_place_before>
-                <observers>
-                    <sual_integrations_sales_order_place_before>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>verifyStock</method>
-                    </sual_integrations_sales_order_place_before>
-                </observers>
-            </sales_order_place_before>
+            <!--<sales_order_place_before>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_sales_order_place_before>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>verifyStock</method>-->
+                    <!--</sual_integrations_sales_order_place_before>-->
+                <!--</observers>-->
+            <!--</sales_order_place_before>-->
 
             <!--<sales_order_place_after>-->
                 <!--<observers>-->
@@ -97,28 +97,28 @@
             <!--</sales_order_place_after>-->
 
 
-            <sales_order_invoice_pay>
-                <observers>
-                    <sual_integrations_sales_order_place_after>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>exportOrder</method>
-                    </sual_integrations_sales_order_place_after>
+            <!--<sales_order_invoice_pay>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_sales_order_place_after>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>exportOrder</method>-->
+                    <!--</sual_integrations_sales_order_place_after>-->
 
-                    <sual_integrations_sales_order_invoice_pay>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>exportRewards</method>
-                    </sual_integrations_sales_order_invoice_pay>
-                </observers>
-            </sales_order_invoice_pay>
+                    <!--<sual_integrations_sales_order_invoice_pay>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>exportRewards</method>-->
+                    <!--</sual_integrations_sales_order_invoice_pay>-->
+                <!--</observers>-->
+            <!--</sales_order_invoice_pay>-->
 
-            <customer_save_before>
-                <observers>
-                    <sual_integrations_customer_save_before>
-                        <class>Sual_Integrations_Model_Observer</class>
-                        <method>uniquePhone</method>
-                    </sual_integrations_customer_save_before>
-                </observers>
-            </customer_save_before>
+            <!--<customer_save_before>-->
+                <!--<observers>-->
+                    <!--<sual_integrations_customer_save_before>-->
+                        <!--<class>Sual_Integrations_Model_Observer</class>-->
+                        <!--<method>uniquePhone</method>-->
+                    <!--</sual_integrations_customer_save_before>-->
+                <!--</observers>-->
+            <!--</customer_save_before>-->
 
         </events>
     </global>
