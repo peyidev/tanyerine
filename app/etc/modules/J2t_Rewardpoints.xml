@@ -2,7 +2,7 @@
 <config>
     <modules>
         <J2t_Rewardpoints>
-            <active>true</active>
+            <active>false</active>
             <codePool>community</codePool>
             <depends>
                 <Mage_Adminhtml />

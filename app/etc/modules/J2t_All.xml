@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<J2t_All>
-			<active>true</active>
+			<active>false</active>
 			<codePool>community</codePool>
 		</J2t_All>
 	</modules>
